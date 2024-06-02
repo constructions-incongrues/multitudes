@@ -1,7 +1,7 @@
 # catalog
 
 base_url: https://multitudes.incongru.org
-favicon: favicon.png
+favicon: theme/favicon.png
 
 label_mode
 show_support_artists
@@ -23,12 +23,11 @@ base: dark
 disable_relative_waveforms
 disable_waveforms
 
-link_hue: 10
+link_hue: 360
 link_saturation: 100
-link_lightness: 75
-tint_back: 50
-tint_front: 50
-text_hue: 89
+link_lightness: 100
+tint_front: 100
+text_hue: 167
 
 background_alpha: 15
 background_image: theme/eyes.jpg
