@@ -1,0 +1,17 @@
+# release
+
+artists:
+    - Ensemble on est moins seuls
+date: 2024-06-02
+include_extras: yes
+rewrite_tags: no
+title: Malheureux au Je
+track_numbering: arabic
+
+cover:
+    description = Description
+    file = cover.png
+
+-- text
+BLA BLA
+-- text
