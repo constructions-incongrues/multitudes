@@ -3,10 +3,6 @@
 base_url: https://multitudes.incongru.org
 favicon: favicon.png
 
-home_image:
-    description = COUCOU
-    file = catalog.png
-
 label_mode
 show_support_artists
 title: Multitudes
@@ -19,7 +15,7 @@ IELS SONT LÉGIONNES
 
 free
 format: mp3
-single_files: enabled
+single_files: disabled
 
 # theme
 
@@ -35,7 +31,7 @@ tint_front: 50
 text_hue: 89
 
 background_alpha: 15
-background_image: theme/background.gif
+background_image: theme/eyes.jpg
 
 # localization
 
