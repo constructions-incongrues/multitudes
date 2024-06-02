@@ -1,0 +1,3 @@
+var/catalog/releases/*/audio/*
+.faircamp_build
+.faircamp_cache

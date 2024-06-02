@@ -1,0 +1,15 @@
+# artist
+
+name: Nom
+permalink: nom
+
+aliases:
+- alias1
+
+image:
+    description = Description
+    file = image.png
+
+-- text
+BLAH
+-- text

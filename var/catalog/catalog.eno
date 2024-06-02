@@ -1,0 +1,43 @@
+# catalog
+
+base_url: https://multitudes.incongru.org
+favicon: favicon.png
+
+home_image:
+    description = COUCOU
+    file = catalog.png
+
+label_mode
+show_support_artists
+title: Multitudes
+
+-- text
+IELS SONT LÉGIONNES
+-- text
+
+# download
+
+free
+format: mp3
+single_files: enabled
+
+# theme
+
+base: white
+disable_relative_waveforms
+disable_waveforms
+
+link_hue: 10
+link_saturation: 100
+link_lightness: 75
+tint_back: 50
+tint_front: 50
+text_hue: 89
+
+# localization
+
+language: fr
+
+# embedding
+
+enabled
