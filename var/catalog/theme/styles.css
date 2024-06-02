@@ -3,6 +3,10 @@ div.action_links {
     display: none;
 }
 
-body {
-    font-size: 3em !important;
+h1 {
+    font-size: 2em !important;
+}
+
+a.logo img {
+    display: none;
 }

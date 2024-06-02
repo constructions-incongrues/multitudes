@@ -1,0 +1,20 @@
+# release
+
+artists:
+    - Bureau des Constructions Incongrues
+
+date: 2024-06-02
+
+title: Mode d'Emploi
+
+cover:
+    description =  Vis comme si tu allais mourir demain. Apprends comme si tu devais vivre pour toujours
+    file = cover.jpg
+
+-- text
+Cette compilation fait office de mode d'emploi pour les personnes qui souhaiteraient participer au projet.
+-- text
+
+include_extras: yes
+rewrite_tags: yes
+track_numbering: arabic
