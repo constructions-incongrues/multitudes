@@ -19,7 +19,7 @@ single_files: disabled
 
 # theme
 
-base: white
+base: dark
 disable_relative_waveforms
 disable_waveforms
 
