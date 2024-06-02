@@ -32,6 +32,8 @@ text_hue: 167
 background_alpha: 15
 background_image: theme/eyes.jpg
 
+custom_font: theme/PicNic-Regular.woff2
+
 # localization
 
 language: fr
