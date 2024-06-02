@@ -32,7 +32,7 @@ text_hue: 167
 background_alpha: 15
 background_image: theme/eyes.jpg
 
-custom_font: theme/PicNic-Regular.woff2
+custom_font: theme/resistance_generale-webfont.woff2
 
 # localization
 
