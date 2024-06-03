@@ -12,7 +12,11 @@ cover:
     file = cover.jpg
 
 -- text
-Cette compilation fait office de mode d'emploi pour les personnes qui souhaiteraient participer au projet.
+<p><em>Cette compilation fait office de mode d'emploi pour les personnes qui souhaiteraient participer au projet.</em></p>
+
+<h1>Comment envoyer une compilation ?</h1>
+
+<p><a href="https://sabine-pantagruweb.incongru.org/form/multitudes-start" target="_blank">GO !</a></p>
 -- text
 
 include_extras: yes

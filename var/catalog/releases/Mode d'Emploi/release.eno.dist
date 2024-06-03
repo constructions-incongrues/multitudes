@@ -17,5 +17,5 @@ Ce texte sera affiché sur la page de la compilation
 -- text
 
 include_extras: yes
-rewrite_tags: no
+rewrite_tags: yes
 track_numbering: arabic
