@@ -1,0 +1,22 @@
+# release
+
+artists:
+    - Tritri du Cloude
+
+date: 1992-08-02
+
+title: Coucou Nelly !
+
+cover:
+    description =  Texte décrivant l'illustration
+    file = cover.jpg
+
+-- text
+Ce texte sera affiché sur la page de la compilation.
+-- text
+
+unlisted
+
+include_extras: yes
+rewrite_tags: no
+track_numbering: arabic
