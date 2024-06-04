@@ -16,8 +16,6 @@ cover:
 Ce texte sera affiché sur la page de la compilation.
 -- text
 
-unlisted
-
 include_extras: yes
 rewrite_tags: no
 track_numbering: arabic

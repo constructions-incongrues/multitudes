@@ -1,1 +1,0 @@
-<https://sabine-pantagruweb.incongru.org/webhook/multitudes/accept?slug=coucou-nelly>
