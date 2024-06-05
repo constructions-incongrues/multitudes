@@ -30,7 +30,7 @@ tint_front: 100
 text_hue: 167
 
 background_alpha: 15
-background_image: theme/tumultes/bg/dogs.jpg
+background_image: theme/tumultes/images/bg/dogs.jpg
 
 custom_font: theme/tumultes/fonts/VG5000-Regular_web.woff2
 
