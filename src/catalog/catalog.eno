@@ -5,10 +5,11 @@ favicon: theme/tumultes/images/favicon.png
 
 label_mode
 show_support_artists
+
 title: tumultes
 
 -- text
-IELS SONT LÉGIONNES
+IELxS SONT LÉGIONNES
 -- text
 
 # download
@@ -20,15 +21,11 @@ single_files: disabled
 
 # theme
 
-base: dark
+base: black
 disable_relative_waveforms
 disable_waveforms
 
-link_hue: 360
-link_saturation: 100
 link_lightness: 100
-tint_front: 100
-text_hue: 167
 
 background_alpha: 15
 background_image: theme/tumultes/images/bg/dogs.jpg

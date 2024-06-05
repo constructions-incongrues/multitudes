@@ -1,4 +1,5 @@
-# /src/catalog/releases/*/*.mp3
-/src/public/catalog
-.faircamp_cache
 .DS_Store
+.faircamp_build
+.faircamp_cache
+/src/catalog/releases/*/*.mp3
+/src/public/catalog
