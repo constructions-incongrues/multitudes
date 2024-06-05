@@ -1,7 +1,7 @@
 # catalog
 
 base_url: https://tumultes.incongru.org
-favicon: theme/favicon.png
+favicon: theme/tumultes/images/favicon.png
 
 label_mode
 show_support_artists
