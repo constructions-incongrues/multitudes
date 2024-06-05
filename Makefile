@@ -1,5 +1,5 @@
 build:
-	docker run -u $$(id -u):$$(id -g) -i -v ./var/catalog:/data --rm n3wjack/faircamp
+	docker run -u $$(id -u):$$(id -g) -i -v ./src:/data  --rm n3wjack/faircamp --catalog-dir=catalog --build-dir=public/catalog
 
 postprocess:
-	cat ./var/catalog/theme/styles.css >> ./var/catalog/.faircamp_build/styles.css
+	cat ./src/catalog/theme/tumultes/cssstyles.css >> ./src/public/catalog/styles.css

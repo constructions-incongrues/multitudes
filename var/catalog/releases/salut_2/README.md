@@ -1,4 +1,0 @@
-- [x] Compléter le fichier `release.eno`
-- [x] Remplacer le fichier d'illustration par défaut `cover.jpg` par une illustration de son choix
-- [x] Uploader les pistes audio (l'ordre des pistes de la compilation est décidé à partir des champs id3 `tracknumber` de chacun des fichiers
-- [ ] [Indiquer que la la Multitude est prête à être publiée](https://sabine-pantagruweb.incongru.org/webhook/multitudes-ready?folder=salut)

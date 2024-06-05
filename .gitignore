@@ -1,4 +1,4 @@
-var/catalog/releases/*/*.mp3
-.faircamp_build
+/src/catalog/releases/*/*.mp3
+/src/public/catalog
 .faircamp_cache
-var/catalog/releases/.DS_Store
+.DS_Store

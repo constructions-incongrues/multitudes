@@ -1,0 +1,21 @@
+# release
+
+artists:
+    - Contributeurice
+    - Autre Contributeurice
+
+date: YYYY-mm-dd
+
+title: Titre de la compilation
+
+cover:
+    description =  Texte décrivant l'illustration
+    file = cover.jpg
+
+-- text
+Ce texte sera affiché sur la page de la compilation
+-- text
+
+include_extras: yes
+rewrite_tags: yes
+track_numbering: arabic

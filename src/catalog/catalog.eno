@@ -1,0 +1,43 @@
+# catalog
+
+base_url: https://tumultes.incongru.org
+favicon: theme/favicon.png
+
+label_mode
+show_support_artists
+title: tumultes
+
+-- text
+IELS SONT LÉGIONNES
+-- text
+
+# download
+
+free
+format: mp3
+single_files: disabled
+
+# theme
+
+base: dark
+disable_relative_waveforms
+disable_waveforms
+
+link_hue: 360
+link_saturation: 100
+link_lightness: 100
+tint_front: 100
+text_hue: 167
+
+background_alpha: 15
+background_image: theme/tumultes/bg/dogs.jpg
+
+custom_font: theme/tumultes/fonts/VG5000-Regular_web.woff2
+
+# localization
+
+language: fr
+
+# embedding
+
+enabled

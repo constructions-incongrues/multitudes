@@ -1,3 +1,0 @@
-\[<https://sabine-pantagruweb.incongru.org/webhook/multitudes/accept?slug=cdoucou2>\](CACA)
-
-\[<https://sabine-pantagruweb.incongru.org/webhook/multitudes/accept?slug=cdoucou2>\](CACA)
