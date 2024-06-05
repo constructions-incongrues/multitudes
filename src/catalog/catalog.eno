@@ -14,7 +14,8 @@ IELS SONT LÉGIONNES
 # download
 
 free
-format: mp3
+formats:
+- opus
 single_files: disabled
 
 # theme
