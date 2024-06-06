@@ -1,0 +1,673 @@
+{
+  "active": true,
+  "connections": {
+    "n8n Form Trigger": {
+      "main": [
+        [
+          {
+            "node": "Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Defaults": {
+      "main": [
+        [
+          {
+            "node": "workspace",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Input": {
+      "main": [
+        [
+          {
+            "node": "Defaults",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create dir on jeancloude": {
+      "main": [
+        [
+          {
+            "node": "manifest.json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "workspace": {
+      "main": [
+        [
+          {
+            "node": "create dir on jeancloude",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "DocumentGenerator1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "manifest.json": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "list skel files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Nextcloud",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "list skel files": {
+      "main": [
+        [
+          {
+            "node": "filename ends with .tpl ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "string substitution",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "filename ends with .tpl ?": {
+      "main": [
+        [
+          {
+            "node": "download file",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Nextcloud1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "download file": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "string substitution": {
+      "main": [
+        [
+          {
+            "node": "upload rendered file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "upload rendered file": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nextcloud": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nextcloud1": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-03T02:44:52.863Z",
+  "id": "UdheerbzjL9GtGPX",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "tumultes/create",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "tumultes/init",
+        "formTitle": "Tumultes",
+        "formDescription": "LA MUSIQUE DANS LE POT",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "title",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "contributors",
+              "fieldType": "textarea",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "description",
+              "fieldType": "textarea",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "email",
+              "requiredField": true
+            }
+          ]
+        },
+        "responseMode": "responseNode"
+      },
+      "id": "9f0fda0d-1e87-4347-b37c-5854dd23c959",
+      "name": "n8n Form Trigger",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2,
+      "position": [
+        480,
+        400
+      ],
+      "webhookId": "d96e7371-afe0-4300-bd17-9968f63a1351"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.html }}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "content-type",
+                "value": "text/html;charset=UTF-8"
+              }
+            ]
+          }
+        }
+      },
+      "id": "567fecae-8357-43af-954d-57ebb46525f0",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        3400,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "path": "tumultes/hook/init",
+        "responseMode": "responseNode",
+        "options": {
+          "ignoreBots": false
+        }
+      },
+      "id": "d2ec0cc8-2157-4e6e-947c-532beed4bb1d",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        480,
+        220
+      ],
+      "webhookId": "c84086b9-1113-4faa-81df-70cb43f50881"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"nextcloud\": {\n    \"host\": \"vip.jeancloude.club\",\n    \"root\": \"/Conventicules/Tumultes\",\n    \"skel_dir\": \"/src/dessein/tumulte/skel\",\n    \"share\": {\n      \"name\": \"tumultes\",\n      \"root\": \"/shared\"\n    }\n  }\n}\n",
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "98fad36c-82a3-490b-b468-1a6b433273ef",
+      "name": "Defaults",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        980,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c08c38b1-8b28-47ad-a9bb-cdc5cb507510",
+              "name": "slug",
+              "value": "={{String($json.title)\n.replace(/[øØ]/g, 'o')\n.replace(/[æÆ]/g, 'ae')\n.normalize(\"NFD\")\n.replace(/[\\u0300-\\u036f]/g, \"\")\n.replace(/\\b\\w'/g, \"\")\n.toLowerCase()\n.replace(/[^a-z0-9]+/g, '-')\n.replace(/-+/g, '-')\n.replace(/^-|-$/g, '')}}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "include": "except",
+        "excludeFields": "formMode",
+        "options": {
+          "dotNotation": true
+        }
+      },
+      "id": "30e7ef28-3224-4c94-9798-c46ac2f72f5b",
+      "name": "Input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        760,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "path": "={{ $json.path }}"
+      },
+      "id": "6d0c88b3-f223-4bab-8b96-b495d1ade776",
+      "name": "create dir on jeancloude",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        1380,
+        320
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d1c033b6-1136-4518-bd36-b5169e3a7ff9",
+              "name": "workspace.public_url",
+              "value": "=https://{{ $json.nextcloud.host }}/s/{{ $json.nextcloud.share.name }}?path=%2F{{ $json.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "ce30edcc-75d1-4e29-ba13-5ab5face904b",
+              "name": "path",
+              "value": "={{ $json.nextcloud.root }}/{{ $json.nextcloud.share.root }}/{{ $json.slug }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {
+          "dotNotation": true
+        }
+      },
+      "id": "f4810a49-c0bf-47cc-891e-4676f65bcf9f",
+      "name": "workspace",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1180,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "html": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <meta name=\"color-scheme\" content=\"light dark\" />\n    <link\n      rel=\"stylesheet\"\n      href=\"https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css\"\n    />\n    <title>Tumulte, Tumulte !</title>\n  </head>\n  <body>\n    <main>\n      <h1>tumultes</h1>\n      <h2>c'est prêt :)</h2>\n      <h3><a href=\"{{ $('workspace').item.json.workspace.public_url }}\">GO</a></h3>\n    </main>\n  </body>\n</html>"
+      },
+      "id": "d32455fd-ad8d-4f69-bf4c-c1e8f786da0b",
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        3160,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n    \"data\": { \n        \"title\": {{ JSON.stringify($('Input').item.json.title) }},\n        \"curators\": {{ JSON.stringify($('Input').item.json.contributors) }},\n        \"text\": {{ JSON.stringify($('Input').item.json.description) }},\n        \"release_date\": {{ JSON.stringify($('Input').item.json.submittedAt.toDate()) }}\n    }\n} \n",
+        "options": {}
+      },
+      "id": "52e0e63c-716a-4842-932f-9ee2df89d2ae",
+      "name": "manifest.json",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1580,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "options": {}
+      },
+      "id": "77e36b98-b73c-412b-ba8f-c7d4dac431bb",
+      "name": "Convert to File",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2020,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "path": "={{ $('workspace').item.json.path }}/manifest.json",
+        "binaryDataUpload": true
+      },
+      "id": "586ef267-3369-4137-b787-437c7b23e4fe",
+      "name": "Nextcloud",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        560
+      ],
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "operation": "list",
+        "path": "={{ $('workspace').item.json.nextcloud.root }}/{{ $('workspace').item.json.nextcloud.skel_dir }}"
+      },
+      "id": "28afe5d3-fe2f-4056-8455-c6772afeeb77",
+      "name": "list skel files",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        1840,
+        120
+      ],
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "options": {}
+      },
+      "id": "7aad6721-a5c0-4bb6-b810-b70dda47eff8",
+      "name": "Extract from File",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        2460,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "8f8b51d4-d47e-4d29-aef4-cd775fc2275f",
+              "leftValue": "={{ $json.path.endsWith(\".tpl\") }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "cf1bfe99-fbcf-484b-9d23-3752f8de3aec",
+      "name": "filename ends with .tpl ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2060,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "path": "={{ $json.path }}"
+      },
+      "id": "04693777-dc50-4f10-a027-8d56152144fe",
+      "name": "download file",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        -100
+      ],
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "textsWithManipulations": {
+          "textsWithManipulationsValues": [
+            {
+              "dataSources": {
+                "dataSource": [
+                  {
+                    "text": "={{ $json.data }}"
+                  }
+                ]
+              },
+              "manipulations": {
+                "manipulation": [
+                  {
+                    "action": "replace",
+                    "substring": "=___TITLE___",
+                    "value": "={{ $('Input').item.json.title }}"
+                  },
+                  {
+                    "action": "replace",
+                    "substring": "___CURATORS___",
+                    "value": "={{ $('Input').item.json.contributors }}"
+                  },
+                  {
+                    "action": "replace",
+                    "substring": "___DESCRIPTION___",
+                    "value": "={{ $('Input').item.json.description }}"
+                  },
+                  {
+                    "action": "replace",
+                    "substring": "___RELEASE_DATE___",
+                    "value": "={{ $('Input').item.json.submittedAt.slice(0, 10) }}"
+                  },
+                  {
+                    "action": "replace",
+                    "substring": "___SLUG___",
+                    "value": "={{ $('Input').item.json.slug }}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "id": "ddceb512-9c7f-4d5c-b840-b2a913b520fb",
+      "name": "string substitution",
+      "type": "n8n-nodes-text-manipulation.textManipulation",
+      "typeVersion": 1,
+      "position": [
+        2680,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "path": "={{ $('workspace').item.json.path }}/{{ $('download file').item.json.path.split(\"/\").last().replace(/\\.[^/.]+$/, '') }}",
+        "fileContent": "={{ $json.data }}"
+      },
+      "id": "fdce718f-9d92-4c36-8f0b-bf2c906e9a41",
+      "name": "upload rendered file",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        2920,
+        -100
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "path": "={{ $json.path.urlDecode() }}",
+        "toPath": "={{ $('workspace').item.json.path }}/{{ $json.path.urlDecode().split(\"/\").last() }}"
+      },
+      "id": "82ae614b-b79e-4f69-8821-eaa8e4ceed5c",
+      "name": "Nextcloud1",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        140
+      ],
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "useTemplateString": false
+      },
+      "id": "840c8be2-2b0c-4d17-85c8-250cb86221ac",
+      "name": "DocumentGenerator1",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        3580,
+        300
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Paris",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-03T02:45:00.520Z",
+      "updatedAt": "2024-06-05T02:06:34.065Z",
+      "id": "7Mcf1TtE2pSSugGK",
+      "name": "tumultes"
+    }
+  ],
+  "triggerCount": 3,
+  "updatedAt": "2024-06-05T16:15:15.000Z",
+  "versionId": "59c2c046-6fc4-4b46-9a5e-aca357d5e634"
+}
