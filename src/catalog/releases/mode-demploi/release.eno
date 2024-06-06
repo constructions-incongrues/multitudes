@@ -14,11 +14,7 @@ cover:
     file = cover.jpg
 
 -- text
-<p><em>Cette compilation fait office de mode d'emploi pour les personnes qui souhaiteraient participer au projet.</em></p>
-
-<h1>Comment envoyer une compilation ?</h1>
-
-<p><a href="https://sabine-pantagruweb.incongru.org/form/tumultes-start" target="_blank">GO !</a></p>
+<h1><a href="https://sabine-pantagruweb.incongru.org/form/tumultes/init" target="_blank">GO !</a></h1>
 -- text
 
 include_extras: yes
