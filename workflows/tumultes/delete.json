@@ -1,0 +1,25 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2024-06-05T11:55:46.035Z",
+  "id": "o7SZmJdIon3JbNnx",
+  "meta": null,
+  "name": "tumultes/delete",
+  "nodes": [],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-03T02:45:00.520Z",
+      "updatedAt": "2024-06-05T02:06:34.065Z",
+      "id": "7Mcf1TtE2pSSugGK",
+      "name": "tumultes"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-06-05T11:55:53.000Z",
+  "versionId": "4628789c-699e-499f-bc2e-4da2791c7fde"
+}
