@@ -1,0 +1,149 @@
+{
+  "active": true,
+  "connections": {
+    "Github Trigger": {
+      "main": [
+        [
+          {
+            "node": "branch = main ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "branch = main ?": {
+      "main": [
+        [
+          {
+            "node": "SSH",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-04T22:23:46.323Z",
+  "id": "82NE5S0AKl4gaI7K",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "tumultes/build",
+  "nodes": [
+    {
+      "parameters": {
+        "owner": {
+          "__rl": true,
+          "value": "constructions-incongrues",
+          "mode": "list",
+          "cachedResultName": "constructions-incongrues",
+          "cachedResultUrl": "https://github.com/constructions-incongrues"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "multitudes",
+          "mode": "list",
+          "cachedResultName": "multitudes",
+          "cachedResultUrl": "https://github.com/constructions-incongrues/multitudes"
+        },
+        "events": [
+          "push"
+        ],
+        "options": {}
+      },
+      "id": "3080e4ef-b129-47da-a1ec-2cef5924188f",
+      "name": "Github Trigger",
+      "type": "n8n-nodes-base.githubTrigger",
+      "typeVersion": 1,
+      "position": [
+        700,
+        300
+      ],
+      "webhookId": "c4bc5c2c-f7ab-4473-869e-2b14c488f06b",
+      "credentials": {
+        "githubApi": {
+          "id": "FJGiRvf8BGvvwTE7",
+          "name": "trivoallan"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "215d9725-e27c-4b89-b83a-93655fb6d3ee",
+              "leftValue": "={{ $json.body.ref }}",
+              "rightValue": "refs/heads/main",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "2e0614d5-f7ff-4691-be6b-cf4e0b274376",
+      "name": "branch = main ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        920,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "privateKey",
+        "command": "make build",
+        "cwd": "/mnt/plesk/vhosts/incongru.org/tumultes.incongru.org"
+      },
+      "id": "5b2ce897-9283-4fae-af05-e35139928988",
+      "name": "SSH",
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        280
+      ],
+      "credentials": {
+        "sshPrivateKey": {
+          "id": "wVlTrruCPayuYs9g",
+          "name": "incongru_org@pastis"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Github Trigger": {
+      "webhookId": 482371647,
+      "webhookEvents": [
+        "push"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2024-06-03T02:45:00.520Z",
+      "updatedAt": "2024-06-05T02:06:34.065Z",
+      "id": "7Mcf1TtE2pSSugGK",
+      "name": "tumultes"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-06-05T03:40:58.000Z",
+  "versionId": "05309a7a-105a-47b2-8d9d-735c89d9f313"
+}
