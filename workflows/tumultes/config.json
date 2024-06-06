@@ -1,0 +1,94 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking \"Test workflow\"": {
+      "main": [
+        [
+          {
+            "node": "config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-05T17:31:17.899Z",
+  "id": "g1YDDoDCPVXgTO3x",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "tumultes/config",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "73f4f99f-3e28-41b6-b6b8-72fdea74651c",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        680,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"config\": {\n    \"workflows\": {\n      \"templates\": \"AudSTiummGvhHEbY\"\n    },\n    \"nextcloud\": {\n      \"server\": \"https://vip.jeancloude.club\",\n      \"root_dir\": \"/Conventicules/Tumultes\",\n      \"share\": {\n        \"name\": \"tumultes\",\n        \"base_dir\": \"/shared\"\n      }\n    }\n  }\n}\n",
+        "options": {}
+      },
+      "id": "d130e7b2-0981-431e-a883-d8f6a62ed115",
+      "name": "config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        900,
+        300
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "2dd4e295-11c2-4735-94e6-dae3dda3b2b7",
+      "name": "When clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        640,
+        520
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-03T02:45:00.520Z",
+      "updatedAt": "2024-06-05T02:06:34.065Z",
+      "id": "7Mcf1TtE2pSSugGK",
+      "name": "tumultes"
+    },
+    {
+      "createdAt": "2024-06-05T17:33:46.093Z",
+      "updatedAt": "2024-06-05T17:33:46.093Z",
+      "id": "8AmeAJjSK1gk2FqE",
+      "name": "helper"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-06-05T20:36:23.000Z",
+  "versionId": "58baff06-ae88-4db4-89f5-778a72d3b296"
+}
