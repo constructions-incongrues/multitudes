@@ -3,3 +3,4 @@
 .faircamp_cache
 /src/catalog/releases/*/*.mp3
 /src/public/catalog
+/src/var/cache
