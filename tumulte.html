@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>{{ tumulte.title }}</title>
+    <meta charset="utf8">
+
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css"
+  />
+  </head>
+
+  <body>
+    <main>
+        <h1><a href="{{ tumulte.url }}">{{ tumulte.title }}</a></h1>
+<p><strong>• {{#each tumulte.curators }} {{ . }} • {{/each}}</strong></p>
+        <hr>
+
+        <ol>
+        {{#each tracks}}
+        <li><a href="{{ url }}">{{ artist }} - {{ title }}</a></li>
+        {{/each}}
+        </ol>
+
+        <hr>
+
+        <img style="width: 100%;" src="{{ tumulte.url }}/cover.jpg" />
+    </main>
+    <footer>
+        <hr>
+        <a href="{{ tumulte.share_url }}" target="_blank">edit</a>
+        <a href="https://sabine-pantagruweb.incongru.org/webhook/tumultes/build?slug={{ tumulte.slug }}" target="_blank">rebuild</a>
+    </footer>
+  </body>
+</html>
