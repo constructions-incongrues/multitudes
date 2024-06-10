@@ -44,7 +44,7 @@ main::after{
     height: 102%;
     border:1px solid var(--text-color);
     position: absolute;
-    
+    pointer-events: none;
 }
 
 .noise{
