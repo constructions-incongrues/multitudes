@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>{{ tumulte.title }}</title>
+    <title>{{ tumulte.title }} | TUMULTES</title>
     <meta charset="utf8">
 
     <link
@@ -16,7 +16,7 @@
         <hr>
 
         <ol>
-        {{#each tracks}}
+        {{#each tumulte.tracks}}
         <li><a href="{{ url }}">{{ artist }} - {{ title }}</a></li>
         {{/each}}
         </ol>
