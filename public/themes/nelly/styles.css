@@ -9,18 +9,18 @@ html {
 }
 
 body {
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  background: rgb(247, 255, 234);
-  background: linear-gradient(
-    17deg,
-    rgba(247, 255, 234, 1) 70%,
-    rgba(198, 210, 245, 1) 92%,
-    rgba(156, 170, 255, 1) 100%
-  );
-}
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    background: rgb(247, 255, 234);
+    background: linear-gradient(
+      17deg,
+      rgba(247, 255, 234, 1) 70%,
+      rgba(198, 210, 245, 1) 92%,
+      rgba(156, 170, 255, 1) 100%
+    );
+  }
 
 main {
     position: relative;
@@ -37,16 +37,18 @@ main {
     max-width: 100%;
   }
 
-main::after{
+  main::after{
     content:'';
     display: block;
-    width:104%;
+    width:90vw;
     top:1em;
-    left: -2%;
-    height: 95%;
+    left: 5vw;
+    height: 90%;
     border:1px solid var(--text-color);
     position: absolute;
     pointer-events: none;
+    margin: 0 auto;
+    z-index: 0;
 }
 
 .noise {
@@ -170,55 +172,55 @@ h1 a {
 /* 3.0 - Layout */
 
 .player {
-  height: auto;
-  width: 100%;
-}
-
-input[type="range"] {
-  appearance: none;
-  background: none;
-  cursor: pointer;
-}
-
-/* Firefox */
-input[type="range"]::-moz-range-thumb {
-  height: 50px;
-  width: 20px;
-  background: white;
-  box-shadow: -6px 2px 8px rgba(0, 0, 0, 0.5);
-  border: 1px solid gray;
-  border-radius: 14%;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-input[type="range"].amplitude-volume-slider {
-  background: green;
-}
-
-input[type="range"].amplitude-volume-slider {
-  background: #3e444a;
-  margin: 4px auto;
-  height: 44px;
-  box-shadow: inset 2px 2px 8px rgb(0, 0, 0, 0.8);
-}
-
-input[type="range"].amplitude-song-slider {
-  background: #868686;
-  height: 25px;
-  margin-bottom: 10px;
-  /*! border-radius: 10px; */
-}
-
-input[type="range"].amplitude-song-played-progress {
-  background: red;
-}
-
-progress {
-  vertical-align: baseline;
-  height: 20px;
-  margin: 11px auto;
-}
+    height: auto;
+    width: 100%;
+  }
+  
+  input[type="range"] {
+    appearance: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  /* Firefox */
+  input[type="range"]::-moz-range-thumb {
+    height: 50px;
+    width: 20px;
+    background: white;
+    box-shadow: -6px 2px 8px rgba(0, 0, 0, 0.5);
+    border: 1px solid gray;
+    border-radius: 14%;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  input[type="range"].amplitude-volume-slider {
+    background: green;
+  }
+  
+  input[type="range"].amplitude-volume-slider {
+    background: #3e444a;
+    margin: 4px auto;
+    height: 34px;
+    box-shadow: inset 2px 2px 8px rgb(0, 0, 0, 0.8);
+  }
+  
+  input[type="range"].amplitude-song-slider {
+    background: #868686;
+    height: 25px;
+    margin-bottom: 0px;
+    /*! border-radius: 10px; */
+  }
+  
+  input[type="range"].amplitude-song-played-progress {
+    background: red;
+  }
+  
+  progress {
+    vertical-align: baseline;
+    height: 20px;
+    margin: 5px auto;
+  }
 
 .wrapper {
   display: flex;
