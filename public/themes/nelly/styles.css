@@ -8,6 +8,22 @@ html {
   position: relative;
 }
 
+
+html::after{
+  content:'';
+  display: block;
+  width:90vw;
+  top:1em;
+  left: 5vw;
+  height: 90%;
+  border:1px solid var(--text-color);
+  position: absolute;
+  pointer-events: none;
+  margin: 0 auto;
+  z-index: 0;
+}
+
+
 body {
     min-height: 100vh;
     margin: 0;
@@ -37,19 +53,7 @@ main {
     max-width: 100%;
   }
 
-  main::after{
-    content:'';
-    display: block;
-    width:90vw;
-    top:1em;
-    left: 5vw;
-    height: 90%;
-    border:1px solid var(--text-color);
-    position: absolute;
-    pointer-events: none;
-    margin: 0 auto;
-    z-index: 0;
-}
+
 
 .noise {
   position: absolute;
