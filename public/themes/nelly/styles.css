@@ -28,7 +28,7 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    font-size: 18px;
+    font-size: 19px;
     background: rgb(247, 255, 234);
     background: linear-gradient(
       17deg,
@@ -96,10 +96,10 @@ a {
 }
 
 .blazes {
-  padding: 1em 3em 0em 0.4em;
+  padding: 0.5em 0em 0em 0.5em;
   width: fit-content;
   color: var(--text-color);
-  font-weight: 300;
+  font-weight: 400;
   border-top: 3px dotted var(--text-color);
 }
 
@@ -117,13 +117,17 @@ h1 a {
   width: 100%;
   min-width: 300px;
   position: relative;
-  padding: 0.8em 3em;
+  padding: 0.8em 2em;
 }
 
 .playlist-wrapper li {
   list-style-type: none;
   counter-increment: li;
-  padding: 0 0 0.3em 0.7em;
+  padding: 0 0 1.2em 0.5em;
+}
+
+.playlist-wrapper li:hover{
+  background:yellow;
 }
 
 .playlist-wrapper li:not(li:last-child) {
@@ -142,6 +146,19 @@ h1 a {
 .playlist-wrapper li a {
   color: black;
   font-size: 1.1em;
+}
+
+.amplitude-song-container:hover {
+  background-color: #cc166b;
+}
+
+.amplitude-active-song-container {
+  background-color: #ff6a9b;
+  height: 108%;
+  padding: 12px;
+  width: 100%;
+  color: white;
+  transition: 0.2s ease-in-out;
 }
 
 /* -----------INDEX------------*/
@@ -177,7 +194,10 @@ h1 a {
 
 .player {
     height: auto;
-    width: 100%;
+    width: 89%;
+    margin: 0 auto;
+    background-color: #000;
+    border-radius: 10px;
   }
   
   input[type="range"] {
@@ -188,9 +208,10 @@ h1 a {
   
   /* Firefox */
   input[type="range"]::-moz-range-thumb {
-    height: 50px;
-    width: 20px;
-    background: white;
+    height: 60px;
+    width: 40px;
+    z-index: 10;
+    background: #000000;
     box-shadow: -6px 2px 8px rgba(0, 0, 0, 0.5);
     border: 1px solid gray;
     border-radius: 14%;
@@ -203,16 +224,16 @@ h1 a {
   }
   
   input[type="range"].amplitude-volume-slider {
-    background: #3e444a;
+    background: #000;
     margin: 4px auto;
     height: 34px;
     box-shadow: inset 2px 2px 8px rgb(0, 0, 0, 0.8);
   }
   
   input[type="range"].amplitude-song-slider {
-    background: #868686;
+    background: #000;
     height: 25px;
-    margin-bottom: 0px;
+    /*! margin-bottom: 0px; */
     /*! border-radius: 10px; */
   }
   
@@ -222,7 +243,7 @@ h1 a {
   
   progress {
     vertical-align: baseline;
-    height: 20px;
+    height: 0px;
     margin: 5px auto;
   }
 
@@ -230,7 +251,8 @@ h1 a {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 2em;
+  gap: 1em;
+  order: 2;
 }
 
 /* 3.1 -Footer */
@@ -249,7 +271,7 @@ img {
 }
 
 .cover-wrapper {
-  border: 6px solid var(--text-color);
+  border: 15px solid rgba(39, 78, 113, 0.71);
   max-width: 700px;
   min-width: 300px;
   align-self: flex-end;
@@ -257,6 +279,8 @@ img {
   width: 100%;
   position: relative;
   box-shadow: -50px 50px 8px rgba(0, 0, 0, 0.17);
+  z-index: 1000;
+  box-shadow: inset 30px 30px 5px rgba(0,0,0,1),inset 5px 5px 15px rgba(255,255,255,1.5);
 }
 
 /* 5.0 - Media queries */
