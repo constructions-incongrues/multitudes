@@ -11,12 +11,27 @@
   </head>
 
   <body class="draft show">
-
     <header>
       <article>
-        <a href="{{ tumulte.locations.http_root}}">tumultes</a> &gt;
-        <a href="{{ tumulte.locations.http_root}}/drafts">drafts</a> &gt;
-        <a href="{{ tumulte.locations.draft_url }}">{{ tumulte.slug }}</a>
+        <nav>
+          <ul></ul>
+          <ul>
+            <li>
+              <h1>
+                <a href="{{ tumulte.locations.http_root}}">Tumultes</a>
+              </h1>
+            </li>
+          </ul>
+        </nav>
+
+        <nav>
+          <ul></ul>
+          <ul>
+            <li><a href="{{ tumulte.locations.http_root }}/drafts">drafts</a></li>&gt;
+            <li><a href="{{ tumulte.locations.draft_url}}">{{ tumulte.slug }}</a></li>
+            <li><big><button>CONTRIBUER AU TUMULTE</button></big></li>
+          </ul>
+        </nav>
       </article>
     </header>
 
