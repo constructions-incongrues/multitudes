@@ -23,7 +23,7 @@ body.home h2{
   position: relative;
   z-index: 20;
   background: black;
-  padding: 0.7em;
+  padding: 0.7em; 
   color:var(--text-color);
   text-decoration: none;
   font-weight: 400;
