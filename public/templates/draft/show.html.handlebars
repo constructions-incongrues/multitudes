@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>{{ tumulte.title }} | draft | tumultes</title>
+    <meta charset="utf8">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css" />
+    <link rel="stylesheet" href="{{ config.website.http_root }}/themes/nelly/styles.css?{{timestamp}}" />
+    <link rel="stylesheet" href="{{ config.website.http_root }}/themes/nelly/main.css?{{timestamp}}" />
+  </head>
+
+  <body class="draft show">
+    <main>
+        <h1>
+            <a href="https://tumultes.incongru.org">tumultes</a> &gt;
+            <a href="">drafts</a> &gt;
+            {{ tumulte.title }}
+        </h1>
+
+        <hr>
+
+        <h2>Contenu</h2>
+        <p>{{ tumulte.audio }} fichiers audio</p>
+        <p>{{ tumulte.images }}</p>
+
+        <h2>Métadonnnées</h2>
+        <dl>
+            <dt>Titre</dt>
+            <dd>{{ tumulte.title }}</dd>
+
+            <dt>Curators</dt>
+            <dd>{{ tumulte.curators.join(", ") }}</dd>
+
+            <dt>Date de publication</dt>
+            <dd>{{ tumulte.publication_date }}</dd>
+        </dl>
+    </main>
+  </body>
+</html>
