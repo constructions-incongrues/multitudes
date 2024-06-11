@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Glory:ital,wght@0,100..800;1,100..800&family=Jersey+25&family=Metrophobic&family=Press+Start+2P&family=Rosario:ital,wght@0,300..700;1,300..700&display=swap');
+
+:root{
+    --primary-color: #f0f0f0;
+    --secondary-color: #000;
+    --text-color: rgb(45, 68, 79);
+    --link-color: #0f0;
+    --button-color-dark: #00f;
+    --button-color-light: #ff0;
+    --background: #d1fe67;
+    --linear-gradient: linear-gradient(36deg, rgba(221,255,0,1) 0%, rgba(183,235,251,1) 100%); 
+}
+
+html {
+  font-family: 'Rosario', sans-serif;
+  font-weight: 200;
+  position: relative;
+}
+
+main a,
+main h1, 
+main h2{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 5vw;
+    text-decoration-line: overline;
+    text-decoration-thickness: 0.1em;
+  position: relative;
+  z-index: 20;
+  background: black;
+  padding: 0.7em;
+  color:var(--text-color);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 1.3em;
+  letter-spacing: 10px;
+  width: fit-content;
+  border: 2px solid var(--text-color);
+  padding:0px 10px;
+  transition:0.2s ease-in-out all;
+}
+
+main h1:hover a,
+main h2:hover a{
+  background-color: red;
+}
+
+h1{
+    z-index: 1000;
+    position: relative;
+    background: black;
+    padding: 0.6em;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+h2{
+    position: relative;
+    z-index: 20;
+    background: black;
+    padding: 0.7em;
+}
+
+a{
+    color: var(--text-color);
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 0;
+    margin: 0;
+}
+
+iframe body{
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    body > footer, body > header, body > main {
+      max-width: 900px;
+    }
+  }
