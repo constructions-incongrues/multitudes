@@ -11,19 +11,6 @@
     --linear-gradient: linear-gradient(36deg, rgba(221,255,0,1) 0%, rgba(183,235,251,1) 100%); 
 }
 
-html {
-  font-family: 'Rosario', sans-serif;
-  font-weight: 200;
-  position: relative;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  min-height: 100vh;
-}
-
 body.home a,
 body.home h1, 
 body.home h2{
@@ -37,13 +24,13 @@ body.home h2{
   z-index: 20;
   background: black;
   padding: 0.7em;
-  color:var(--primary-color);
+  color:var(--text-color);
   text-decoration: none;
   font-weight: 400;
   font-size: 1.3em;
   letter-spacing: 10px;
   width: fit-content;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--text-color);
   padding:0px 10px;
   transition:0.2s ease-in-out all;
 }
@@ -56,20 +43,23 @@ body.home h2:hover a{
 body.home h1{
     z-index: 1000;
     position: relative;
+    background: black;
     padding: 0.6em;
-    color: var(--primary-color);
+    color: var(--text-color);
     text-decoration: none;
 }
 
 body.home h2{
     position: relative;
     z-index: 20;
+    background: black;
     padding: 0.7em;
 }
 
 body.home a{
-    color: var(--primary-color);
+    color: var(--text-color);
     text-decoration: none;
+    color: var(--text-color);
 }
 
 body.home iframe{
@@ -87,24 +77,3 @@ body.home iframe{
       max-width: 900px!important;
     }
   }
-
-ul{
-    position: relative;
-    list-style: none;
-}
-
-ul li{  
-  list-style-type: none;
-  counter-increment: li;
-    position: relative;
-}
-
-ul li::before{
-    content:counter(li) " _";
-    position: relative;
-    top: 30px;
-    rotate: -20deg;
-    display: block;
-    width: fit-content;
-    right:25px;
-}
