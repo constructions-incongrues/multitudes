@@ -31,17 +31,16 @@ main {
   height: 100%;
 }
 
-main::after {
-  content: "";
-  display: block;
-  width: auto;
-  top: 15px;
-  left: -25px;
-  right: -25px;
-  height: 130%;
-  border: 1px solid var(--text-color);
-  position: absolute;
-  pointer-events: none;
+main::after{
+    content:'';
+    display: block;
+    width:104%;
+    top:1em;
+    left: -2%;
+    height: 95%;
+    border:1px solid var(--text-color);
+    position: absolute;
+    pointer-events: none;
 }
 
 .noise {
