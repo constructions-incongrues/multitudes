@@ -1,38 +1,72 @@
 <html>
   <head>
     <title>{{ tumulte.title }} | draft | tumultes</title>
+
     <meta charset="utf8">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css" />
-    <link rel="stylesheet" href="{{ config.website.http_root }}/themes/nelly/styles.css?{{timestamp}}" />
-    <link rel="stylesheet" href="{{ config.website.http_root }}/themes/nelly/main.css?{{timestamp}}" />
+    <link rel="stylesheet" href="{{ tumulte.locations.http_root }}/themes/nelly/styles.css?{{ timestamp }}" />
+    <link rel="stylesheet" href="{{ tumulte.locations.http_root }}/themes/nelly/main.css?{{ timestamp }}" />
+
   </head>
 
   <body class="draft show">
+
+    <header>
+      <article>
+        <a href="{{ tumulte.locations.http_root}}">tumultes</a> &gt;
+        <a href="{{ tumulte.locations.http_root}}/drafts">drafts</a> &gt;
+        <a href="{{ tumulte.locations.draft_url }}">{{ tumulte.slug }}</a>
+      </article>
+    </header>
+
     <main>
-        <h1>
-            <a href="https://tumultes.incongru.org">tumultes</a> &gt;
-            <a href="">drafts</a> &gt;
-            {{ tumulte.title }}
-        </h1>
-
+      <article>
+        <h1>{{ tumulte.title }}</h1>
         <hr>
+        <p>Ce tumulte a été créé le <strong>{{ tumulte.creation_date_pretty }}</strong> par <strong>{{#each tumulte.curators }} {{ . }} {{#unless @last}},{{/unless}} {{/each}}</strong>.</p>
+        <hr>
+        <section>
+          <button>Gérer les métadonnées</button>
+        </section>
+      </article>
 
-        <h2>Contenu</h2>
-        <p>{{ tumulte.audio }} fichiers audio</p>
-        <p>{{ tumulte.images }}</p>
+      <article class="grid">
+        <article>
+          <p><strong>1</strong> image.</p>
+          <hr>
+          <img src="{{ tumulte.cover.url }}" />
+          <hr>
+        </article>
 
-        <h2>Métadonnnées</h2>
-        <dl>
-            <dt>Titre</dt>
-            <dd>{{ tumulte.title }}</dd>
+        <article>
+          <p>{{ tumulte.tracks.length }}</strong> pistes audio.</p>
+          <hr>
+          <ol>
+          {{#each tumulte.tracks}}
+            {{#if well_formed}}
+            <li>{{ artist }} - {{ title }}</li>
+            {{else }}
+            <li>{{ filename }} <span class="warning" style="color: red;">(!)</span></li>
+            {{/if}}
+          {{/each}}
+          </ol>
+        </article>
+         <hr>
+          <section>
+            <button>Gérer les fichiers</button>
+          </section>
+      </article>
 
-            <dt>Curators</dt>
-            <dd>{{#each tumulte.curators }} . {{#unless @last}},{{/unless}} {{/each}}</dd>
+      <article>
+        <p>Ce tumulte est à l'état de <strong>brouillon</strong> depuis le <strong>{{ tumulte.creation_date_pretty }}</strong>.</p>
+        <hr>
+        <section>
+          <button>Prévisualiser</button>
+          <button>Rendre public</button>
+        </section>
+      </article>
 
-            <dt>Date de publication</dt>
-            <dd>{{ tumulte.publication_date }}</dd>
-        </dl>
     </main>
   </body>
 </html>
