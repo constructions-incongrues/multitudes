@@ -1,5 +1,3 @@
 .DS_Store
-/src/catalog/releases/*/*.mp3
-/src/public/catalog
-/src/var/cache
 node_modules
+/dist
