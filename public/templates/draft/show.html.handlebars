@@ -36,9 +36,10 @@
     </header>
 
     <main>
+
+      <article><h1>{{ tumulte.title }}</h1></article>
+
       <article>
-        <h1>{{ tumulte.title }}</h1>
-        <hr>
         <p>Ce tumulte a été créé le <strong>{{ tumulte.creation_date_pretty }}</strong> par <strong>{{#each tumulte.curators }} {{ . }} {{#unless @last}},{{/unless}} {{/each}}</strong>.</p>
         <hr>
         <section>
