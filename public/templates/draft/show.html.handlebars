@@ -28,7 +28,7 @@
             <dd>{{ tumulte.title }}</dd>
 
             <dt>Curators</dt>
-            <dd>{{ tumulte.curators.join(", ") }}</dd>
+            <dd>{{#each tumulte.curators }} . {{#unless @last}},{{/unless}} {{/each}}</dd>
 
             <dt>Date de publication</dt>
             <dd>{{ tumulte.publication_date }}</dd>
