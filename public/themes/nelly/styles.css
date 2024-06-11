@@ -161,7 +161,6 @@ h1 a{
 .player{
     height: 80px;
     width: 100%;
-    border: 1px solid black;
 }
 
 input[type=range]{
@@ -173,14 +172,43 @@ input[type=range]{
 
 /* Firefox */
 input[type="range"]::-moz-range-thumb {
-  height: 30px;
-  width: 10px;
+  height: 50px;
+  width: 20px;
   background: white;
+    box-shadow: -6px 2px 8px rgba(0,0,0,0.5);
     border:1px solid gray;
-  border-radius: 0%;
+  border-radius: 14%;
   -moz-appearance: none;
   appearance: none;
 }
+
+input[type=range].amplitude-volume-slider{
+    background:green;
+}
+
+input[type=range].amplitude-volume-slider{
+    background:#3e444a;
+    margin: 4px auto;
+    height: 44px;
+    box-shadow: inset 2px 2px 8px rgb(0, 0, 0,0.8);
+}
+
+input[type=range].amplitude-song-slider{
+    background:#868686;
+    height: 25px;
+    margin-bottom: 10px;
+    /*! border-radius: 10px; */
+}
+
+input[type=range].amplitude-song-played-progress{
+    background:red;
+}
+
+progress {
+    vertical-align: baseline;
+    height: 20px;
+    margin: 11px auto;
+  }
 
 .wrapper{
     display: flex;
