@@ -23,7 +23,11 @@
           <ul>
             <li><button data-tooltip="Gestion des fichiers : audio, image et métadonnées"><a href="{{ tumulte.locations.share_url }}" target="_blank">FICHIERS</a></button></li>
             <li><button><a href="">REFRESH</a></button></li>
-            <li><button><a href="{{ tumulte.locations.preview_url }}" target="_blank">PREVIEW</a></button></li>
+            <li>
+              <button>
+                <big><a href="{{ tumulte.locations.preview_url }}" target="_blank">⟳</a></big>
+              </button>
+            </li>
             {{#if tumulte.ready }}
             <li><button><a href="{{ tumulte.locations.dist_url }}" target="_blank">PUBLISH</a></button></li>
             {{else}}
