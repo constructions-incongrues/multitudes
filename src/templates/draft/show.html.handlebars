@@ -33,7 +33,7 @@
           <ul>
             <li>
               <h1>{{ tumulte.title }}</h1>
-              <p>Ce tumulte a été créé le <strong>{{ tumulte.creation_date_pretty }}</strong> par <strong>{{#each tumulte.curators }} {{ . }} {{#unless @last}},{{/unless}} {{/each}}</strong>.</p>
+              <p>Ce tumulte a été créé le <strong>{{ tumulte.creation_date_pretty }}</strong> par <strong>{{#each tumulte.curators }} {{ . }} {{#unless @last}},{{/unless}} {{/each}}</strong></p>
             </li>
           </ul>
           <ul></ul>
@@ -50,7 +50,11 @@
         <article>
           <p>cover</p>
           <hr>
-          <img src="{{ tumulte.cover.url }}" />
+          {{#if tumulte.cover.url }}
+          <img style="height: 200px;" src="{{ tumulte.cover.url }}" />
+          {{else}}
+          <span class="warning" style="color: red;">(!)</span>
+          {{/if}}
         </article>
 
         <article>
