@@ -27,8 +27,7 @@
         <nav>
           <ul></ul>
           <ul>
-            <li><a href="{{ tumulte.locations.http_root }}/drafts">drafts</a></li>&gt;
-            <li><a href="{{ tumulte.locations.draft_url}}">{{ tumulte.slug }}</a></li>
+            <li><a href="{{ tumulte.locations.http_root }}/drafts">drafts</a></li>
             <li><big><button>PROVOQUER UN TUMULTE</button></big></li>
           </ul>
         </nav>
@@ -37,7 +36,20 @@
 
     <main>
 
-      <article><h1>{{ tumulte.title }}</h1></article>
+      <article>
+        <nav>
+          <ul>
+            <li><h1>{{ tumulte.title }}</h1></li>
+          </ul>
+          <ul></ul>
+          <ul>
+            <li><button>EDIT</button></li>
+            <li><a href=""><button>REFRESH</button></a></li>
+            <li><button>PREVIEW</button></li>
+            <li><button>PUBLISH</button></li>
+          </ul>
+        </nav>
+      </article>
 
       <article>
         <p>Ce tumulte a été créé le <strong>{{ tumulte.creation_date_pretty }}</strong> par <strong>{{#each tumulte.curators }} {{ . }} {{#unless @last}},{{/unless}} {{/each}}</strong>.</p>

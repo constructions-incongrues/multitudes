@@ -1,0 +1,102 @@
+{
+  "tumulte": {
+    "title": "ffezzef",
+    "curators": [
+      "Tristan"
+    ],
+    "creation_date": "2024-06-12T06:55:04.783-04:00",
+    "slug": "ffezzef",
+    "publication_date": "",
+    "stats": [
+      {
+        "contentType": "audio/mpeg",
+        "count_contentType": 6
+      },
+      {
+        "contentType": "application/json",
+        "count_contentType": 1
+      }
+    ],
+    "tracks": [
+      {
+        "path": "Conventicules/Tumultes/shared/drafts/ffezzef/01 - Luke's Anger  - Dirty On The Floor.mp3",
+        "contentType": "audio/mpeg",
+        "url": "https://tumultes.incongru.org/drafts/ffezzef/01%20-%20Luke%27s%20Anger%20%20-%20Dirty%20On%20The%20Floor.mp3",
+        "filename": "01 - Luke's Anger  - Dirty On The Floor.mp3",
+        "contentLength": "8604246",
+        "number": "01",
+        "artist": "Luke's Anger ",
+        "title": "Dirty On The Floor",
+        "well_formed": true
+      },
+      {
+        "path": "Conventicules/Tumultes/shared/drafts/ffezzef/Best Party Ever (Original Mix).mp3",
+        "contentType": "audio/mpeg",
+        "url": "https://tumultes.incongru.org/drafts/ffezzef/Best%20Party%20Ever%20(Original%20Mix).mp3",
+        "filename": "Best Party Ever (Original Mix).mp3",
+        "contentLength": "12116185",
+        "number": null,
+        "artist": null,
+        "title": null,
+        "well_formed": false
+      },
+      {
+        "path": "Conventicules/Tumultes/shared/drafts/ffezzef/Noura ＂Paris Dans Mon Sac＂ (1963) (1).mp3",
+        "contentType": "audio/mpeg",
+        "url": "https://tumultes.incongru.org/drafts/ffezzef/Noura%20%ef%bc%82Paris%20Dans%20Mon%20Sac%ef%bc%82%20(1963)%20(1).mp3",
+        "filename": "Noura ＂Paris Dans Mon Sac＂ (1963) (1).mp3",
+        "contentLength": "3737555",
+        "number": null,
+        "artist": null,
+        "title": null,
+        "well_formed": false
+      },
+      {
+        "path": "Conventicules/Tumultes/shared/drafts/ffezzef/Noura ＂Paris Dans Mon Sac＂ (1963) (2).mp3",
+        "contentType": "audio/mpeg",
+        "url": "https://tumultes.incongru.org/drafts/ffezzef/Noura%20%ef%bc%82Paris%20Dans%20Mon%20Sac%ef%bc%82%20(1963)%20(2).mp3",
+        "filename": "Noura ＂Paris Dans Mon Sac＂ (1963) (2).mp3",
+        "contentLength": "3737555",
+        "number": null,
+        "artist": null,
+        "title": null,
+        "well_formed": false
+      },
+      {
+        "path": "Conventicules/Tumultes/shared/drafts/ffezzef/Noura ＂Paris Dans Mon Sac＂ (1963).mp3",
+        "contentType": "audio/mpeg",
+        "url": "https://tumultes.incongru.org/drafts/ffezzef/Noura%20%ef%bc%82Paris%20Dans%20Mon%20Sac%ef%bc%82%20(1963).mp3",
+        "filename": "Noura ＂Paris Dans Mon Sac＂ (1963).mp3",
+        "contentLength": "3737555",
+        "number": null,
+        "artist": null,
+        "title": null,
+        "well_formed": false
+      },
+      {
+        "path": "Conventicules/Tumultes/shared/drafts/ffezzef/Pop Music Is Not a Crime.mp3",
+        "contentType": "audio/mpeg",
+        "url": "https://tumultes.incongru.org/drafts/ffezzef/Pop%20Music%20Is%20Not%20a%20Crime.mp3",
+        "filename": "Pop Music Is Not a Crime.mp3",
+        "contentLength": "7994913",
+        "number": null,
+        "artist": null,
+        "title": null,
+        "well_formed": false
+      }
+    ],
+    "locations": {
+      "nextcloud_root": "/Conventicules/Tumultes/shared",
+      "collection": "drafts",
+      "http_root": "https://tumultes.incongru.org",
+      "slug": "ffezzef",
+      "url": "https://tumultes.incongru.org/drafts/ffezzef",
+      "path": "/Conventicules/Tumultes/shared/drafts/ffezzef",
+      "draft_url": "https://tumultes.incongru.org/draft/ffezzef",
+      "catalog_url": "https://tumultes.incongru.org/catalog/ffezzef"
+    },
+    "cover": {},
+    "creation_date_pretty": "12 June 2024",
+    "publication_date_pretty": ""
+  }
+}
