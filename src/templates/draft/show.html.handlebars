@@ -4,7 +4,7 @@
 
     <meta charset="utf8">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.amber.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.violet.min.css" />
 
   </head>
 
@@ -16,7 +16,6 @@
           <ul>
             <li>
               <h1><a href="{{ tumulte.locations.http_root}}">Tumultes</a> &gt; <br>{{ tumulte.title }}</h1>
-              <p>Ce tumulte a été créé le <strong>{{ tumulte.creation_date_pretty }}</strong> par <strong>{{#each tumulte.curators }} {{ . }} {{#unless @last}},{{/unless}} {{/each}}</strong></p>
             </li>
           </ul>
           <ul></ul>
