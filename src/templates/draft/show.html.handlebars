@@ -38,10 +38,14 @@
           </ul>
           <ul></ul>
           <ul>
-            <li><button><a href="{{ tumulte.locations.share_url }}" target="_blank">FILES</a></button></li>
+            <li><button><a href="{{ tumulte.locations.share_url }}" target="_blank">EDIT</a></button></li>
             <li><button><a href="">REFRESH</a></button></li>
             <li><button>PREVIEW</button></li>
+            {{#if tumulte.ready }}
             <li><button>PUBLISH</button></li>
+            {{else}}
+            <li><button disabled>PUBLISH</button></li>
+            {{/if}}
           </ul>
         </nav>
       </article>
