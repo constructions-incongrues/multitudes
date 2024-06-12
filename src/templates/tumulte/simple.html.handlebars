@@ -20,11 +20,14 @@
 
   <body>
     <main>
+      <article>
       <h1>
         <a href="{{ tumulte.location.public_url }}">{{ tumulte.title }}</a>
       </h1>
+      <p><small>{{#each tumulte.curators }} {{ . }} {{/each}} {{ tumulte.publication_date }}</small></p>
+      </article>
 
-      <p><em>{{#each tumulte.curators }} {{ . }} {{/each}} {{ tumulte.publication_date_pretty }}</em></p>
+
 
       <!--
       <article>
