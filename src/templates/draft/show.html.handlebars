@@ -40,24 +40,6 @@
           <ul>
             <li><button><a href="{{ tumulte.locations.share_url }}" target="_blank">EDIT</a></button></li>
             <li><button><a href="">REFRESH</a></button></li>
-          </ul>
-        </nav>
-      </article>
-
-      <article>
-        <nav>
-          <ul>
-            <li>
-          <select name="theme" aria-label="Choisissez un thème" required>
-            <option selected disabled value="">
-              Choisir un thème
-            </option>
-            <option>default</option>
-            <option>simple</option>
-          </select>
-          </li>
-          </ul>
-          <ul>
             <li><button><a href="{{ tumulte.locations.preview_url }}" target="_blank">PREVIEW</a></button></li>
             {{#if tumulte.ready }}
             <li><button>PUBLISH</button></li>
@@ -66,23 +48,56 @@
             {{/if}}
           </ul>
         </nav>
-        <textarea name="theme">fefezf</textarea>
       </article>
+
+      <!--
+      <article>
+        <h3>style</h3>
+        <hr>
+
+    <form>
+      <fieldset>
+        <label>
+          Thème
+          <select name="theme" aria-label="Choisissez un thème" required>
+            <option selected disabled value="">
+              Choose your lover
+            </option>
+            <option>default</option>
+            <option>simple</option>
+          </select>
+          </label>
+        <fieldset>
+        <label>
+          Custom CSS
+        <textarea name="custom_css">
+
+        </textarea>
+        </label>
+        </fieldset>
+        </form>
+      </article>
+      -->
 
       <article class="grid">
         <article>
-          <p>cover</p>
+          <h3>cover</h3>
           <hr>
           {{#if tumulte.cover.url }}
           <img style="height: 200px;" src="{{ tumulte.cover.url }}" />
           {{else}}
+          <a href="{{ tumulte.locations.share_url }}" target="_blank">
+            <button>Ajouter</button>
+          </a>
           <span class="warning" style="color: red;">(!)</span>
           {{/if}}
         </article>
 
         <article>
-          <p>tracks</p>
+          <h3>tracks</h3>
           <hr>
+
+          {{#if tumulte.tracks.length}}
           <ol>
           {{#each tumulte.tracks}}
             {{#if well_formed}}
@@ -92,6 +107,13 @@
             {{/if}}
           {{/each}}
           </ol>
+          {{else}}
+          <a href="{{ tumulte.locations.share_url }}" target="_blank">
+            <button>Ajouter</button>
+          </a>
+          <span class="warning" style="color: red;">(!)</span>
+          {{/if}}
+
         </article>
       </article>
     </main>
