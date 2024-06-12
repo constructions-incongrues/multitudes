@@ -7,10 +7,10 @@
 
     <style>
 .amplitude-active-song-container {
-  background-color: chartreuse;
+  background-color: gainsboro;
 }
 .amplitude-song-container:hover {
-  background-color: chartreuse;
+  background-color: gainsboro;
 }
 .playlist-wrapper {
     max-width: 600px;
@@ -24,7 +24,7 @@
         <a href="{{ tumulte.location.public_url }}">{{ tumulte.title }}</a>
       </h1>
 
-      <p>{{#each tumulte.curators }} {{ . }} {{/each}} {{ tumulte.publication_date_pretty }}</p>
+      <p><em>{{#each tumulte.curators }} {{ . }} {{/each}} {{ tumulte.publication_date_pretty }}</em></p>
 
       <!--
       <article>
