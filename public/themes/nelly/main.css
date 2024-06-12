@@ -75,5 +75,6 @@ body.home iframe{
 @media (min-width: 768px) {
   body > footer, body > header, body > main {
     max-width: 1200px!important;
+    margin:0 auto;
   }
 }
