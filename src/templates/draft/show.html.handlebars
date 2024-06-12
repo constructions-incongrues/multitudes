@@ -10,12 +10,20 @@
 
   <body class="draft show">
     <main class="container-fluid">
-
       <article>
         <nav>
           <ul>
             <li>
-              <h1><a href="{{ tumulte.locations.http_root}}">Tumultes</a> &gt; {{ tumulte.title }}</h1>
+              <hgroup>
+              <h2><a href="{{ tumulte.locations.http_root}}">Tumultes</a></h2>
+              <h1>
+                 {{ tumulte.title }}
+              </h1>
+              <p>
+                <small>publié par <strong>{{#each tumulte.curators }} {{ . }} {{/each}}</strong></small>
+                <small>le <strong>{{ tumulte.creation_date_pretty }}</strong></small>
+              </p>
+              </hgroup>
             </li>
           </ul>
           <ul></ul>
