@@ -19,7 +19,7 @@
                  {{ tumulte.title }}
               </h1>
               <p>
-                <small><a href="{{ tumulte.locations.http_root}}">Tumulte</a> publié par <strong>{{#each tumulte.curators }} {{ . }} {{/each}}</strong></small>
+                <small><a href="{{ tumulte.locations.http_root}}"><strong>Tumulte</strong></a> publié par <strong>{{#each tumulte.curators }} {{ . }} {{/each}}</strong></small>
                 <small>le <strong>{{ tumulte.creation_date_pretty }}</strong></small>
               </p>
               </hgroup>
@@ -28,7 +28,6 @@
           <ul></ul>
           <ul>
             <li><a href="" role="button"  data-placement="left"data-tooltip="Synchronisation de l'interface avec la dernière version du tumulte">↻</a></li>
-            <li><a href="{{ tumulte.locations.share_url }}" target="_blank" role="button"  data-placement="left"data-tooltip="Gestion des fichiers et des métadonnées">✎</a></li>
             <li>
               <a role="button"  data-placement="left"data-tooltip="Aperçu de l'aspect qu'aura la page publique" href="{{ tumulte.locations.preview_url }}" target="_blank">◎</a>
             </li>
@@ -71,20 +70,34 @@
 
       <article class="grid">
         <article>
-          <h4>images</h4>
+          <h4>
+            <nav>
+              <ul>
+                <li><h4>images</h4></li>
+              </ul>
+              <ul>
+                <li><a href="{{ tumulte.locations.share_url }}" target="_blank" role="button"  data-placement="left"data-tooltip="Gestion des fichiers et des métadonnées" {{#unless tumulte.cover.url}}style="background-color: red;"{{/unless}}>✎</a></li>
+              </ul>
+            </nav>
+          </h4>
           <hr>
           {{#if tumulte.cover.url }}
           <img src="{{ tumulte.cover.url }}" />
-          {{else}}
-          <a href="{{ tumulte.locations.share_url }}" target="_blank">
-            <button>Ajouter</button>
-          </a>
-          <span class="warning" style="color: red;">(!)</span>
           {{/if}}
         </article>
 
         <article>
-          <h4>audio</h4>
+          <h4>
+            <nav>
+              <ul>
+                <li><h4>audio</h4></li>
+              </ul>
+              <ul>
+                <li><a href="{{ tumulte.locations.share_url }}" target="_blank" role="button" data-placement="left"data-tooltip="Gestion des fichiers et des métadonnées" {{#unless tumulte.tracks.length}}style="background-color: red;"{{/unless}}>✎</a></li>
+              </ul>
+            </nav>
+          </h4>
+
           <hr>
           {{#if tumulte.tracks.length}}
           <ol>
@@ -96,11 +109,6 @@
             {{/if}}
           {{/each}}
           </ol>
-          {{else}}
-          <a href="{{ tumulte.locations.share_url }}" target="_blank">
-            <button>Ajouter</button>
-          </a>
-          <span class="warning" style="color: red;">(!)</span>
           {{/if}}
 
         </article>
