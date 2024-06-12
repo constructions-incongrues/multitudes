@@ -9,28 +9,13 @@
   </head>
 
   <body class="draft show">
-    <header>
-      <article>
-        <nav>
-          <ul></ul>
-          <ul>
-            <li>
-              <h1>
-                <a href="{{ tumulte.locations.http_root}}">Tumultes</a>
-              </h1>
-            </li>
-          </ul>
-        </nav>
-      </article>
-    </header>
-
     <main>
 
       <article>
         <nav>
           <ul>
             <li>
-              <h1>{{ tumulte.title }}</h1>
+              <h1><a href="{{ tumulte.locations.http_root}}">Tumultes</a> &gt; {{ tumulte.title }}</h1>
               <p>Ce tumulte a été créé le <strong>{{ tumulte.creation_date_pretty }}</strong> par <strong>{{#each tumulte.curators }} {{ . }} {{#unless @last}},{{/unless}} {{/each}}</strong></p>
             </li>
           </ul>
