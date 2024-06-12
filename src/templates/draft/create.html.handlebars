@@ -5,8 +5,8 @@
     <meta charset="utf8">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css" />
-    <link rel="stylesheet" href="{{ tumulte.locations.http_root }}/themes/nelly/styles.css?{{ timestamp }}" />
-    <link rel="stylesheet" href="{{ tumulte.locations.http_root }}/themes/nelly/main.css?{{ timestamp }}" />
+    <link rel="stylesheet" href="{{ http_root }}/themes/nelly/styles.css?{{ timestamp }}" />
+    <link rel="stylesheet" href="{{ http_root }}/themes/nelly/main.css?{{ timestamp }}" />
 
   </head>
 
@@ -18,7 +18,7 @@
           <ul>
             <li>
               <h1>
-                <a href="{{ tumulte.locations.http_root}}">Tumultes</a>
+                <a href="{{ http_root}}">Tumultes</a>
               </h1>
             </li>
           </ul>
@@ -28,7 +28,6 @@
           <ul></ul>
           <ul>
             <li><a href="{{ tumulte.locations.http_root }}/drafts">drafts</a></li>&gt;
-            <li><a href="{{ tumulte.locations.draft_url}}">{{ tumulte.slug }}</a></li>
             <li><big><button>PROVOQUER UN TUMULTE</button></big></li>
           </ul>
         </nav>
