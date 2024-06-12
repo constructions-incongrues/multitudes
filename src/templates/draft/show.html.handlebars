@@ -67,7 +67,7 @@
           <ol>
           {{#each tumulte.tracks}}
             {{#if well_formed}}
-            <li>{{ artist }} - {{ title }}</li>
+            <li><a href="{{ url }}">{{ artist }} - {{ title }}</a></li>
             {{else }}
             <li>{{ filename }} <span class="warning" style="color: red;">(!)</span></li>
             {{/if}}
