@@ -40,6 +40,24 @@
           <ul>
             <li><button><a href="{{ tumulte.locations.share_url }}" target="_blank">EDIT</a></button></li>
             <li><button><a href="">REFRESH</a></button></li>
+          </ul>
+        </nav>
+      </article>
+
+      <article>
+        <nav>
+          <ul>
+            <li>
+          <select name="theme" aria-label="Choisissez un thème" required>
+            <option selected disabled value="">
+              Choisir un thème
+            </option>
+            <option>Classique</option>
+            <option>Fête des Mères</option>
+          </select>
+          </li>
+          </ul>
+          <ul>
             <li><button><a href="{{ tumulte.locations.preview_url }}" target="_blank">PREVIEW</a></button></li>
             {{#if tumulte.ready }}
             <li><button>PUBLISH</button></li>
@@ -48,16 +66,7 @@
             {{/if}}
           </ul>
         </nav>
-      </article>
-
-      <article>
-        <select name="theme" aria-label="Choisissez le thème" required>
-          <option selected disabled value="">
-            alors alors ?
-          </option>
-          <option>Classique</option>
-          <option>Fête des Mères</option>
-        </select>
+        <textarea name="theme">fefezf</textarea>
       </article>
 
       <article class="grid">
