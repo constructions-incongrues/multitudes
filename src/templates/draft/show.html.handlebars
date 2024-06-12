@@ -23,14 +23,12 @@
             <li><a href="" role="button" data-tooltip="Synchronisation de l'interface avec la dernière version du tumulte">Sync</a></li>
             <li><a href="{{ tumulte.locations.share_url }}" target="_blank" role="button" data-tooltip="Gestion des fichiers et des métadonnées">Éditer</li>
             <li>
-              <button>
-                <a data-tooltip="Aperçu de l'aspect qu'aura la page publique du tumulte quand  sera publié" href="{{ tumulte.locations.preview_url }}" target="_blank">Prévisualiser</a>
-              </button>
+              <a role="button" data-tooltip="Aperçu de l'aspect qu'aura la page publique du tumulte quand  sera publié" href="{{ tumulte.locations.preview_url }}" target="_blank">Prévisualiser</a>
             </li>
             {{#if tumulte.ready }}
-            <li><button data-tooltip="Libérer le tumulte"><a href="{{ tumulte.locations.dist_url }}" target="_blank">Publier</a></button></li>
+            <li><a data-tooltip="Libérer le tumulte" role="button" href="{{ tumulte.locations.dist_url }}" target="_blank">Publier</a></button></li>
             {{else}}
-            <li><button  data-tooltip="Libérer le tumulte" disabled><a href="{{ tumulte.locations.dist_url }}" target="_blank">Publier</a></button></li>
+            <li><a role="button" disabled data-tooltip="Libérer le tumulte" href="{{ tumulte.locations.dist_url }}" target="_blank">Publier</a></li>
             {{/if}}
           </ul>
         </nav>
