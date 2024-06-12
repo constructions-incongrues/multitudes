@@ -15,12 +15,11 @@
           <ul>
             <li>
               <hgroup>
-              <h2><a href="{{ tumulte.locations.http_root}}">Tumultes</a></h2>
               <h1>
                  {{ tumulte.title }}
               </h1>
               <p>
-                <small>publié par <strong>{{#each tumulte.curators }} {{ . }} {{/each}}</strong></small>
+                <small><h6><a href="{{ tumulte.locations.http_root}}">Tumultes</a></h6>publié par <strong>{{#each tumulte.curators }} {{ . }} {{/each}}</strong></small>
                 <small>le <strong>{{ tumulte.creation_date_pretty }}</strong></small>
               </p>
               </hgroup>
