@@ -4,12 +4,12 @@
 
     <meta charset="utf8">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.violet.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.violet.min.css" />
 
   </head>
 
   <body class="draft show">
-    <main>
+    <main class="container-fluid">
 
       <article>
         <nav>
@@ -64,8 +64,9 @@
       -->
 
       <article class="grid">
+        <h3>fichiers</h3>
         <article>
-          <h3>Image</h3>
+          <h4>images</h4>
           <hr>
           {{#if tumulte.cover.url }}
           <img style="height: 200px;" src="{{ tumulte.cover.url }}" />
@@ -78,9 +79,8 @@
         </article>
 
         <article>
-          <h3>Audio</h3>
+          <h4>audio</h4>
           <hr>
-
           {{#if tumulte.tracks.length}}
           <ol>
           {{#each tumulte.tracks}}
