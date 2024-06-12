@@ -39,11 +39,14 @@
       <article>
         <nav>
           <ul>
-            <li><h1>{{ tumulte.title }}</h1></li>
+            <li>
+              <h1>{{ tumulte.title }}</h1>
+              <p>Ce tumulte a été créé le <strong>{{ tumulte.creation_date_pretty }}</strong> par <strong>{{#each tumulte.curators }} {{ . }} {{#unless @last}},{{/unless}} {{/each}}</strong>.</p>
+            </li>
           </ul>
           <ul></ul>
           <ul>
-            <li><button>EDIT</button></li>
+            <li><a href="{{ tumulte.locations.share_url }}" target="_blank"></a><button>FILES</button></li>
             <li><a href=""><button>REFRESH</button></a></li>
             <li><button>PREVIEW</button></li>
             <li><button>PUBLISH</button></li>
@@ -52,7 +55,7 @@
       </article>
 
       <article>
-        <p>Ce tumulte a été créé le <strong>{{ tumulte.creation_date_pretty }}</strong> par <strong>{{#each tumulte.curators }} {{ . }} {{#unless @last}},{{/unless}} {{/each}}</strong>.</p>
+
         <hr>
         <section>
           <button>Gérer les métadonnées</button>
