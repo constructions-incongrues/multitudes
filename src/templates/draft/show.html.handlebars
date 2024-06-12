@@ -42,9 +42,9 @@
             <li><button><a href="">REFRESH</a></button></li>
             <li><button><a href="{{ tumulte.locations.preview_url }}" target="_blank">PREVIEW</a></button></li>
             {{#if tumulte.ready }}
-            <li><button>PUBLISH</button></li>
+            <li><button><a href="{{ tumulte.locations.dist_url }}" target="_blank">PUBLISH</a></button></li>
             {{else}}
-            <li><button disabled>PUBLISH</button></li>
+            <li><button disabled><a href="{{ tumulte.locations.dist_url }}" target="_blank">PUBLISH</a></button></li>
             {{/if}}
           </ul>
         </nav>
