@@ -21,17 +21,17 @@
           </ul>
           <ul></ul>
           <ul>
-            <li><button data-tooltip="Gestion des fichiers : audio, image et métadonnées"><a href="{{ tumulte.locations.share_url }}" target="_blank">FICHIERS</a></button></li>
-            <li><button><a href="">REFRESH</a></button></li>
+            <li><button data-tooltip="Mise à jour"><a href="">REFRESH</a></button></li>
+            <li><button data-tooltip="Gestion des fichiers et des métadonnées"><a href="{{ tumulte.locations.share_url }}" target="_blank">Parcourir</a></button></li>
             <li>
               <button>
-                <big><a href="{{ tumulte.locations.preview_url }}" target="_blank">⟳</a></big>
+                <big><a data-tooltip="Aperçu de la page du tulmute, une fois celui-ci publié" href="{{ tumulte.locations.preview_url }}" target="_blank">Prévisualiser</a></big>
               </button>
             </li>
             {{#if tumulte.ready }}
-            <li><button><a href="{{ tumulte.locations.dist_url }}" target="_blank">PUBLISH</a></button></li>
+            <li><button data-tooltip="Libérer le tumulte"><a href="{{ tumulte.locations.dist_url }}" target="_blank">Publier</a></button></li>
             {{else}}
-            <li><button disabled><a href="{{ tumulte.locations.dist_url }}" target="_blank">PUBLISH</a></button></li>
+            <li><button  data-tooltip="Libérer le tumulte" disabled><a href="{{ tumulte.locations.dist_url }}" target="_blank">PUBLISH</a></button></li>
             {{/if}}
           </ul>
         </nav>
