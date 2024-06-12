@@ -18,6 +18,8 @@
               <h1><a href="{{ tumulte.locations.http_root}}">Tumultes</a> &gt; <br>{{ tumulte.title }}</h1>
             </li>
           </ul>
+        </nav>
+        <nav>
           <ul></ul>
           <ul>
             <li><a href="" role="button" data-tooltip="Synchronisation de l'interface avec la dernière version du tumulte">MÀJ</a></li>
@@ -32,6 +34,7 @@
             {{/if}}
           </ul>
         </nav>
+
       </article>
 
       <!--
@@ -64,12 +67,11 @@
       -->
 
       <article class="grid">
-        <h3>fichiers</h3>
         <article>
           <h4>images</h4>
           <hr>
           {{#if tumulte.cover.url }}
-          <img style="height: 200px;" src="{{ tumulte.cover.url }}" />
+          <img src="{{ tumulte.cover.url }}" />
           {{else}}
           <a href="{{ tumulte.locations.share_url }}" target="_blank">
             <button>Ajouter</button>
