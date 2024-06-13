@@ -34,7 +34,7 @@
             {{#if tumulte.ready }}
             <li><a  data-placement="left"data-tooltip="Libérer le tumulte" role="button" href="{{ tumulte.locations.dist_url }}" target="_blank" style="background-color: #00895A;">✓</a></button></li>
             {{else}}
-            <li><a role="button" data-tooltip="Ce tumulte n'est pas encore prêt à être publié" data-placement="left" href="#" target="_blank" style="background-color: #D93526;">☒</a></li>
+            <li><a role="button" data-tooltip="Ce tumulte n'est pas encore prêt à être publié" data-placement="left" href="#" target="_blank" style="background-color: red;">☒</a></li>
             {{/if}}
           </ul>
         </nav>
@@ -70,17 +70,15 @@
 
       <article class="grid">
         <article>
-          <h4>
-            <nav>
-              <ul>
-                <li><h4>images</h4></li>
-              </ul>
-              <ul>
-                <li><a href="{{ tumulte.locations.share_url }}" target="_blank" role="button"  data-placement="left"data-tooltip="Gestion des fichiers et des métadonnées" {{#unless tumulte.cover.url}}style="background-color: #D93526;"{{/unless}}>✎</a></li>
-              </ul>
-            </nav>
-          </h4>
+          <details>
+            <summary role="button"><big><strong>images</strong></big></summary>
+            <p>
+              <small>L'image de couverture est obligatoire et son nom de fichier doit être <kbd>cover.png</kbd> (ou autre extension d'image)</small>
+            </p>
+          </details>
+
           <hr>
+
           {{#if tumulte.cover.url }}
           <img src="{{ tumulte.cover.url }}" />
           {{/if}}
@@ -93,7 +91,7 @@
                 <li><h4>audio</h4></li>
               </ul>
               <ul>
-                <li><a href="{{ tumulte.locations.share_url }}" target="_blank" role="button" data-placement="left"data-tooltip="Gestion des fichiers et des métadonnées" {{#unless tumulte.tracks.length}}style="background-color: #D93526;"{{/unless}}>✎</a></li>
+                <li><a class="secondary" href="{{ tumulte.locations.share_url }}" target="_blank" role="button" data-placement="left"data-tooltip="Gestion des fichiers et des métadonnées" {{#unless tumulte.tracks.length}}style="background-color: red;"{{/unless}}>✎</a></li>
               </ul>
             </nav>
           </h4>
