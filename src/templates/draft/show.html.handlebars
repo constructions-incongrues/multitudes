@@ -71,7 +71,7 @@
       <article class="grid">
         <article>
           <details>
-            <summary role="button"><big><strong>images</strong></big></summary>
+            <summary role="button">images</summary>
             <p>
               <small>L'image de couverture est obligatoire et son nom de fichier doit être <kbd>cover.png</kbd> (ou autre extension d'image)</small>
             </p>
@@ -85,18 +85,15 @@
         </article>
 
         <article>
-          <h4>
-            <nav>
-              <ul>
-                <li><h4>audio</h4></li>
-              </ul>
-              <ul>
-                <li><a class="secondary" href="{{ tumulte.locations.share_url }}" target="_blank" role="button" data-placement="left"data-tooltip="Gestion des fichiers et des métadonnées" {{#unless tumulte.tracks.length}}style="background-color: red;"{{/unless}}>✎</a></li>
-              </ul>
-            </nav>
-          </h4>
+          <details>
+            <summary role="button">audio</summary>
+            <p>
+              <small>Les fichiers doivent être au format MP3 et se nommer <kbd><track number> - <artist> - <titre>.mp3</kbd></small>
+            </p>
+          </details>
 
           <hr>
+
           {{#if tumulte.tracks.length}}
           <ol>
           {{#each tumulte.tracks}}
