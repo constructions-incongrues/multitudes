@@ -21,14 +21,15 @@
   <body>
     <main class="container-fluid">
       <article>
+        <hgroup>
         <h1>
-          <a href="{{ tumulte.locations.http_root }}">Tumultes</a> &gt;<br>
           <a href="{{ tumulte.location.public_url }}">{{ tumulte.title }}</a>
         </h1>
         <p>
-          <small>publié par <strong>{{#each tumulte.curators }} {{ . }} {{/each}}</strong></small>
+          <small><a href="{{ tumulte.locations.http_root }}"><strong>Tumulte</strong></a>publié par <strong>{{#each tumulte.curators }} {{ . }} {{/each}}</strong></small>
           <small>le <strong>{{ tumulte.creation_date_pretty }}</strong></small>
         </p>
+        </hgroup>
       </article>
 
       <!--
@@ -43,25 +44,25 @@
       -->
 
       <article class="grid">
-      <article>
-        <ol>
-        {{#each tumulte.songs}}
-          <li>
-            <div class="amplitude-song-container" data-amplitude-song-index="{{@index}}">
-            {{#if well_formed }}
-            <span class="amplitude-play-pause" data-amplitude-song-index="{{@index}}"><strong>{{ artist }}</strong> - {{ title }}</span>
-            {{else }}
-            <span class="amplitude-play-pause" data-amplitude-song-index="{{@index}}">{{ filename }}</span> <span style="color: #D93526;">(!)</span>
-            {{/if}}
-            </div>
-          </li>
-        {{/each}}
-        </ol>
-        </article>
-
         <article>
           <img src="{{ tumulte.cover.url }}" />
         </article>
+
+        <article>
+          <ol>
+          {{#each tumulte.songs}}
+            <li>
+              <div class="amplitude-song-container" data-amplitude-song-index="{{@index}}">
+              {{#if well_formed }}
+              <span class="amplitude-play-pause" data-amplitude-song-index="{{@index}}"><strong>{{ artist }}</strong> - {{ title }}</span>
+              {{else }}
+              <span class="amplitude-play-pause" data-amplitude-song-index="{{@index}}">{{ filename }}</span> <span style="color: #D93526;">(!)</span>
+              {{/if}}
+              </div>
+            </li>
+          {{/each}}
+          </ol>
+          </article>
         </article>
 
     </main>
