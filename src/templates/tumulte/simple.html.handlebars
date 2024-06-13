@@ -23,10 +23,10 @@
       <article>
         <hgroup>
         <h1>
-          <a href="{{ tumulte.location.public_url }}">{{ tumulte.title }}</a>
+          {{ tumulte.title }} <a href="{{ tumulte.location.public_url }}">#</a>
         </h1>
         <p>
-          <small><a href="{{ tumulte.locations.http_root }}"><strong>Tumulte</strong></a>publié par <strong>{{#each tumulte.curators }} {{ . }} {{/each}}</strong></small>
+          <small><a href="{{ tumulte.locations.http_root }}"><strong>Tumulte</strong></a> publié par <strong>{{#each tumulte.curators }} {{ . }} {{/each}}</strong></small>
           <small>le <strong>{{ tumulte.creation_date_pretty }}</strong></small>
         </p>
         </hgroup>
