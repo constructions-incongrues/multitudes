@@ -27,12 +27,15 @@
           </ul>
           <ul></ul>
           <ul>
-            <li><a href="" role="button"  data-placement="left"data-tooltip="Synchronisation de l'interface avec la dernière version du tumulte">↻</a></li>
+            <li><a href="" role="button"  data-placement="left" data-tooltip="Synchronisation de l'interface avec la dernière version du tumulte">↻</a></li>
             <li>
-              <a role="button"  data-placement="left"data-tooltip="Aperçu de l'aspect qu'aura la page publique" href="{{ tumulte.locations.preview_url }}" target="_blank">◎</a>
+              <a role="button"  data-placement="left" data-tooltip="Édition du contenu" href="{{ tumulte.locations.share_url }}" target="_blank">✎</a>
+            </li>
+            <li>
+              <a role="button"  data-placement="left" data-tooltip="Aperçu de l'aspect qu'aura la page publique" href="{{ tumulte.locations.preview_url }}" target="_blank">◎</a>
             </li>
             {{#if tumulte.ready }}
-            <li><a  data-placement="left"data-tooltip="Libérer le tumulte" role="button" href="{{ tumulte.locations.dist_url }}" target="_blank" style="background-color: #00895A;">✓</a></button></li>
+            <li><a  data-placement="left" data-tooltip="Libérer le tumulte" role="button" href="{{ tumulte.locations.dist_url }}" target="_blank" style="background-color: #00895A;">✓</a></button></li>
             {{else}}
             <li><a role="button" data-tooltip="Ce tumulte n'est pas encore prêt à être publié" data-placement="left" href="#" target="_blank" style="background-color: red;">☒</a></li>
             {{/if}}
@@ -88,7 +91,8 @@
           <details>
             <summary role="button">audio</summary>
             <p>
-              <small>Les fichiers doivent être au format MP3 et se nommer <kbd><track number> - <artist> - <titre>.mp3</kbd></small>
+              <small>
+                Les fichiers doivent être au format MP3 et se nommer <kbd>number - artist - titre.mp3</kbd>.
             </p>
           </details>
 
