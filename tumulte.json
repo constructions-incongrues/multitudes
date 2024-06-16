@@ -1,6 +1,6 @@
 {
   "tumulte": {
-    "title": "Where is the fish ?",
+    "title": "Where is the fish 🐟 ?",
     "curators": [
       "Tristan"
     ],
@@ -38,21 +38,32 @@
         "well_formed": true
       },
       {
-        "path": "Conventicules/Tumultes/collections/drafts/where-is-the-fish/05. Atelier Mditerrane - La petite sirne.mp3",
+        "path": "Conventicules/Tumultes/collections/drafts/where-is-the-fish/02 - Michel Legrand - Oum le dauphin.mp3",
         "contentType": "audio/mpeg",
-        "url": "https://tumultes.incongru.org/drafts/where-is-the-fish/05.%20Atelier%20Mditerrane%20-%20La%20petite%20sirne.mp3",
-        "filename": "05. Atelier Mditerrane - La petite sirne.mp3",
-        "contentLength": "3647609",
-        "number": null,
-        "artist": null,
-        "title": null,
-        "well_formed": false
+        "url": "https://tumultes.incongru.org/drafts/where-is-the-fish/02%20-%20Michel%20Legrand%20-%20Oum%20le%20dauphin.mp3",
+        "filename": "02 - Michel Legrand - Oum le dauphin.mp3",
+        "contentLength": "1846125",
+        "number": "02",
+        "artist": "Michel Legrand",
+        "title": "Oum le dauphin",
+        "well_formed": true
       },
       {
-        "path": "Conventicules/Tumultes/collections/drafts/where-is-the-fish/16 - La Maman des poissons.flac",
+        "path": "Conventicules/Tumultes/collections/drafts/where-is-the-fish/03 - Atelier Méditerrane - La petite Sirène.mp3",
+        "contentType": "audio/mpeg",
+        "url": "https://tumultes.incongru.org/drafts/where-is-the-fish/03%20-%20Atelier%20M%c3%a9diterrane%20-%20La%20petite%20Sir%c3%a8ne.mp3",
+        "filename": "03 - Atelier Méditerrane - La petite Sirène.mp3",
+        "contentLength": "3647609",
+        "number": "03",
+        "artist": "Atelier Méditerrane",
+        "title": "La petite Sirène",
+        "well_formed": true
+      },
+      {
+        "path": "Conventicules/Tumultes/collections/drafts/where-is-the-fish/04 - Bobby Lapointe - La Maman des poissons.flac",
         "contentType": "audio/flac",
-        "url": "https://tumultes.incongru.org/drafts/where-is-the-fish/16%20-%20La%20Maman%20des%20poissons.flac",
-        "filename": "16 - La Maman des poissons.flac",
+        "url": "https://tumultes.incongru.org/drafts/where-is-the-fish/04%20-%20Bobby%20Lapointe%20-%20La%20Maman%20des%20poissons.flac",
+        "filename": "04 - Bobby Lapointe - La Maman des poissons.flac",
         "contentLength": "15949952",
         "number": null,
         "artist": null,
@@ -131,17 +142,6 @@
         "url": "https://tumultes.incongru.org/drafts/where-is-the-fish/Mr%20Scruff%20-%20Fish.mp3",
         "filename": "Mr Scruff - Fish.mp3",
         "contentLength": "4622321",
-        "number": null,
-        "artist": null,
-        "title": null,
-        "well_formed": false
-      },
-      {
-        "path": "Conventicules/Tumultes/collections/drafts/where-is-the-fish/Oum le dauphin - Michel Legrand.mp3",
-        "contentType": "audio/mpeg",
-        "url": "https://tumultes.incongru.org/drafts/where-is-the-fish/Oum%20le%20dauphin%20-%20Michel%20Legrand.mp3",
-        "filename": "Oum le dauphin - Michel Legrand.mp3",
-        "contentLength": "1846125",
         "number": null,
         "artist": null,
         "title": null,

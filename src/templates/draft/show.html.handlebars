@@ -76,18 +76,17 @@
 
         <article>
           <details>
-
-            <summary role="button">images</summary>
+            <summary role="button">images
+                        {{#if tumulte.cover.url }}
+            </summary>
             <p>
-              {{#if tumulte.cover.url }}
-              <progress value="1" max="1" />
-              {{else}}
-              <progress value="0" max="1" />
-              {{/if}}
               <small>L'image de couverture est obligatoire et son nom de fichier doit être <kbd>cover.png</kbd> (ou autre extension d'image)</small>
             </p>
           </details>
-
+          <progress value="1" max="1" />
+          {{else}}
+          <progress value="0" max="1" />
+          {{/if}}
           <hr>
 
           {{#if tumulte.cover.url }}
@@ -99,13 +98,12 @@
           <details>
             <summary role="button">audio</summary>
             <p>
-              <progress value="{{ tumulte.stats.tracks_well_formed }}" max="{{ tumulte.tracks.length }}" />
               <small>
                 Les fichiers doivent se nommer <kbd>number - artist - titre.mp3</kbd>.
               </small>
             </p>
           </details>
-
+          <progress value="{{ tumulte.tracks_well_formed }}" max="{{ tumulte.tracks.length }}" />
           <hr>
 
           {{#if tumulte.tracks.length }}
