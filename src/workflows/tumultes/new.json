@@ -133,22 +133,22 @@
         ]
       ]
     },
-    "GET": {
+    "POST": {
       "main": [
         [
           {
-            "node": "GitHub",
+            "node": "input_pre",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "POST": {
+    "GET": {
       "main": [
         [
           {
-            "node": "input_pre",
+            "node": "GitHub",
             "type": "main",
             "index": 0
           }
@@ -490,7 +490,7 @@
     {
       "parameters": {
         "respondWith": "text",
-        "responseBody": "=C'est <a href=\"https://sabine-pantagruweb.incongru.org/webhook/tumultes/draft/show?slug={{ $('input').item.json.slug.urlEncode() }}&group={{ $('input').item.json.group.urlEncode() }}\">prêt</a> :)",
+        "responseBody": "=C'est <a href=\"https://sabine-pantagruweb.incongru.org/webhook/tumultes/edit?slug={{ $('input').item.json.slug.urlEncode() }}&group={{ $('input').item.json.group.urlEncode() }}\">prêt</a> :)",
         "options": {
           "responseHeaders": {
             "entries": [
@@ -562,7 +562,7 @@
     {
       "parameters": {
         "resource": "folder",
-        "path": "={{ $json.path }}"
+        "path": "={{ $('input_pre').item.json.nextcloud_root }}/{{ $('input_pre').item.json.collection }}/{{ $('input_pre').item.json.group }}/{{ $('Data Validation').item.json.slug }}"
       },
       "id": "cd9f9f0a-dde1-4382-acc2-fd60f74b27b6",
       "name": "tumulte",
@@ -582,22 +582,6 @@
     },
     {
       "parameters": {
-        "path": "tumultes/new",
-        "responseMode": "responseNode",
-        "options": {}
-      },
-      "id": "febc9f4a-a2e3-4dd3-8d5b-8cd48e21146f",
-      "name": "GET",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        440,
-        300
-      ],
-      "webhookId": "50e93ebb-bf39-48b1-a17e-50c1e9092a7a"
-    },
-    {
-      "parameters": {
         "httpMethod": "POST",
         "path": "tumultes/new",
         "responseMode": "responseNode",
@@ -612,20 +596,25 @@
         740
       ],
       "webhookId": "cf1b3738-8b7a-45f4-9f08-9c928e8fe787"
+    },
+    {
+      "parameters": {
+        "path": "tumultes/new",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "febc9f4a-a2e3-4dd3-8d5b-8cd48e21146f",
+      "name": "GET",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        440,
+        300
+      ],
+      "webhookId": "50e93ebb-bf39-48b1-a17e-50c1e9092a7a"
     }
   ],
-  "pinData": {
-    "POST": [
-      {
-        "json": {
-          "body": {
-            "title": "TESTSIN",
-            "email": "tristan@rivoallan.net"
-          }
-        }
-      }
-    ]
-  },
+  "pinData": {},
   "settings": {
     "executionOrder": "v1",
     "timezone": "Europe/Paris",
@@ -642,6 +631,6 @@
     }
   ],
   "triggerCount": 2,
-  "updatedAt": "2024-06-16T13:58:06.000Z",
-  "versionId": "9d093645-2e0b-4fcd-8609-04ddaf7a6467"
+  "updatedAt": "2024-06-16T14:57:37.000Z",
+  "versionId": "ee4fab31-2d03-4ae5-a1ec-be6b78191964"
 }
