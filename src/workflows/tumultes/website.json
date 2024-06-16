@@ -1,0 +1,344 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Test workflow\"": {
+      "main": [
+        [
+          {
+            "node": "home/show",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "drafts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "home/show": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "drafts": {
+      "main": [
+        [
+          {
+            "node": "create /dist/<slug>",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "drafts",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "home/show",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "draft/show": {
+      "main": [
+        [
+          {
+            "node": "Convert to File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File1": {
+      "main": [
+        [
+          {
+            "node": "/drafts/<slug>/index.html",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create /dist/<slug>": {
+      "main": [
+        [
+          {
+            "node": "input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "input": {
+      "main": [
+        [
+          {
+            "node": "draft/show",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "/index.html",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-11T20:00:47.290Z",
+  "id": "KGF3nQyizTwiOQfW",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "tumultes/website",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "91229313-51e7-4250-b8d3-d79d3476a04e",
+      "name": "When clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        340,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "oMHZeQIelgg9MLqp",
+        "options": {}
+      },
+      "id": "187975ae-c7df-4ba6-8c1b-4ea35443cea7",
+      "name": "home/show",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        860,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "operation": "list",
+        "path": "/Conventicules/Tumultes/shared/drafts"
+      },
+      "id": "7db0a8b8-6303-4b9d-b197-f6eef058743b",
+      "name": "drafts",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        640,
+        480
+      ],
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "id": "942e19b3-cd6d-4bf1-b3e5-387587b22ef1",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        340,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "OgPwZ7Ip8Ylv7ff4",
+        "mode": "each",
+        "options": {}
+      },
+      "id": "89a14b29-de09-417a-9229-0e92b455fdab",
+      "name": "draft/show",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1300,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "rendered",
+        "options": {
+          "fileName": "=/Conventicules/Tumultes/dist{{ $json.dirname }}/{{ $json.filename }}"
+        }
+      },
+      "id": "b64bbbfe-a071-425c-9142-f3ca9b4066bb",
+      "name": "Convert to File1",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1520,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "path": "=/Conventicules/Tumultes/dist/{{ $json.dirname }}"
+      },
+      "id": "56b3069e-a192-4876-bd70-5bf30d476355",
+      "name": "create /dist/<slug>",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        860,
+        480
+      ],
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "path": "={{ $binary.data.directory }}/{{ $binary.data.fileName }}",
+        "binaryDataUpload": true
+      },
+      "id": "7587b0d4-202d-4b5c-bee8-d062152acefe",
+      "name": "/drafts/<slug>/index.html",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        1760,
+        480
+      ],
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fcbfa425-1dd2-4e9f-acd3-cc324656365a",
+              "name": "query.slug",
+              "value": "={{ $('drafts').item.json.path.replace(/\\/$/, \"\").split(\"/\").last().urlDecode() }}",
+              "type": "string"
+            },
+            {
+              "id": "1ec8d956-8b13-4000-9c8e-c8aea412a2d9",
+              "name": "timestamp",
+              "value": "={{ $now.toMillis() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": true
+        }
+      },
+      "id": "dae09f10-7325-4e0c-9a21-106f3840ddeb",
+      "name": "input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1080,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "rendered",
+        "options": {
+          "fileName": "={{ $json.dirname }}/{{ $json.filename }}"
+        }
+      },
+      "id": "c513aeb7-572e-41d8-b34d-6d9d6b7a8f8a",
+      "name": "Convert to File",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1080,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "path": "=/Conventicules/Tumultes/dist/{{ $binary.data.fileName }}",
+        "binaryDataUpload": true
+      },
+      "id": "6c3a0849-aa98-4d7b-bc83-a47e72e7d7f3",
+      "name": "/index.html",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        1300,
+        260
+      ],
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      },
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-03T02:45:00.520Z",
+      "updatedAt": "2024-06-05T02:06:34.065Z",
+      "id": "7Mcf1TtE2pSSugGK",
+      "name": "tumultes"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-06-12T08:16:38.000Z",
+  "versionId": "44ff7332-e739-4f01-be66-79f5c25a1f37"
+}
