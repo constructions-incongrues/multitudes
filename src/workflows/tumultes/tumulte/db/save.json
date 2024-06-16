@@ -1,0 +1,101 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "write",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "write",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-16T04:24:37.500Z",
+  "id": "ZSWBl7Am7XyUH4sS",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "tumultes/tumulte/db/save",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "024e3f34-59fc-4014-add0-2fd0f5c9c8a0",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "opWrite",
+        "queryPath": "={{ $json.path }}",
+        "sourceType": "sourceTypeJson",
+        "sourceData": "={{ $json.json }}",
+        "filePath": "=/root/.n8n/JsonDatabase.{{ $json.database }}.json"
+      },
+      "id": "e58295e2-a458-4cb7-bd64-1157a127882a",
+      "name": "write",
+      "type": "@n-octo-n/n8n-nodes-json-database.JsonDatabase",
+      "typeVersion": 1,
+      "position": [
+        1660,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "path": "4e4c8cd2-8159-41f3-bc6f-81d518bf94b9",
+        "authentication": "headerAuth",
+        "options": {}
+      },
+      "id": "5105d96c-170b-4d19-bfa8-1c3e55024841",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        120
+      ],
+      "webhookId": "4e4c8cd2-8159-41f3-bc6f-81d518bf94b9",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "bhaKW5f7gXIEs8xc",
+          "name": "Header Auth account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-03T02:45:00.520Z",
+      "updatedAt": "2024-06-05T02:06:34.065Z",
+      "id": "7Mcf1TtE2pSSugGK",
+      "name": "tumultes"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-06-16T14:00:01.000Z",
+  "versionId": "f52e2f6b-a85c-460f-a388-54b27767eccb"
+}
