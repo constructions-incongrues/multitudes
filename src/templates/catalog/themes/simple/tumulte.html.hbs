@@ -50,11 +50,11 @@
 
         <article>
           <ol>
-          {{#each data.tumulte.tracks}}
+          {{#each data.tumulte.songs}}
             <li>
               <div class="amplitude-song-container" data-amplitude-song-index="{{@index}}">
               {{#if well_formed }}
-              <span class="amplitude-play-pause" data-amplitude-song-index="{{@index}}"><strong>{{ artist }}</strong> - {{ title }}</span>
+              <span class="amplitude-play-pause" data-amplitude-song-index="{{@index}}"><strong>{{ artist }}</strong> - {{ name }}</span>
               {{else }}
               <span class="amplitude-play-pause" data-amplitude-song-index="{{@index}}">{{ filename }}</span> <span style="color: red;">(!)</span>
               {{/if}}
