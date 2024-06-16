@@ -15,10 +15,17 @@
         }
 
         mark.draft, mark.badge {
+          color: white;
+        }
+
+        footer mark.draft, footer mark.badge {
           padding: 0.2em;
           font-size: small;
-          color: white;
 
+        }
+
+        mark.published {
+          background-color: greenyellow
         }
 
         mark.badge {
@@ -29,8 +36,8 @@
           background-color: darkgrey;
         }
 
-        mark.complete {
-          background-color: green;
+        mark.ready {
+          background-color: wheat ;
         }
 
         mark.incomplete {
@@ -50,22 +57,25 @@
   <body class="draft list">
     <header>
       <article>
-        <nav>
+        <nav aria-label="breadcrumb">
           <ul>
-            <li>
-              <hgroup>
-                <h1>
-                  <a href="https://tumultes.incongru.org">Tumultes</a> &gt; Mes brouillons
-                </h1>
-              </hgroup>
+            <li><a href="https://tumultes.incongru.org">Tumultes</a></li>
+            <li>Mes Tumultes</li>
             </li>
           </ul>
         </nav>
       </article>
-
     </header>
 
     <main class="container-fluid">
+
+      <article>
+        <h1><strong>0</strong> tumultes <mark class="published">publiés</mark></h1>
+      </article>
+
+      <article>
+        <h1><strong>{{ tumultes.length }}</strong> tumultes <mark class="draft">brouillons</mark></h1>
+        <hr>
 
       <article class="grid">
     {{#each tumultes}}
@@ -82,7 +92,6 @@
           </header>
           <img class="cover" src="{{ tumulte.cover.url }}" />
           <footer>
-
 
             <nav>
               <ul>
@@ -101,7 +110,7 @@
         </article>
     {{/each}}
       </article>
-
+    </article>
     </main>
 
   </body>
