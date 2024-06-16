@@ -1,0 +1,996 @@
+{
+  "active": true,
+  "connections": {
+    "input": {
+      "main": [
+        [
+          {
+            "node": "Data Validation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Summarize": {
+      "main": [
+        [
+          {
+            "node": "stats",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "JSON response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "audio/*": {
+      "main": [
+        [
+          {
+            "node": "tracks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tracks": {
+      "main": [
+        [
+          {
+            "node": "tracks1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "stats": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "tracks1": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tumulte.json": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Validation": {
+      "main": [
+        [
+          {
+            "node": "tumulte.json",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "list files": {
+      "main": [
+        [
+          {
+            "node": "Summarize",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "audio/*",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "cover",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cover": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "defaults": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "defaults",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge3": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "list files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "defaults",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-11T10:17:27.656Z",
+  "id": "yC0e52sl1TIWXXij",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "tumultes/get",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7a6de983-cf40-47d4-8801-eac1b241f69c",
+              "name": "nextcloud_root",
+              "value": "={{ $json.query.nextcloud_root }}",
+              "type": "string"
+            },
+            {
+              "id": "625e272f-74d6-40f7-9bb1-37411bba5cf7",
+              "name": "collection",
+              "value": "={{ $json.query.collection }}",
+              "type": "string"
+            },
+            {
+              "id": "d8b0d214-9e5d-4ffa-b5cd-74b35f6ed2b1",
+              "name": "http_root",
+              "value": "={{ $json.query.http_root }}",
+              "type": "string"
+            },
+            {
+              "id": "f8c782aa-0b46-41a3-a9f0-3f6e946c1ffc",
+              "name": "slug",
+              "value": "={{ $json.query.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "d36aaee8-d7d6-4b67-9e64-facf485f3073",
+              "name": "url",
+              "value": "={{ $json.query.http_root }}/{{ $json.query.collection }}/{{ $json.query.group }}/{{ $json.query.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "c5b626dd-6ec2-423f-b708-3dff2df94bb5",
+              "name": "path",
+              "value": "={{ $json.query.nextcloud_root }}/{{ $json.query.collection }}/{{ $json.query.group }}/{{ $json.query.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "808b1911-0c4d-44bd-9cca-c19cb9873263",
+              "name": "draft_url",
+              "value": "={{ $json.query.http_root }}/drafts/{{ $json.query.group }}/{{ $json.query.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "a95a411e-8841-4ae1-a923-96543b137bef",
+              "name": "catalog_url",
+              "value": "={{ $json.query.http_root }}/catalog/{{ $json.query.group }}/{{ $json.query.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "3881e347-e6a5-456f-bc48-c4cc2f8a4648",
+              "name": "share_url",
+              "value": "={{ $json.query.nextcloud_url }}/s/{{ $json.query.nextcloud_share }}?path=/{{ $json.query.collection }}/{{ $json.query.group }}/{{ $json.query.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "e654cff5-b171-4371-8e46-4f9c77183d9d",
+              "name": "preview_url",
+              "value": "=https://sabine-pantagruweb.incongru.org/webhook/tumultes/tumulte/render?context=preview&collection=drafts&group={{ $json.query.group }}&slug={{ $json.query.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "3fc32fe4-0b96-4ee2-8d75-2b85ed7c8306",
+              "name": "dist_url",
+              "value": "=https://sabine-pantagruweb.incongru.org/webhook/tumultes/tumulte/dist?slug={{ $json.query.slug }}&group={{ $json.query.group }}",
+              "type": "string"
+            },
+            {
+              "id": "0f1d8e5f-13de-46ee-86db-654c7d43846d",
+              "name": "group",
+              "value": "={{ $json.query.group }}",
+              "type": "string"
+            },
+            {
+              "id": "c01751a3-221c-4030-9bb9-bfd25013b03c",
+              "name": "edit_url",
+              "value": "=https://sabine-pantagruweb.incongru.org/webhook/tumultes/edit?collection=drafts&group={{ $json.query.group }}&slug={{ $json.query.slug }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1bb73f99-4137-4337-9ff4-b9d4fbbe2969",
+      "name": "input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        940,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "fieldsToSummarize": {
+          "values": [
+            {
+              "field": "contentType"
+            }
+          ]
+        },
+        "fieldsToSplitBy": "contentType",
+        "options": {}
+      },
+      "id": "31be3be1-6649-46f7-9916-d5d2c0bb8063",
+      "name": "Summarize",
+      "type": "n8n-nodes-base.summarize",
+      "typeVersion": 1,
+      "position": [
+        2160,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {
+          "includeUnpaired": false
+        }
+      },
+      "id": "43bfdb8d-dd2b-4655-83a4-f09e40c05470",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        3700,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "fromJson",
+        "destinationKey": "tumulte",
+        "options": {}
+      },
+      "id": "8d9f795d-e473-4399-9c77-83e3062bd034",
+      "name": "Extract from File",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75e34671-51ab-4197-955f-cd9fbb6fc4c4",
+              "name": "tumulte",
+              "value": "={{ $json.tumulte }}",
+              "type": "object"
+            },
+            {
+              "id": "e8c92d40-5a6b-4b3a-a151-47f79c86c033",
+              "name": "tumulte.stats",
+              "value": "={{ $('stats').first().json.stats }}",
+              "type": "array"
+            },
+            {
+              "id": "a758ce99-4cf1-4f78-87b4-04f001256cdf",
+              "name": "tumulte.slug",
+              "value": "={{ $('Data Validation').first().json.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "4f85871f-3b0b-405e-af17-1601674413f2",
+              "name": "tumulte.tracks",
+              "value": "={{ $('tracks1').isExecuted ? $('tracks1').first().json.tracks : [] }}",
+              "type": "array"
+            },
+            {
+              "id": "8ea68e34-18e8-465f-be09-2c3402d2037d",
+              "name": "tumulte.locations",
+              "value": "={{ $('Data Validation').first().json }}",
+              "type": "object"
+            },
+            {
+              "id": "9b94b2bd-acc7-469f-a92e-04e46e1dc146",
+              "name": "tumulte.cover",
+              "value": "={{ $('cover').isExecuted ? $('cover').first().json.cover : {} }}",
+              "type": "object"
+            },
+            {
+              "id": "c3ca430b-703c-4af1-90a5-ca1c0469f5ba",
+              "name": "tumulte.creation_date_pretty",
+              "value": "={{ $json.tumulte.creation_date.toDateTime().format('dd LLLL yyyy') }}",
+              "type": "string"
+            },
+            {
+              "id": "afc53868-4b8a-46a0-acbe-281261a2c50b",
+              "name": "tumulte.publication_date_pretty",
+              "value": "={{ $json.tumulte.publication_date.isNotEmpty() ? $json.tumulte.publication_date.toDateTime().format('dd LLLL yyyy') : \"\" }}",
+              "type": "string"
+            },
+            {
+              "id": "d822257b-a3ba-493e-b2fe-b6b45ba60674",
+              "name": "tumulte.ready",
+              "value": "={{ \n  !($json.tracks.find(track => track.well_formed == false)) \n  && $json.cover.url.isUrl()\n  && $json.tumulte.curators.length > 0\n}}",
+              "type": "boolean"
+            },
+            {
+              "id": "04bf1a20-cdf0-43fd-9177-162e39114bc6",
+              "name": "tumulte.tracks_well_formed",
+              "value": "={{ ($json.tracks.filter(track => track.well_formed === true)).length }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": true
+        }
+      },
+      "id": "76999290-5928-4ae4-8730-1d53e3415715",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        3980,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "58c6ada3-99a5-471d-b11e-9a157252dbbe",
+              "leftValue": "={{ $json.contentType }}",
+              "rightValue": "audio/",
+              "operator": {
+                "type": "string",
+                "operation": "startsWith"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e6a33c6c-592e-48da-8f15-7ccd9a7cdcc4",
+      "name": "audio/*",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        1960,
+        80
+      ],
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "91b40c85-d276-477f-8dea-84f421b070fd",
+              "name": "path",
+              "value": "={{ $json.path.urlDecode() }}",
+              "type": "string"
+            },
+            {
+              "id": "a18dc16c-0ffb-4f63-ae45-9bcd47005a2c",
+              "name": "contentType",
+              "value": "={{ $json.contentType }}",
+              "type": "string"
+            },
+            {
+              "id": "e318107a-f726-4953-a691-1a9894c4bd51",
+              "name": "url",
+              "value": "={{ $('Data Validation').item.json.url }}/{{ $json.path.split(\"/\").last() }}",
+              "type": "string"
+            },
+            {
+              "id": "58ea8756-01b8-40e6-be58-8766e7bb1b95",
+              "name": "filename",
+              "value": "={{ $json.path.split(\"/\").last().urlDecode() }}",
+              "type": "string"
+            },
+            {
+              "id": "2e41189f-69be-48bb-a627-8f5feafcc46d",
+              "name": "contentLength",
+              "value": "={{ $json.contentLength }}",
+              "type": "string"
+            },
+            {
+              "id": "971f021c-3ba0-4cf3-8773-ab6f8629b2d6",
+              "name": "number",
+              "value": "={{ $json.path.split(\"/\").last().urlDecode().match(/^(\\d+) - (.+) - (.+).mp3$/)[1] }}",
+              "type": "string"
+            },
+            {
+              "id": "94337833-7fa3-4644-89ce-34a78f583d8f",
+              "name": "artist",
+              "value": "={{ $json.path.split(\"/\").last().urlDecode().match(/^(\\d+) - (.+) - (.+).mp3$/)[2] }}",
+              "type": "string"
+            },
+            {
+              "id": "122464f9-5565-4a9e-b18f-71facf460e42",
+              "name": "title",
+              "value": "={{ $json.path.split(\"/\").last().urlDecode().match(/^(\\d+) - (.+) - (.+).mp3$/)[3] }}",
+              "type": "string"
+            },
+            {
+              "id": "cd83ad80-c60a-4efc-9027-02bc6971bd3c",
+              "name": "well_formed",
+              "value": "={{ $json.path.split(\"/\").last().urlDecode().match(/^(\\d+) - (.+) - (.+).mp3$/) !== null }}",
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "025b6361-2e92-4404-bc03-ac0f791dba64",
+      "name": "tracks",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2160,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "stats",
+        "options": {}
+      },
+      "id": "6e0aa60c-2fa6-4742-9d23-a35a386233d4",
+      "name": "stats",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2360,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "tracks",
+        "options": {}
+      },
+      "id": "c3da9cc5-7c96-4872-aefd-a65d8d6065a6",
+      "name": "tracks1",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2360,
+        80
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "dbf4c6e8-6e69-461b-83c9-0d0fdce824e4",
+      "name": "Merge1",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        3400,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json.toJsonString() }}",
+        "options": {}
+      },
+      "id": "46c81bc1-0d86-4aec-a31d-410e477156be",
+      "name": "JSON response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        4280,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "path": "={{ $json.path }}/tumulte.json"
+      },
+      "id": "d6433330-d8b0-434c-a4d5-5c64aa356f14",
+      "name": "tumulte.json",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        1720,
+        720
+      ],
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"slug\": {\n      \"type\": \"string\"\n    },\n    \"nextcloud_root\": {\n      \"type\": \"string\"\n    },\n    \"http_root\": {\n      \"type\": \"string\"\n    },\n    \"collection\": {\n      \"type\": \"string\"\n    },\n    \"url\": {\n      \"type\": \"string\"\n    },\n    \"draft_url\": {\n      \"type\": \"string\"\n    },\n    \"catalog_url\": {\n      \"type\": \"string\"\n    },\n    \"share_url\": {\n      \"type\": \"string\"\n    },\n    \"dist_url\": {\n      \"type\": \"string\"\n    },\n    \"preview_url\": {\n      \"type\": \"string\"\n    },\n    \"edit_url\": {\n      \"type\": \"string\"\n    },\n    \"path\": {\n      \"type\": \"string\"\n    },\n    \"group\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"slug\", \"nextcloud_root\", \"http_root\", \"collection\", \"url\", \"draft_url\", \"catalog_url\", \"path\", \"share_url\", \"preview_url\", \"dist_url\", \"group\"\n  ],\n  \"additionalProperties\": false\n}"
+      },
+      "id": "2bca77b6-3a26-4da4-834b-7379f3572233",
+      "name": "Data Validation",
+      "type": "n8n-nodes-data-validation.dataValidation",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        280
+      ],
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "operation": "list",
+        "path": "={{ $('Data Validation').item.json.path }}"
+      },
+      "id": "899a0ca2-303f-4ceb-bf89-562370c081ca",
+      "name": "list files",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        1720,
+        300
+      ],
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Tracks\n",
+        "height": 218.0354063406873,
+        "width": 321.13812995599903
+      },
+      "id": "973f9654-821d-4525-ad60-6e367c97231a",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1787.4311306824418,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Stats",
+        "height": 199.46407631166733,
+        "width": 393.2134727394143
+      },
+      "id": "f2b81b16-cbe7-4f74-844b-43717486043b",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1640,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Manifest",
+        "height": 238.92815262333465,
+        "width": 555.712610493339
+      },
+      "id": "4caaa338-79f3-4191-b3d6-e24db1350144",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "680a3a96-3d91-459c-b18e-5a07b752eb37",
+              "leftValue": "={{ $json.contentType }}",
+              "rightValue": "image/",
+              "operator": {
+                "type": "string",
+                "operation": "startsWith"
+              }
+            },
+            {
+              "id": "edbc7819-a123-49c1-9215-a277e01d42b0",
+              "leftValue": "={{ $json.path.split(\"/\").last() }}",
+              "rightValue": "cover.",
+              "operator": {
+                "type": "string",
+                "operation": "startsWith"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "1b746cfc-baa2-46bf-9b68-95e20aa1c00d",
+      "name": "Filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        2160,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8ad4304b-b9a0-4015-8e16-5c80c72bb629",
+              "name": "cover.path",
+              "value": "={{ $json.path }}",
+              "type": "string"
+            },
+            {
+              "id": "7666c4c0-8695-4137-8688-4d906742b17d",
+              "name": "cover.contentType",
+              "value": "={{ $json.contentType }}",
+              "type": "string"
+            },
+            {
+              "id": "c518c3c2-4ac7-49d3-bf56-9624ec6b4e6d",
+              "name": "cover.url",
+              "value": "={{ $('Data Validation').item.json.url }}/{{ $json.path.split(\"/\").last() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": true
+        }
+      },
+      "id": "d123d432-db61-4c6e-aade-186b328ec35e",
+      "name": "cover",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2360,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Cover",
+        "height": 166.96424876088247,
+        "width": 434.99896530470915
+      },
+      "id": "596e8761-9b0c-4791-b487-cfc50014c04b",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "946c7a7f-5f3a-429b-a7d2-48cd1e7a96e0",
+              "name": "query.http_root",
+              "value": "https://tumultes.incongru.org",
+              "type": "string"
+            },
+            {
+              "id": "2a39ad1e-7e6b-4e93-9b1c-1c22d34c122b",
+              "name": "query.nextcloud_root",
+              "value": "/Conventicules/Tumultes/collections",
+              "type": "string"
+            },
+            {
+              "id": "c1d02b74-c3d7-4d03-9b31-664018e94317",
+              "name": "query.collection",
+              "value": "drafts",
+              "type": "string"
+            },
+            {
+              "id": "eab12b25-1ebe-4fd5-86e0-548992d8991f",
+              "name": "query.nextcloud_url",
+              "value": "https://vip.jeancloude.club",
+              "type": "string"
+            },
+            {
+              "id": "2861ce2f-9521-4ca5-8365-a45980096c4b",
+              "name": "query.nextcloud_share",
+              "value": "tumultes",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b74dfff4-0ad2-4813-9801-e356accb0b01",
+      "name": "defaults",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        440,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {
+          "clashHandling": {
+            "values": {
+              "resolveClash": "preferInput2"
+            }
+          }
+        }
+      },
+      "id": "1078fe49-0052-46b5-9c04-baa44976000e",
+      "name": "Merge2",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        280
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "d33e5ecd-8048-4f38-b401-82e4459d408f",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        200,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "id": "cabb373d-bd3c-4d4a-8e88-ce51d6594b2d",
+      "name": "Merge3",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        2740,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "options": {
+          "format": true,
+          "encoding": "utf8",
+          "fileName": "data.json"
+        }
+      },
+      "id": "e56e8d2e-0173-4072-85aa-9dd756e5d257",
+      "name": "Convert to File",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1380,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "path": "tumultes/get",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "ee502c2b-51c0-4588-88ba-5fce0e0370d3",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        100,
+        300
+      ],
+      "webhookId": "fd1b0978-c758-4554-b181-969f1a59742f"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Paris",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-03T02:45:00.520Z",
+      "updatedAt": "2024-06-05T02:06:34.065Z",
+      "id": "7Mcf1TtE2pSSugGK",
+      "name": "tumultes"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-06-16T13:56:13.000Z",
+  "versionId": "ddcfa6f0-e07b-4d18-adcb-3804db0cc36a"
+}
