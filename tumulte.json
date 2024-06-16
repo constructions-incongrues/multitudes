@@ -267,6 +267,7 @@
     },
     "creation_date_pretty": "15 June 2024",
     "publication_date_pretty": "",
-    "ready": false
+    "ready": false,
+    "tracks_well_formed": 3
   }
 }
