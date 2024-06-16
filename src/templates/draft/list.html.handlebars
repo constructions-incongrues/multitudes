@@ -28,11 +28,7 @@
         </header>
       </article>
 
-      {{#if (lookup ../layout [columns] @index)}}
-      </article>
-      <article class="grid">
-       {{/if}} 
-      {{/each}}
+{{ lookup ../layout [columns] @index }}
     </main>
 
   </body>
