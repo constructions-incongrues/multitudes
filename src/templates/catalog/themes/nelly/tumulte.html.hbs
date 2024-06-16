@@ -1,11 +1,11 @@
 <html data-theme="light">
   <head>
-    <title>{{ tumulte.title }} | tumultes </title>
+    <title>{{ data.tumulte.title }} | tumultes </title>
     <meta charset="utf8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.purple.min.css"/>
-    <link rel="stylesheet" href="{{ tumulte.locations.http_root }}/themes/nelly/main.css?{{timestamp}}" />
-    <link rel="stylesheet" href="{{ tumulte.locations.http_root }}/themes/nelly/styles.css?{{timestamp}}" />
+    <link rel="stylesheet" href="{{ data.tumulte.locations.http_root }}/themes/nelly/main.css?{{timestamp}}" />
+    <link rel="stylesheet" href="{{ data.tumulte.locations.http_root }}/themes/nelly/styles.css?{{timestamp}}" />
 
     <style>
 .amplitude-active-song-container {
@@ -24,10 +24,10 @@
   <body class="tumulte">
     <main class="container-fluid">
       <h1 class="title">
-        <a href="{{ tumulte.location.public_url }}">{{ tumulte.title }}</a>
+        <a href="{{ data.tumulte.location.public_url }}">{{ data.tumulte.title }}</a>
       </h1>
 
-      <p class="blazes"><strong> // {{#each tumulte.curators }} {{ . }} // {{/each}} {{ tumulte.publication_date_pretty }}</strong></p>
+      <p class="blazes"><strong> // {{#each data.tumulte.curators }} {{ . }} // {{/each}} {{ data.tumulte.publication_date_pretty }}</strong></p>
 
       <div class="player">
         <span class="amplitude-play-pause">PLAY</span>
@@ -40,11 +40,11 @@
 
       <div class="wrapper">
         <ol class="playlist-wrapper">
-        {{#each tumulte.songs}}
+        {{#each data.tumulte.tracks}}
         <li>
           <div class="amplitude-song-container" data-amplitude-song-index="{{@index}}">
         {{#if well_formed }}
-        <span class="amplitude-play-pause" data-amplitude-song-index="{{@index}}"><strong>{{ artist }}</strong> - {{ name }}</span>
+        <span class="amplitude-play-pause" data-amplitude-song-index="{{@index}}"><strong>{{ artist }}</strong> - {{ title }}</span>
         {{else }}
         <span class="amplitude-play-pause" data-amplitude-song-index="{{@index}}">{{ filename }}</span> <span style="color: #D93526;">(!)</span>
         {{/if}}
@@ -53,12 +53,12 @@
         {{/each}}
         </ol>
         <div class="cover-wrapper">
-          <img style="width: 100%;" src="{{ tumulte.cover.url }}" />
+          <img style="width: 100%;" src="{{ data.tumulte.cover.url }}" />
         </div>
       </div>
     </main>
     <div class="noise">
-      <img src="{{ tumulte.locations.http_root }}/themes/nelly/nnnoise.svg" />
+      <img src="{{ data.tumulte.locations.http_root }}/themes/nelly/nnnoise.svg" />
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/amplitudejs@v5.3.2/dist/amplitude.js"></script>
     <script>
