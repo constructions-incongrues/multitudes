@@ -1,0 +1,268 @@
+{
+  "active": false,
+  "connections": {
+    "home.html": {
+      "main": [
+        [
+          {
+            "node": "template",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "template": {
+      "main": [
+        [
+          {
+            "node": "DocumentGenerator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DocumentGenerator": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook": {
+      "main": [
+        [
+          {
+            "node": "output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "home.html",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "home.html",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-11T19:31:30.396Z",
+  "id": "oMHZeQIelgg9MLqp",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "tumultes/home/show",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "constructions-incongrues",
+          "mode": "list",
+          "cachedResultName": "constructions-incongrues",
+          "cachedResultUrl": "https://github.com/constructions-incongrues"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "tumultes",
+          "mode": "list",
+          "cachedResultName": "tumultes",
+          "cachedResultUrl": "https://github.com/constructions-incongrues/tumultes"
+        },
+        "filePath": "src/templates/home.html.handlebars",
+        "asBinaryProperty": false,
+        "additionalParameters": {
+          "reference": "main"
+        }
+      },
+      "id": "9c4d12fa-8bbd-47fb-a44f-571a2317b464",
+      "name": "home.html",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [
+        600,
+        260
+      ],
+      "credentials": {
+        "githubApi": {
+          "id": "FJGiRvf8BGvvwTE7",
+          "name": "trivoallan"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.text }}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "content-type",
+                "value": "text/html; charset=utf-8"
+              }
+            ]
+          }
+        }
+      },
+      "id": "58c66282-e3d3-4bfc-832a-6d7d46aac0a4",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1340,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "template": "={{ $json.template }}"
+      },
+      "id": "0f71fa07-0e8c-4bbd-a4cb-7e21a0c9ede7",
+      "name": "DocumentGenerator",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "37ed0845-c025-44a7-95a4-0a1395d10de2",
+              "name": "template",
+              "value": "={{ $json.content.base64Decode() }}",
+              "type": "string"
+            },
+            {
+              "id": "db62e1fd-7642-4f1f-a3ca-085aab672e2f",
+              "name": "http_root",
+              "value": "https://tumultes.incongru.org",
+              "type": "string"
+            },
+            {
+              "id": "71080366-4329-4391-bd7d-c15f47e42e24",
+              "name": "timestamp",
+              "value": "={{ $now.toMillis() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9cdacf7e-1354-4eee-98e2-ee829cc6c3e5",
+      "name": "template",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        820,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b4497c0a-ea1e-4db3-acf8-c5c9c37e8796",
+              "name": "rendered",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "aa921f07-ab1d-4850-927a-85658f32020d",
+              "name": "filename",
+              "value": "index.html",
+              "type": "string"
+            },
+            {
+              "id": "88b98534-da45-4801-af7b-c5963a4ad8fd",
+              "name": "dirname",
+              "value": "/",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2286c5ae-6e9c-4b33-b5d9-bd93406394f5",
+      "name": "output",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1560,
+        260
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "140fe3b7-9ee4-444b-bf1d-e6898687071b",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        380,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "path": "tumultes/home/show",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "2cabae63-7514-4217-8286-4bdb10afc0e7",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        380,
+        180
+      ],
+      "webhookId": "b441c807-b7a0-426d-9aea-22db53e17e53"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-03T02:45:00.520Z",
+      "updatedAt": "2024-06-05T02:06:34.065Z",
+      "id": "7Mcf1TtE2pSSugGK",
+      "name": "tumultes"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-06-16T14:05:36.000Z",
+  "versionId": "30b622eb-29b0-4336-9a41-0539bcd9d37f"
+}
