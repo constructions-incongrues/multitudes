@@ -1,21 +1,11 @@
 <html data-theme="light">
   <head>
     <title>{{ group }} | drafts | tumultes</title>
-
     <meta charset="utf8">
-<!-- Load handlebars -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
-<!-- Load just-handlebar-helpers -->
-<script src="https://unpkg.com/just-handlebars-helpers@1.0.19/dist/h.min.js"></script>
-
-<script type="text/javascript">
-  // Register just-handlebars-helpers with handlebars
-  H.registerHelpers(Handlebars);
-</script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.purple.min.css" />
   </head>
 
-  <body class="draft create">
+  <body class="draft list">
     <header>
       <article>
         <nav>
@@ -30,20 +20,12 @@
     </header>
 
     <main class="container-fluid">
-
-      <article class="grid">
-
-        {{#each drafts}}
-        <article>
-          <header><strong>{{ @index }} : {{ name }}</strong></header>
-          <footer>{{ lastModified }}</footer>
-        </article>
-
-        {{#if (eq @index 5)}}
+      {{#each drafts}}
+      <article>
+        <header><strong>{{ @index }} : {{ name }}</strong></header>
+        <footer>{{ lastModified }}</footer>
       </article>
-      <article class="grid">
-        {{/if}}
-        {{/each}}
+      {{/each}}
     </main>
 
   </body>
