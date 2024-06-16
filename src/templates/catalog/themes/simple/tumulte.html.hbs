@@ -1,6 +1,6 @@
 <html data-theme="light">
   <head>
-    <title>{{ tumulte.title }} | tumultes </title>
+    <title>{{ data.tumulte.title }} | tumultes </title>
     <meta charset="utf8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.purple.min.css"/>
@@ -23,11 +23,11 @@
       <article>
         <hgroup>
         <h1>
-          {{ tumulte.title }}
+          {{ data.tumulte.title }}
         </h1>
         <p>
-          <small><a href="{{ tumulte.locations.http_root }}"><strong>Tumulte</strong></a> publié par <strong>{{#each tumulte.curators }} {{ . }} {{/each}}</strong></small>
-          <small>le <strong>{{ tumulte.creation_date_pretty }}</strong></small>
+          <small><a href="{{ data.tumulte.locations.http_root }}"><strong>Tumulte</strong></a> publié par <strong>{{#each data.tumulte.curators }} {{ . }} {{/each}}</strong></small>
+          <small>le <strong>{{ data.tumulte.creation_date_pretty }}</strong></small>
         </p>
         </hgroup>
       </article>
@@ -45,12 +45,12 @@
 
       <article class="grid">
         <article>
-          <img width="100%" src="{{ tumulte.cover.url }}" />
+          <img width="100%" src="{{ data.tumulte.cover.url }}" />
         </article>
 
         <article>
           <ol>
-          {{#each tumulte.songs}}
+          {{#each data.tumulte.songs}}
             <li>
               <div class="amplitude-song-container" data-amplitude-song-index="{{@index}}">
               {{#if well_formed }}
