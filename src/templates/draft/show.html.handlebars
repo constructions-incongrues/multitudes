@@ -35,9 +35,9 @@
               <a id="preview" role="button"  data-placement="left" data-tooltip="Aperçu de l'aspect qu'aura la page publique" href="{{{ tumulte.locations.preview_url }}}" target="_blank">◎</a>
             </li>
             {{#if tumulte.ready }}
-            <li><a  data-placement="left" data-tooltip="Libérer le tumulte" role="button" href="{{ tumulte.locations.dist_url }}" target="_blank" style="background-color: #00895A;">✓</a></button></li>
+            <li><a id="publish" data-placement="left" data-tooltip="Libérer le tumulte" role="button" href="{{ tumulte.locations.dist_url }}" target="_blank" style="background-color: #00895A;">✓</a></button></li>
             {{else}}
-            <li><a role="button" data-tooltip="Ce tumulte n'est pas encore prêt à être publié" data-placement="left" href="#" target="_blank" style="background-color: red;">☒</a></li>
+            <li><a id="publish" role="button" data-tooltip="Ce tumulte n'est pas encore prêt à être publié" data-placement="left" href="#" target="_blank" style="background-color: red;">☒</a></li>
             {{/if}}
           </ul>
         </nav>
