@@ -22,13 +22,19 @@
     </header>
 
     <main class="container-fluid">
+
       <article class="grid">
-        {{#each drafts limit 4}}
+
+        {{#each drafts}}
         <article>
           <header>{{ name }}</header>
+          {{ path }}
+          <footer>{{ lastModified }}</footer>
         </article>
         {{/each}}
+
       </article>
+
     </main>
 
   </body>
