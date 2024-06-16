@@ -1,0 +1,417 @@
+{
+  "active": true,
+  "connections": {
+    "Data Validation": {
+      "main": [
+        [
+          {
+            "node": "tumulte/get",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tumulte/render": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nextcloud": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tumulte/get": {
+      "main": [
+        [
+          {
+            "node": "Nextcloud",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "tumulte/render",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "tumulte/get1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "input": {
+      "main": [
+        [
+          {
+            "node": "Data Validation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nextcloud1": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tumulte/get1": {
+      "main": [
+        [
+          {
+            "node": "Convert to File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Nextcloud1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-12T18:54:59.438Z",
+  "id": "N8eWGLpuZD9K7VFX",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "tumultes/publish",
+  "nodes": [
+    {
+      "parameters": {
+        "jsonSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"theme\": {\n      \"type\": \"string\"\n    },\n    \"context\": {\n      \"type\": \"string\"\n    },\n    \"slug\": {\n      \"type\": \"string\"\n    },\n    \"query\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"slug\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\"slug\"]\n    }\n  },\n  \"required\": [\n    \"query\", \"theme\", \"context\", \"slug\"\n  ],\n  \"additionalProperties\": false\n}"
+      },
+      "id": "f3a5e930-7fe3-4903-b8d7-20ee4f5955eb",
+      "name": "Data Validation",
+      "type": "n8n-nodes-data-validation.dataValidation",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "XeuBw7SkuzRW78R4",
+        "options": {}
+      },
+      "id": "a3ffa2f3-2fba-4ea5-a8ce-821c80db5096",
+      "name": "tumulte/render",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2120,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "operation": "copy",
+        "path": "={{ $json.tumulte.locations.path }}",
+        "toPath": "=/Conventicules/Tumultes/collections/catalog/{{ $json.tumulte.locations.slug }}"
+      },
+      "id": "eda10cad-b929-453a-b677-2ae58f983872",
+      "name": "Nextcloud",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        1580,
+        300
+      ],
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "rendered",
+        "options": {
+          "fileName": "index.html"
+        }
+      },
+      "id": "dc9d23bf-6a30-4902-948b-b1f84f0227c9",
+      "name": "Convert to File",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2400,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "path": "=/Conventicules/Tumultes/collections/catalog/{{ $('Data Validation').item.json.slug }}/{{ $binary.data.fileName }}",
+        "binaryDataUpload": true
+      },
+      "id": "967e4673-5cd0-4d4d-b874-35e4e2ee3b65",
+      "name": "Nextcloud1",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        2900,
+        300
+      ],
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "redirect",
+        "redirectURL": "={{ $('tumulte/get1').first().json.tumulte.locations.url }}",
+        "options": {}
+      },
+      "id": "d67cdff4-a8e8-4f8d-b162-0bd7b14205ab",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        3120,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "yC0e52sl1TIWXXij",
+        "options": {}
+      },
+      "id": "e713cfb1-1ace-4c40-9c20-dd43c05bea1d",
+      "name": "tumulte/get",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ff376787-3d35-4ca7-b9d1-d9211eec3521",
+              "name": "query.slug",
+              "value": "={{ $('Data Validation').item.json.query.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "ad94a8b0-bd2b-4f6c-84dd-6b754971af68",
+              "name": "query.collection",
+              "value": "catalog",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": true
+        }
+      },
+      "id": "ac91a498-2897-42cd-b422-88f1bb837d7e",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1840,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ed976f7c-5b76-44e9-ac53-80510ff1ce8d",
+              "name": "query.slug",
+              "value": "={{ $json.query.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "3d1e10c9-7888-4b1f-815d-b4098f18f114",
+              "name": "theme",
+              "value": "={{ $json.query.theme || \"simple\" }}",
+              "type": "string"
+            },
+            {
+              "id": "4594f651-6e1d-4b63-ad35-bc7676751726",
+              "name": "context",
+              "value": "={{ $json.query.context || \"dist\" }}",
+              "type": "string"
+            },
+            {
+              "id": "c568c8e1-81dc-41df-98dc-561d2de10e3f",
+              "name": "slug",
+              "value": "={{ $json.query.slug }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": true
+        }
+      },
+      "id": "d6962e79-535c-4e11-8ba1-b3e385172ae0",
+      "name": "input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        840,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "yC0e52sl1TIWXXij",
+        "options": {}
+      },
+      "id": "a28b5466-fcf5-4e0f-b967-2f2ebf3b10ec",
+      "name": "tumulte/get1",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2120,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "options": {
+          "fileName": "tumulte.json"
+        }
+      },
+      "id": "913d684a-1b2c-493a-b056-64ed94dc13a0",
+      "name": "Convert to File1",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2400,
+        380
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "47422e63-7fc0-4521-a490-e7ba64b2f2b7",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        2700,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "path": "tumultes/publish",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "ae972fe8-6dbd-4f40-aa84-897a4ea74dab",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        640,
+        300
+      ],
+      "webhookId": "b1be2ade-02c5-4ae4-8b08-eda85cd78780"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Paris",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-03T02:45:00.520Z",
+      "updatedAt": "2024-06-05T02:06:34.065Z",
+      "id": "7Mcf1TtE2pSSugGK",
+      "name": "tumultes"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-06-16T14:00:41.000Z",
+  "versionId": "12c12590-499b-4cc3-9032-af08b8a7d264"
+}
