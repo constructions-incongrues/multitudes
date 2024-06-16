@@ -32,7 +32,7 @@
               <a role="button"  data-placement="left" data-tooltip="Édition du contenu" href="{{ tumulte.locations.share_url }}" target="_blank">✎</a>
             </li>
             <li>
-              <a id="preview" role="button"  data-placement="left" data-tooltip="Aperçu de l'aspect qu'aura la page publique" href="{{ tumulte.locations.preview_url }}" target="_blank">◎</a>
+              <a id="preview" role="button"  data-placement="left" data-tooltip="Aperçu de l'aspect qu'aura la page publique" href="{{{ tumulte.locations.preview_url }}}" target="_blank">◎</a>
             </li>
             {{#if tumulte.ready }}
             <li><a  data-placement="left" data-tooltip="Libérer le tumulte" role="button" href="{{ tumulte.locations.dist_url }}" target="_blank" style="background-color: #00895A;">✓</a></button></li>
@@ -43,21 +43,23 @@
         </nav>
         </article>
       <article>
-        <h3>style</h3>
-        <hr>
+          <details>
+            <summary role="button">style</summary>
+            <p>
+              <small>TODO</small>
+            </p>
+          </details>
 
     <form>
       <fieldset>
         <label>
           Thème
           <select id="theme" name="theme" aria-label="Choisissez un thème" required>
-            <option selected disabled value="">
-              Choose your lover
-            </option>
-            <option>default</option>
-            <option>simple</option>
+            <option value="simple">simple</option>
+            <option value="default">default</option>
           </select>
           </label>
+        <!--
         <fieldset>
         <label>
           Custom CSS
@@ -66,6 +68,7 @@
         </textarea>
         </label>
         </fieldset>
+        -->
         </form>
       </article>
 
@@ -114,7 +117,14 @@
       </article>
     </main>
   <script>
-
+    document.getElementById("theme").addEventListener("change", function(event) {
+      var theme = event.target.value;
+      var preview = document.getElementById("preview");
+      var url = new URL(preview.href);
+      url.searchParams.delete("theme");
+      url.searchParams.append("theme", theme);
+      preview.href = url.toString();
+    });
   </script>
   </body>
 </html>
