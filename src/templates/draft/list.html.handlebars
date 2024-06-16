@@ -8,8 +8,7 @@
   </head>
 
   <body class="draft create">
-    <main class="container-fluid">
-
+    <header>
       <article>
         <nav>
           <ul>
@@ -20,6 +19,17 @@
         </nav>
       </article>
 
+    </header>
+
+    <main class="container-fluid">
+      <article class="grid">
+        {{#each drafts}}
+        <article>
+          <header>{{ draft.filename }}</header>
+        </article>
+        {{/each}}
+      </article>
     </main>
+
   </body>
 </html>
