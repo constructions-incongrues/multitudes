@@ -1,0 +1,395 @@
+{
+  "active": true,
+  "connections": {
+    "Data Validation": {
+      "main": [
+        [
+          {
+            "node": "tumulte/get",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GitHub",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "input": {
+      "main": [
+        [
+          {
+            "node": "Data Validation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tumulte/get": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "GitHub": {
+      "main": [
+        [
+          {
+            "node": "template contents",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "draft/edit.html",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "template contents": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "text/html": {
+      "main": [
+        [
+          {
+            "node": "output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "draft/edit.html": {
+      "main": [
+        [
+          {
+            "node": "text/html",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-11T09:58:21.209Z",
+  "id": "OgPwZ7Ip8Ylv7ff4",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "tumultes/edit",
+  "nodes": [
+    {
+      "parameters": {
+        "jsonSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"query\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"slug\": {\n          \"type\": \"string\"\n        },\n        \"group\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"slug\", \"group\"\n      ]\n    },\n    \"timestamp\": {\n      \"type\": \"number\"\n    }\n  },\n  \"required\": [\n    \"query\", \"timestamp\"\n  ],\n  \"additionalProperties\": false\n}"
+      },
+      "id": "52f7365c-3483-4442-9726-81b7868b2420",
+      "name": "Data Validation",
+      "type": "n8n-nodes-data-validation.dataValidation",
+      "typeVersion": 1,
+      "position": [
+        620,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ff8b8277-fe51-45bc-9830-9300ff1136f7",
+              "name": "query.slug",
+              "value": "={{ $json.query.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "d075a700-5480-41cf-b992-2f5e86559998",
+              "name": "timestamp",
+              "value": "={{ $now.toMillis() }}",
+              "type": "number"
+            },
+            {
+              "id": "efb0964b-337e-4ef4-a95b-4e1aae770712",
+              "name": "query.group",
+              "value": "={{ $json.query.group }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": true
+        }
+      },
+      "id": "4cfdc5f6-bf0e-40c7-91b6-466348f33fc7",
+      "name": "input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        400,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "yC0e52sl1TIWXXij",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "ac521829-975f-46ee-9a1e-1b73a8d24973",
+      "name": "tumulte/get",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        820,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "constructions-incongrues",
+          "mode": "list",
+          "cachedResultName": "constructions-incongrues",
+          "cachedResultUrl": "https://github.com/constructions-incongrues"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "tumultes",
+          "mode": "list",
+          "cachedResultName": "tumultes",
+          "cachedResultUrl": "https://github.com/constructions-incongrues/tumultes"
+        },
+        "filePath": "src/templates/tumulte/edit.html.hbs",
+        "asBinaryProperty": false,
+        "additionalParameters": {
+          "reference": "main"
+        }
+      },
+      "id": "b3702bb9-abfb-4e6e-a43e-94f8da47197a",
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [
+        820,
+        80
+      ],
+      "credentials": {
+        "githubApi": {
+          "id": "FJGiRvf8BGvvwTE7",
+          "name": "trivoallan"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "id": "f66c5849-08ea-42a1-aace-b4920260a70d",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        1320,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "254006eb-baa3-4fcb-b002-61c88af32c3c",
+              "name": "template",
+              "value": "={{ $json.content.base64Decode() }}",
+              "type": "string"
+            },
+            {
+              "id": "b3b56ec9-145e-4d7f-8e19-489370422e3f",
+              "name": "timestamp",
+              "value": "={{ $('input').item.json.timestamp }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d8c8215b-8145-47d0-a075-7a6e0e39c8ec",
+      "name": "template contents",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1060,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.text }}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "content-type",
+                "value": "text/html; charset=utf8"
+              }
+            ]
+          }
+        }
+      },
+      "id": "f751cb36-1299-4900-82d0-d510ee18489f",
+      "name": "text/html",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1820,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d1e77cb4-0452-4582-9227-5cf3abb22346",
+              "name": "rendered",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "faff23c7-8100-46e6-bb5e-159fb1876c72",
+              "name": "filename",
+              "value": "=index.html",
+              "type": "string"
+            },
+            {
+              "id": "3c83ebfc-624b-4a96-beb9-5b872961dc5d",
+              "name": "dirname",
+              "value": "=/drafts/{{ $('Data Validation').item.json.query.group }}/{{ $('Data Validation').item.json.query.slug }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1b365674-2daf-4e0e-8de3-c91a33859f2a",
+      "name": "output",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2000,
+        260
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "4f705300-f21a-4604-aed2-1759678581fc",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        160,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "path": "tumultes/edit",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "b5b2be16-3367-4476-a937-45f1224f15de",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        160,
+        400
+      ],
+      "webhookId": "cbaa3b33-1d65-47c7-a497-d9f829e7a700"
+    },
+    {
+      "parameters": {
+        "template": "={{ $json.template }}"
+      },
+      "id": "bdacb41e-16cc-4430-87e0-4860ba6b89ee",
+      "name": "draft/edit.html",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        1580,
+        260
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Paris",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-03T02:45:00.520Z",
+      "updatedAt": "2024-06-05T02:06:34.065Z",
+      "id": "7Mcf1TtE2pSSugGK",
+      "name": "tumultes"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-06-16T13:59:54.000Z",
+  "versionId": "35a1fc3e-d130-4c98-88f5-70928dd6dc58"
+}
