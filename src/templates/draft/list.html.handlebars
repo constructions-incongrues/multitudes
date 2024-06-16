@@ -57,18 +57,10 @@
   <body class="draft list">
     <header>
       <article>
-        <nav>
-          <ul></ul>
-          <ul>
-            <li>{{ authUserEmail }}</li>
-          </ul>
-        </nav>
-      </article>
-      <article>
         <nav aria-label="breadcrumb">
           <ul>
             <li><a href="https://tumultes.incongru.org">Tumultes</a></li>
-            <li>Mes Tumultes</li>
+            <li>{{ authUserEmail }}</li>
             </li>
           </ul>
         </nav>
@@ -78,11 +70,11 @@
     <main class="container-fluid">
 
       <article>
-        <h1><strong>0</strong> tumultes <mark class="published">publiés</mark></h1>
+        <h1><mark class="published">publiés</mark> : 0</h1>
       </article>
 
       <article>
-        <h1><strong>{{ tumultes.length }}</strong> tumultes <mark class="draft">brouillons</mark></h1>
+        <h1><mark class="draft">brouillons</mark> : {{ tumultes.length }}</h1>
         <hr>
 
       <article class="grid">
