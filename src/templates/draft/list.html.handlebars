@@ -20,12 +20,18 @@
     </header>
 
     <main class="container-fluid">
+      <article class="grid">
       {{#each tumultes}}
       <article>
         <header>
           <strong>{{ tumulte.title }}</strong>
         </header>
       </article>
+
+      {{#if (lookup ../layout [columns] @index)}}
+      </article>
+      <article class="grid">
+       {{/if}} 
       {{/each}}
     </main>
 
