@@ -1,0 +1,647 @@
+{
+  "active": true,
+  "connections": {
+    "GitHub": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "DocumentGenerator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DocumentGenerator": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Validation": {
+      "main": [
+        [
+          {
+            "node": "group",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "input_pre": {
+      "main": [
+        [
+          {
+            "node": "input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "input": {
+      "main": [
+        [
+          {
+            "node": "Data Validation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tumulte.json": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "bootstrap",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "bootstrap": {
+      "main": [
+        [
+          {
+            "node": "html response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "html response": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "group": {
+      "main": [
+        [
+          {
+            "node": "tumulte",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tumulte": {
+      "main": [
+        [
+          {
+            "node": "tumulte.json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET": {
+      "main": [
+        [
+          {
+            "node": "GitHub",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "POST": {
+      "main": [
+        [
+          {
+            "node": "input_pre",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-12T08:46:43.722Z",
+  "id": "rFHbjQg9SIzEgYUG",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "tumultes/new",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "constructions-incongrues",
+          "mode": "list",
+          "cachedResultName": "constructions-incongrues",
+          "cachedResultUrl": "https://github.com/constructions-incongrues"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "tumultes",
+          "mode": "list",
+          "cachedResultName": "tumultes",
+          "cachedResultUrl": "https://github.com/constructions-incongrues/tumultes"
+        },
+        "filePath": "src/templates/tumulte/new.html.hbs",
+        "asBinaryProperty": false,
+        "additionalParameters": {}
+      },
+      "id": "ad4322be-c450-4b8e-b23a-a88deb882198",
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [
+        680,
+        300
+      ],
+      "credentials": {
+        "githubApi": {
+          "id": "FJGiRvf8BGvvwTE7",
+          "name": "trivoallan"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9f8f7761-44ef-47b6-9caa-9033d80000c2",
+              "name": "rendered",
+              "value": "={{ $json.content.base64Decode() }}",
+              "type": "string"
+            },
+            {
+              "id": "ce82bb4a-6ad8-4a02-8fda-8f941d7ebd44",
+              "name": "http_root",
+              "value": "https://tumultes.incongru.org",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1e942640-3e99-44ff-a489-b2050efc1098",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        900,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.text }}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "content-type",
+                "value": "text/html; charset=utf-8"
+              }
+            ]
+          }
+        }
+      },
+      "id": "90a34b1b-d541-4f4f-a981-f9d23ee64806",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1340,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "template": "={{ $json.rendered }}"
+      },
+      "id": "299cd9be-4457-4840-96ba-9da8997034b8",
+      "name": "DocumentGenerator",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsonSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\"\n    },\n    \"email\": {\n      \"type\": \"string\"\n    },\n    \"collection\": {\n      \"type\": \"string\"\n    },\n    \"slug\": {\n      \"type\": \"string\"\n    },\n    \"nextcloud_root\": {\n      \"type\": \"string\"\n    },\n    \"http_root\": {\n      \"type\": \"string\"\n    },\n    \"url\": {\n      \"type\": \"string\"\n    },\n    \"draft_url\": {\n      \"type\": \"string\"\n    },\n    \"path\": {\n      \"type\": \"string\"\n    },\n    \"group\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"title\", \"email\", \"collection\", \"slug\", \"nextcloud_root\", \"path\", \"group\"\n  ],\n  \"additionalProperties\": false\n}"
+      },
+      "id": "066fd5ea-3fdc-44d9-8828-4a65bbf8567d",
+      "name": "Data Validation",
+      "type": "n8n-nodes-data-validation.dataValidation",
+      "typeVersion": 1,
+      "position": [
+        820,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Creation Form\n",
+        "height": 287.5,
+        "width": 1152.5
+      },
+      "id": "8b692be2-6985-49fd-975e-f89ecb249e33",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        380,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6baa35fb-3468-49e5-b074-2d5708808a90",
+              "name": "title",
+              "value": "={{ $json.body.title }}",
+              "type": "string"
+            },
+            {
+              "id": "484105de-8925-491f-b25f-df7ce2e00dac",
+              "name": "email",
+              "value": "={{ $json.body.email }}",
+              "type": "string"
+            },
+            {
+              "id": "89d3b657-a0e9-411d-a672-e04b4a3277a6",
+              "name": "collection",
+              "value": "drafts",
+              "type": "string"
+            },
+            {
+              "id": "8db98535-3658-4b35-9953-7a0db3a6f722",
+              "name": "slug",
+              "value": "={{String($json.body.title)\n.replace(/[øØ]/g, 'o')\n.replace(/[æÆ]/g, 'ae')\n.replace(/[ßẞ]/g, 'ss')\n.normalize(\"NFD\")\n.replace(/[\\u0300-\\u036f]/g, \"\")\n.replace(/\\b\\w'/g, \"\")\n.replace(/ẞ/g, 'ß')\n.toLowerCase()\n.replace(/[^a-z0-9]+/g, '-')\n.replace(/-+/g, '-')\n.replace(/^-|-$/g, '')}}",
+              "type": "string"
+            },
+            {
+              "id": "a4579296-f6b2-44f5-9578-f0341578bb34",
+              "name": "nextcloud_root",
+              "value": "/Conventicules/Tumultes/collections",
+              "type": "string"
+            },
+            {
+              "id": "87927d6b-bcac-4ae9-88d8-cb053e5e8f7c",
+              "name": "http_root",
+              "value": "https://tumultes.incongru.org",
+              "type": "string"
+            },
+            {
+              "id": "dcd06c08-42f8-49f1-9dc7-246c662d1374",
+              "name": "group",
+              "value": "={{ $json.body.email.hash(\"sha256\").slice(0, 10) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "785c9b97-b930-463c-ada9-2e8439112407",
+      "name": "input_pre",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        460,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5fa8dc7e-cec6-48d7-aaa4-a9e88ac55daf",
+              "name": "path",
+              "value": "={{ $json.nextcloud_root }}/{{ $json.collection }}/{{ $json.group }}/{{ $json.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "ce97fcd5-fc46-4bcb-82e3-464f62b513f6",
+              "name": "url",
+              "value": "={{ $json.http_root }}/{{ $json.collection }}/{{ $json.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "de2d2587-ffa7-4f4b-9316-e34d2101414d",
+              "name": "draft_url",
+              "value": "=https://sabine-pantagruweb.incongru.org/webhook/tumultes/draft/show?slug={{ $json.slug }}&group={{ $json.group }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "a6fcfd0e-d052-4975-92c7-7441f31a5e86",
+      "name": "input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        660,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e8f32bb0-b351-46dc-a742-05ba0c5e02be",
+              "name": "title",
+              "value": "={{ $('input').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "38f5eb3d-fde3-43d2-bdb3-addb3a039e3a",
+              "name": "curators",
+              "value": "=[\"{{ $('input').item.json.email.split(\"@\").first().toTitleCase() }}\"]",
+              "type": "array"
+            },
+            {
+              "id": "c3243a13-7382-4fdd-a26c-9e32b76cdba9",
+              "name": "creation_date",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "e06ceaed-a927-42bc-8974-a43283e83b74",
+              "name": "slug",
+              "value": "={{ $('input').item.json.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "d11dda7d-a099-4673-b951-2c3c38518b73",
+              "name": "publication_date",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "09f55623-1330-4dcc-aba0-6c8a5e27f4ea",
+              "name": "owner.email",
+              "value": "={{ $('input').item.json.email }}",
+              "type": "string"
+            },
+            {
+              "id": "2af908bc-28b8-47a1-85f9-e0a9bb03d2ca",
+              "name": "group",
+              "value": "={{ $('input').item.json.email.hash(\"sha256\").slice(0, 10) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "01c21a3c-8755-4885-b7f4-5a6d24151d54",
+      "name": "tumulte.json",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1320,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "mode": "each",
+        "options": {
+          "format": true,
+          "fileName": "={{ $('input').item.json.path }}/tumulte.json"
+        }
+      },
+      "id": "9da10fb1-841a-4a69-8bb2-a413caf48b0d",
+      "name": "Convert to File",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1540,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "path": "={{ $binary.data.directory }}/{{ $binary.data.fileName }}",
+        "binaryDataUpload": true
+      },
+      "id": "438ed93e-ffdd-4f89-864a-f8cb88d0f409",
+      "name": "bootstrap",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        1760,
+        740
+      ],
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "=C'est <a href=\"https://sabine-pantagruweb.incongru.org/webhook/tumultes/draft/show?slug={{ $('input').item.json.slug.urlEncode() }}&group={{ $('input').item.json.group.urlEncode() }}\">prêt</a> :)",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "content-type",
+                "value": "text/html; charset=utf-8"
+              }
+            ]
+          }
+        }
+      },
+      "id": "4fb2c62f-7875-49d6-beb1-d0be60b1c477",
+      "name": "html response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        2020,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('input').item.json.email }}",
+        "subject": "=Tumultes : {{ $('input').item.json.title }}",
+        "emailType": "text",
+        "message": "=titre : {{ $('input').item.json.title }}\nurl : {{ $('input').item.json.draft_url }}\n\n--\nTumultueusement votre\n\n",
+        "options": {
+          "appendAttribution": false,
+          "senderName": "Tumultes",
+          "replyTo": "tumultes@incongru.org"
+        }
+      },
+      "id": "190fbf4d-0fda-4082-973f-ed92f7883387",
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2240,
+        740
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "rGtkNWVfEKdnRJZc",
+          "name": "trivoallan@gmail.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "path": "={{ $('input_pre').item.json.nextcloud_root }}/{{ $('input_pre').item.json.collection }}/{{ $('input_pre').item.json.group }}"
+      },
+      "id": "2cedc019-a68a-4f31-a586-436a6db38c14",
+      "name": "group",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        740
+      ],
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "path": "={{ $json.path }}"
+      },
+      "id": "cd9f9f0a-dde1-4382-acc2-fd60f74b27b6",
+      "name": "tumulte",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        740
+      ],
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "path": "tumultes/new",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "febc9f4a-a2e3-4dd3-8d5b-8cd48e21146f",
+      "name": "GET",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        440,
+        300
+      ],
+      "webhookId": "50e93ebb-bf39-48b1-a17e-50c1e9092a7a"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "tumultes/new",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "cb48ef2e-44c2-40a2-ad05-dffc4bd52551",
+      "name": "POST",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        260,
+        740
+      ],
+      "webhookId": "cf1b3738-8b7a-45f4-9f08-9c928e8fe787"
+    }
+  ],
+  "pinData": {
+    "POST": [
+      {
+        "json": {
+          "body": {
+            "title": "TESTSIN",
+            "email": "tristan@rivoallan.net"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Paris",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-03T02:45:00.520Z",
+      "updatedAt": "2024-06-05T02:06:34.065Z",
+      "id": "7Mcf1TtE2pSSugGK",
+      "name": "tumultes"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2024-06-16T13:58:06.000Z",
+  "versionId": "9d093645-2e0b-4fcd-8609-04ddaf7a6467"
+}
