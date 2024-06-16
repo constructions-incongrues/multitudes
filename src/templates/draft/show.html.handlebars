@@ -32,7 +32,7 @@
               <a role="button"  data-placement="left" data-tooltip="Édition du contenu" href="{{ tumulte.locations.share_url }}" target="_blank">✎</a>
             </li>
             <li>
-              <a id="preview" role="button"  data-placement="left" data-tooltip="Aperçu de l'aspect qu'aura la page publique" href="{{{ tumulte.locations.preview_url }}}" target="_blank">?  </a>
+              <a id="preview" role="button"  data-placement="left" data-tooltip="Aperçu de l'aspect qu'aura la page publique" href="{{{ tumulte.locations.preview_url }}}&theme=simple" target="_blank">?  </a>
             </li>
             {{#if tumulte.ready }}
             <li><a id="publish" data-placement="left" data-tooltip="Libérer le tumulte" role="button" href="{{ tumulte.locations.dist_url }}&theme=simple" target="_blank" style="background-color: #00895A;">✓</a></button></li>
@@ -76,8 +76,14 @@
 
         <article>
           <details>
+
             <summary role="button">images</summary>
             <p>
+              {{#if tumulte.cover.url }}
+              <progress value="1" max="1" />
+              {{else}}
+              <progress value="0" max="1" />
+              {{/if}}
               <small>L'image de couverture est obligatoire et son nom de fichier doit être <kbd>cover.png</kbd> (ou autre extension d'image)</small>
             </p>
           </details>
@@ -93,6 +99,7 @@
           <details>
             <summary role="button">audio</summary>
             <p>
+              <progress value="{{ tumulte.tracks.find(track => function(track, event) ) }}" max="{{ tumulte.tracks.length }}" />
               <small>
                 Les fichiers doivent se nommer <kbd>number - artist - titre.mp3</kbd>.
               </small>
@@ -101,7 +108,7 @@
 
           <hr>
 
-          {{#if tumulte.tracks.length}}
+          {{#if tumulte.tracks.length }}
           <ol>
           {{#each tumulte.tracks}}
             {{#if well_formed}}
