@@ -3,6 +3,40 @@
     <title>{{ group }} | drafts | tumultes</title>
     <meta charset="utf8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.purple.min.css" />
+<style>
+  article.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+  }
+
+  img.cover {
+    width: auto;
+  }
+
+  mark.draft {
+    padding: 0.2em;
+    font-size: small;
+    color: white;
+    background-color: darkgrey;
+  }
+
+  mark.complete {
+    background-color: green;
+  }
+
+  mark.incomplete {
+    background-color: red;
+  }
+
+  span.creation_date {
+    font-size: small;
+  }
+
+  article h2 {
+    font-size: 1em;
+  }
+</style>
   </head>
 
   <body class="draft list">
@@ -11,7 +45,11 @@
         <nav>
           <ul>
             <li>
-              <h1><a href="https://tumultes.incongru.org">Tumultes</a> &gt; Brouillons</h1>
+              <hgroup>
+                <h1>
+                  <a href="https://tumultes.incongru.org">Tumultes</a> &gt; Mes brouillons
+                </h1>
+              </hgroup>
             </li>
           </ul>
         </nav>
@@ -21,14 +59,29 @@
 
     <main class="container-fluid">
 
+      <article class="grid">
     {{#each tumultes}}
-      <article>
-        <header>
-          <strong>{{ tumulte.title }}</strong>
-        </header>
-        <img src="{{ tumulte.cover.url }}" />
-      </article>
+        <article>
+          <header>
+            <hgroup>
+            <h2>
+              <a href="{{ tumulte.draft_url }}">{{ tumulte.title }}</a>
+            </h2>
+            <p><span class="creation_date">créé le {{ tumulte.creation_date_pretty }}</span></p>
+            </hgroup>
+          </header>
+          <img class="cover" src="{{ tumulte.cover.url }}" />
+          <footer>
+            <mark class="draft" data-tooltip="Ce tumulte n'est pas visible publiquement">brouillon</mark>
+            {{#if tumulte.ready }}
+            <mark class="draft complete" data-tooltip="Prêt à être publié">prêt</mark>
+            {{else}}
+            <mark class="draft incomplete" data-tooltip="Des problèmes empêchent la publication">erreurs</mark>
+            {{/if}}
+          </footer>
+        </article>
     {{/each}}
+      </article>
 
     </main>
 
