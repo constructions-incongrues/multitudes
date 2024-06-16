@@ -1,6 +1,6 @@
 <html data-theme="light">
   <head>
-    <title>{{ tumulte.title }} | draft | tumultes</title>
+    <title>{{ data.tumulte.title }} | draft | tumultes</title>
 
     <meta charset="utf8">
 
@@ -16,11 +16,11 @@
             <li>
               <hgroup>
               <h1>
-                 <a href="https://sabine-pantagruweb.incongru.org/webhook/tumultes/list"><strong>Tumultes</strong></a> &gt; {{ tumulte.title }}
+                 <a href="https://sabine-pantagruweb.incongru.org/webhook/tumultes/list"><strong>Tumultes</strong></a> &gt; {{ data.tumulte.title }}
               </h1>
               <p>
-                <small><a href="{{ tumulte.locations.http_root}}"><strong>Tumulte</strong></a> publié par <strong>{{#each tumulte.curators }} {{ . }} {{/each}}</strong></small>
-                <small>le <strong>{{ tumulte.creation_date_pretty }}</strong></small>
+                <small><a href="{{ data.tumulte.locations.http_root}}"><strong>Tumulte</strong></a> publié par <strong>{{#each data.tumulte.curators }} {{ . }} {{/each}}</strong></small>
+                <small>le <strong>{{ data.tumulte.creation_date_pretty }}</strong></small>
               </p>
               </hgroup>
             </li>
@@ -29,13 +29,13 @@
           <ul>
             <li><a href="" role="button"  data-placement="left" data-tooltip="Synchronisation de l'interface avec la dernière version du tumulte">↻</a></li>
             <li>
-              <a role="button"  data-placement="left" data-tooltip="Édition du contenu" href="{{ tumulte.locations.share_url }}" target="_blank">✎</a>
+              <a role="button"  data-placement="left" data-tooltip="Édition du contenu" href="{{ data.tumulte.locations.share_url }}" target="_blank">✎</a>
             </li>
             <li>
-              <a id="preview" role="button"  data-placement="left" data-tooltip="Aperçu de l'aspect qu'aura la page publique" href="{{{ tumulte.locations.preview_url }}}&theme=simple" target="_blank">?  </a>
+              <a id="preview" role="button"  data-placement="left" data-tooltip="Aperçu de l'aspect qu'aura la page publique" href="{{{ data.tumulte.locations.preview_url }}}&theme=simple" target="_blank">?  </a>
             </li>
-            {{#if tumulte.ready }}
-            <li><a id="publish" data-placement="left" data-tooltip="Libérer le tumulte" role="button" href="{{ tumulte.locations.dist_url }}&theme=simple" target="_blank" style="background-color: #00895A;">✓</a></button></li>
+            {{#if data.tumulte.ready }}
+            <li><a id="publish" data-placement="left" data-tooltip="Libérer le tumulte" role="button" href="{{ data.tumulte.locations.dist_url }}&theme=simple" target="_blank" style="background-color: #00895A;">✓</a></button></li>
             {{else}}
             <li><a id="publish" role="button" data-tooltip="Ce tumulte n'est pas encore prêt à être publié" data-placement="left" href="#" target="_blank" style="background-color: red;">☒</a></li>
             {{/if}}
@@ -76,7 +76,7 @@
       <article class="grid">
 
         <article>
-          {{#if tumulte.cover.url }}
+          {{#if data.tumulte.cover.url }}
           <progress value="1" max="1"></progress>
           {{else}}
           <progress value="0" max="1"></progress>
@@ -90,13 +90,13 @@
 
           <hr>
 
-          {{#if tumulte.cover.url }}
-          <img width="100%" src="{{ tumulte.cover.url }}" />
+          {{#if data.tumulte.cover.url }}
+          <img width="100%" src="{{ data.tumulte.cover.url }}" />
           {{/if}}
         </article>
 
         <article>
-          <progress value="{{ tumulte.tracks_well_formed }}" max="{{ tumulte.tracks.length }}"></progress>
+          <progress value="{{ data.tumulte.tracks_well_formed }}" max="{{ data.tumulte.tracks.length }}"></progress>
           <details>
             <summary role="button">audio</summary>
             <p>
@@ -107,9 +107,9 @@
           </details>
           <hr>
 
-          {{#if tumulte.tracks.length }}
+          {{#if data.tumulte.tracks.length }}
           <ol>
-          {{#each tumulte.tracks}}
+          {{#each data.tumulte.tracks}}
             {{#if well_formed}}
             <li><a href="{{ url }}">{{ artist }} - {{ title }}</a></li>
             {{else }}
