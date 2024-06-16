@@ -66,10 +66,14 @@
 
     <main class="container-fluid">
 
+      {{#if published.length}}
       <article>
         <h1><mark class="published">publiés</mark></h1>
+        <hr>
       </article>
+      {{/if}}
 
+      {{#if drafts.length}}
       <article>
         <h1><mark class="draft">brouillons</mark></h1>
         <hr>
@@ -107,6 +111,7 @@
     {{/each}}
       </article>
     </article>
+    {{/if}}
     </main>
 
   </body>
