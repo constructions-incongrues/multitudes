@@ -83,18 +83,6 @@
     {{#each drafts}}
         <article>
           <header>
-            <hgroup>
-            <h2>
-              <a href="{{ data.contents.locations.edit_url }}">{{ data.contents.title }}</a>
-            </h2>
-            <p class="creation_date">
-              créé le {{ data.contents.creation_date_pretty }}
-            </p>
-            </hgroup>
-          </header>
-          <img class="cover" src="{{ data.contents.cover.url }}" />
-          <footer>
-
             <nav>
               <ul>
                 <li> <mark class="draft" data-tooltip="Ce tumulte n'est pas visible publiquement">brouillon</mark></li>
@@ -108,6 +96,18 @@
                 <li><mark class="badge audio" data-tooltip="Fichiers audio">{{ data.contents.tracks.length }} ♫</mark></li>
               </ul>
             </nav>
+
+            <hgroup>
+            <h2>
+              <a href="{{ data.contents.locations.edit_url }}">{{ data.contents.title }}</a>
+            </h2>
+            <p class="creation_date">
+              créé le {{ data.contents.creation_date_pretty }}
+            </p>
+            </hgroup>
+          </header>
+          <img class="cover" src="{{ data.contents.cover.url }}" />
+          <footer>
           </footer>
         </article>
     {{/each}}
