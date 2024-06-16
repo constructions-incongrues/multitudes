@@ -35,7 +35,7 @@
               <a id="preview" role="button"  data-placement="left" data-tooltip="Aperçu de l'aspect qu'aura la page publique" href="{{{ tumulte.locations.preview_url }}}" target="_blank">◎</a>
             </li>
             {{#if tumulte.ready }}
-            <li><a id="publish" data-placement="left" data-tooltip="Libérer le tumulte" role="button" href="{{ tumulte.locations.dist_url }}" target="_blank" style="background-color: #00895A;">✓</a></button></li>
+            <li><a id="publish" data-placement="left" data-tooltip="Libérer le tumulte" role="button" href="{{ tumulte.locations.dist_url }}&theme=simple" target="_blank" style="background-color: #00895A;">✓</a></button></li>
             {{else}}
             <li><a id="publish" role="button" data-tooltip="Ce tumulte n'est pas encore prêt à être publié" data-placement="left" href="#" target="_blank" style="background-color: red;">☒</a></li>
             {{/if}}
@@ -119,11 +119,18 @@
   <script>
     document.getElementById("theme").addEventListener("change", function(event) {
       var theme = event.target.value;
+
       var preview = document.getElementById("preview");
       var url = new URL(preview.href);
       url.searchParams.delete("theme");
       url.searchParams.append("theme", theme);
       preview.href = url.toString();
+
+      var publish = document.getElementById("publish");
+      var url = new URL(publish.href);
+      url.searchParams.delete("theme");
+      url.searchParams.append("theme", theme);
+      publish.href = url.toString();
     });
   </script>
   </body>
