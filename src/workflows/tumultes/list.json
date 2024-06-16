@@ -1,0 +1,531 @@
+{
+  "active": true,
+  "connections": {
+    "GitHub": {
+      "main": [
+        [
+          {
+            "node": "input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DocumentGenerator": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "group": {
+      "main": [
+        [
+          {
+            "node": "drafts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "input": {
+      "main": [
+        [
+          {
+            "node": "group",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Sort",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "template vars": {
+      "main": [
+        [
+          {
+            "node": "DocumentGenerator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "drafts": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort": {
+      "main": [
+        [
+          {
+            "node": "template vars",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "GitHub",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "redirect to login",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-16T06:03:04.176Z",
+  "id": "EtO7DD117k7azhvb",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "tumultes/list",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "constructions-incongrues",
+          "mode": "list",
+          "cachedResultName": "constructions-incongrues",
+          "cachedResultUrl": "https://github.com/constructions-incongrues"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "tumultes",
+          "mode": "list",
+          "cachedResultName": "tumultes",
+          "cachedResultUrl": "https://github.com/constructions-incongrues/tumultes"
+        },
+        "filePath": "src/templates/draft/list.html.handlebars",
+        "asBinaryProperty": false,
+        "additionalParameters": {}
+      },
+      "id": "aa71f896-03ba-468e-85a0-ba21c118763f",
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        280
+      ],
+      "credentials": {
+        "githubApi": {
+          "id": "FJGiRvf8BGvvwTE7",
+          "name": "trivoallan"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.text }}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "content-type",
+                "value": "text/html; charset=utf-8"
+              }
+            ]
+          }
+        }
+      },
+      "id": "7d654059-8f78-42d9-a99c-1ddd59336693",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        3260,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "template": "={{ $('GitHub').item.json.content.base64Decode() }}"
+      },
+      "id": "903a75d4-ea3b-49ef-88f4-95909acf2c9e",
+      "name": "DocumentGenerator",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        3000,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "operation": "list",
+        "path": "={{ $('input').item.json.nextcloud_root }}/drafts/{{ $('input').item.json.group }}"
+      },
+      "id": "723e3bdc-de99-4074-87be-2b15d6194ab0",
+      "name": "group",
+      "type": "n8n-nodes-base.nextCloud",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        280
+      ],
+      "credentials": {
+        "nextCloudApi": {
+          "id": "Fe0yTzo9kLrGMdUy",
+          "name": "tristan@vip.jeancloude.club"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9f8f7761-44ef-47b6-9caa-9033d80000c2",
+              "name": "rendered",
+              "value": "={{ $json.content.base64Decode() }}",
+              "type": "string"
+            },
+            {
+              "id": "ce82bb4a-6ad8-4a02-8fda-8f941d7ebd44",
+              "name": "http_root",
+              "value": "https://tumultes.incongru.org",
+              "type": "string"
+            },
+            {
+              "id": "edcb674f-d608-4a97-8af3-e94be0544e45",
+              "name": "group",
+              "value": "={{ $('Code').item.json.tumultesAuthUserEmail.hash(\"sha256\").slice(0, 10) }}",
+              "type": "string"
+            },
+            {
+              "id": "0fbe0542-1d03-4a7b-8d09-5f690bbe2d3a",
+              "name": "nextcloud_root",
+              "value": "/Conventicules/Tumultes/collections",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d543beaf-fadd-4b06-b6c3-5f1df5c1e6f1",
+      "name": "input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1320,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "tumultes",
+        "options": {}
+      },
+      "id": "99b60a40-b05f-4037-b807-10783efd2fb4",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2280,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "83f647f0-b7ea-4fe3-a4b1-d8e5f37feeca",
+              "name": "nextcloud_root",
+              "value": "={{ $('input').item.json.nextcloud_root }}",
+              "type": "string"
+            },
+            {
+              "id": "807994da-0146-4da4-a1eb-b604b54021f4",
+              "name": "http_root",
+              "value": "={{ $('input').item.json.http_root }}",
+              "type": "string"
+            },
+            {
+              "id": "1727fbdb-5c9e-4113-9ce9-452a52020044",
+              "name": "group",
+              "value": "={{ $('input').item.json.group }}",
+              "type": "string"
+            },
+            {
+              "id": "e7af5340-92be-482a-9360-8d9484443a54",
+              "name": "tumultes",
+              "value": "={{ $json.tumultes }}",
+              "type": "array"
+            },
+            {
+              "id": "6c333a3b-0c35-48d8-afa2-37d129fbe7e7",
+              "name": "authUserEmail",
+              "value": "={{ $('Code').item.json.tumultesAuthUserEmail }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": true
+        }
+      },
+      "id": "972b747d-0c88-4aa3-8cf7-966fda0f8d05",
+      "name": "template vars",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2760,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "01f9f16d-4c66-4c63-b297-42b7549964e6",
+              "name": "name",
+              "value": "={{ $json.path.replace(/\\/$/, \"\").split(\"/\").last() }}",
+              "type": "string"
+            },
+            {
+              "id": "b1b95d29-fd89-4f63-be48-7b290ceb6e65",
+              "name": "query.slug",
+              "value": "={{ $json.path.replace(/\\/$/, \"\").split(\"/\").last() }}",
+              "type": "string"
+            },
+            {
+              "id": "4b4d068e-5b0b-412b-88d4-be2b052775f0",
+              "name": "query.collection",
+              "value": "drafts",
+              "type": "string"
+            },
+            {
+              "id": "ccc84aba-fad6-467a-9e83-f4a40c7920fd",
+              "name": "query.group",
+              "value": "={{ $('input').item.json.group }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {
+          "dotNotation": true
+        }
+      },
+      "id": "2967a551-6807-4ff5-a5fe-cfd74a325831",
+      "name": "drafts",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1760,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "yC0e52sl1TIWXXij",
+        "mode": "each",
+        "options": {}
+      },
+      "id": "5114b400-f4e0-4e7a-948b-4c8af37ec2a4",
+      "name": "Execute Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1980,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "tumultes[0].tumulte.creation_date",
+              "order": "descending"
+            }
+          ]
+        },
+        "options": {
+          "disableDotNotation": false
+        }
+      },
+      "id": "21996337-7217-423f-8cdd-e60fae9f6300",
+      "name": "Sort",
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        2500,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "let myCookies = {};\nlet cookies = [];\n\nif ($input.item.json.headers.cookie) {\n  cookies = $input.item.json.headers.cookie.split(';')\n  for (item of cookies ) {\n    myCookies[item.split('=')[0].trim()]=item.split('=')[1].trim();\n  }\n}\n\nreturn myCookies;"
+      },
+      "id": "27120c49-90e2-4b34-9693-fdc1ba0a1745",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "9bb3143e-52d2-4d75-95cd-8217176e9056",
+              "leftValue": "={{ $json.tumultesAuthUserEmail }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c7e6dc8a-9831-4b50-9cf6-4ca5687859ac",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        880,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "redirect",
+        "redirectURL": "https://sabine-pantagruweb.incongru.org/webhook/tumultes/login",
+        "options": {}
+      },
+      "id": "fabe9380-2631-46bb-94fc-6022caccb61f",
+      "name": "redirect to login",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1040,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "path": "tumultes/list",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "e7cdf3c1-e580-467c-97e2-2a8313c99c4c",
+      "name": "GET",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        440,
+        300
+      ],
+      "webhookId": "96978c08-25d2-40c4-b52c-f906a9b375fb"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Paris",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-03T02:45:00.520Z",
+      "updatedAt": "2024-06-05T02:06:34.065Z",
+      "id": "7Mcf1TtE2pSSugGK",
+      "name": "tumultes"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-06-16T13:56:33.000Z",
+  "versionId": "5ee935dc-fa31-4563-885b-4e2397f2aabf"
+}
