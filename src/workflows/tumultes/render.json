@@ -167,6 +167,12 @@
               "name": "query.collection",
               "value": "={{ $json.query.collection }}",
               "type": "string"
+            },
+            {
+              "id": "d88e986c-3467-41a1-8acd-299ffeabc114",
+              "name": "query.group",
+              "value": "={{ $json.query.group }}",
+              "type": "string"
             }
           ]
         },
@@ -449,6 +455,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-06-16T14:02:33.000Z",
-  "versionId": "e7f6a66e-1572-4c57-a564-8b9063583d5d"
+  "updatedAt": "2024-06-16T15:06:08.000Z",
+  "versionId": "c4f015c9-7dee-4454-a5ec-edf043b58e59"
 }
