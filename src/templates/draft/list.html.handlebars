@@ -3,40 +3,48 @@
     <title>{{ group }} | drafts | tumultes</title>
     <meta charset="utf8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.purple.min.css" />
-<style>
-  article.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-  }
+    <style>
+        article.grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-auto-rows: minmax(100px, auto);
+        }
 
-  img.cover {
-    width: auto;
-  }
+        img.cover {
+          width: auto;
+        }
 
-  mark.draft {
-    padding: 0.2em;
-    font-size: small;
-    color: white;
-    background-color: darkgrey;
-  }
+        mark.draft, mark.badge {
+          padding: 0.2em;
+          font-size: small;
+          color: white;
 
-  mark.complete {
-    background-color: green;
-  }
+        }
 
-  mark.incomplete {
-    background-color: red;
-  }
+        mark.badge {
+          background-color: darkorange;
+        }
 
-  p.creation_date {
-    font-size: small;
-  }
+        mark.draft {
+          background-color: darkgrey;
+        }
 
-  article h2 {
-    font-size: 1em;
-  }
-</style>
+        mark.complete {
+          background-color: green;
+        }
+
+        mark.incomplete {
+          background-color: red;
+        }
+
+        p.creation_date {
+          font-size: .6em !important;
+        }
+
+        article h2 {
+          font-size: 1em;
+        }
+    </style>
   </head>
 
   <body class="draft list">
@@ -74,12 +82,21 @@
           </header>
           <img class="cover" src="{{ tumulte.cover.url }}" />
           <footer>
-            <mark class="draft" data-tooltip="Ce tumulte n'est pas visible publiquement">brouillon</mark>
-            {{#if tumulte.ready }}
-            <mark class="draft complete" data-tooltip="Prêt à être publié">prêt</mark>
-            {{else}}
-            <mark class="draft incomplete" data-tooltip="Des problèmes empêchent la publication">erreurs</mark>
-            {{/if}}
+
+
+            <nav>
+              <ul>
+                <li> <mark class="draft" data-tooltip="Ce tumulte n'est pas visible publiquement">brouillon</mark></li>
+                {{#if tumulte.ready }}
+                <li> <mark class="draft complete" data-tooltip="Prêt à être publié">prêt</mark></li>
+                {{else}}
+                <li> <mark class="draft incomplete" data-tooltip="Des problèmes empêchent la publication">erreurs</mark></li>
+                {{/if}}
+              </ul>
+              <ul>
+                <li><mark class="badge audio" data-tooltip="Fichiers audio">{{ tumulte.tracks.length }} ♫</mark></li>
+              </ul>
+            </nav>
           </footer>
         </article>
     {{/each}}
