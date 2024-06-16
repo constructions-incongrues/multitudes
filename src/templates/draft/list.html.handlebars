@@ -20,21 +20,21 @@
     </header>
 
     <main class="container-fluid">
-      <article class="grid">
 
       {{#each tumultes}}
+        {{#if column_break }}
+      <article class="grid">
+        {{/if}}
         <article>
           <header>
             <strong>{{ tumulte.title }}</strong>
           </header>
         </article>
-
-      {{#if column_break }}
+        {{#if column_break }}
       </article>
-      <article class="grid">
-      {{/if}}
+        {{/if}}
       {{/each}}
-        
+
     </main>
 
   </body>
