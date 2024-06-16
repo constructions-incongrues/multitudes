@@ -30,10 +30,12 @@
           <header><strong>{{ @index }} : {{ name }}</strong></header>
           <footer>{{ lastModified }}</footer>
         </article>
-        {{/each}}
 
+        {{#if (eq @index 5)}}
       </article>
-
+      <article class="grid">
+        {{/if}}
+        {{/each}}
     </main>
 
   </body>
