@@ -29,7 +29,7 @@
     background-color: red;
   }
 
-  span.creation_date {
+  p.creation_date {
     font-size: small;
   }
 
@@ -67,7 +67,9 @@
             <h2>
               <a href="{{ tumulte.draft_url }}">{{ tumulte.title }}</a>
             </h2>
-            <p><span class="creation_date">créé le {{ tumulte.creation_date_pretty }}</span></p>
+            <p class="creation_date">
+              créé le {{ tumulte.creation_date_pretty }}
+            </p>
             </hgroup>
           </header>
           <img class="cover" src="{{ tumulte.cover.url }}" />
