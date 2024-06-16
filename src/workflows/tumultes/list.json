@@ -71,18 +71,7 @@
       "main": [
         [
           {
-            "node": "Execute Workflow",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Execute Workflow": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
+            "node": "tumute/get",
             "type": "main",
             "index": 0
           }
@@ -139,6 +128,17 @@
           }
         ]
       ]
+    },
+    "tumute/get": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-06-16T06:03:04.176Z",
@@ -166,7 +166,7 @@
           "cachedResultName": "tumultes",
           "cachedResultUrl": "https://github.com/constructions-incongrues/tumultes"
         },
-        "filePath": "src/templates/draft/list.html.handlebars",
+        "filePath": "src/templates/tumulte/list.html.hbs",
         "asBinaryProperty": false,
         "additionalParameters": {}
       },
@@ -205,7 +205,7 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
       "position": [
-        3260,
+        3480,
         280
       ]
     },
@@ -218,7 +218,7 @@
       "type": "n8n-nodes-document-generator.documentGenerator",
       "typeVersion": 1,
       "position": [
-        3000,
+        3220,
         280
       ]
     },
@@ -287,7 +287,7 @@
     {
       "parameters": {
         "aggregate": "aggregateAllItemData",
-        "destinationFieldName": "tumultes",
+        "destinationFieldName": "drafts",
         "options": {}
       },
       "id": "99b60a40-b05f-4037-b807-10783efd2fb4",
@@ -323,8 +323,8 @@
             },
             {
               "id": "e7af5340-92be-482a-9360-8d9484443a54",
-              "name": "tumultes",
-              "value": "={{ $json.tumultes }}",
+              "name": "drafts",
+              "value": "={{ $json.drafts }}",
               "type": "array"
             },
             {
@@ -344,7 +344,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
-        2760,
+        2980,
         280
       ]
     },
@@ -394,25 +394,10 @@
     },
     {
       "parameters": {
-        "workflowId": "yC0e52sl1TIWXXij",
-        "mode": "each",
-        "options": {}
-      },
-      "id": "5114b400-f4e0-4e7a-948b-4c8af37ec2a4",
-      "name": "Execute Workflow",
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1,
-      "position": [
-        1980,
-        280
-      ]
-    },
-    {
-      "parameters": {
         "sortFieldsUi": {
           "sortField": [
             {
-              "fieldName": "tumultes[0].tumulte.creation_date",
+              "fieldName": "drafts[0].tumulte.creation_date",
               "order": "descending"
             }
           ]
@@ -507,6 +492,21 @@
         300
       ],
       "webhookId": "96978c08-25d2-40c4-b52c-f906a9b375fb"
+    },
+    {
+      "parameters": {
+        "workflowId": "yC0e52sl1TIWXXij",
+        "mode": "each",
+        "options": {}
+      },
+      "id": "5114b400-f4e0-4e7a-948b-4c8af37ec2a4",
+      "name": "tumute/get",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1980,
+        280
+      ]
     }
   ],
   "pinData": {},
@@ -526,6 +526,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-06-16T13:56:33.000Z",
-  "versionId": "5ee935dc-fa31-4563-885b-4e2397f2aabf"
+  "updatedAt": "2024-06-16T15:26:54.000Z",
+  "versionId": "9f62bdef-f330-4505-bfb4-029c2f930dd7"
 }
