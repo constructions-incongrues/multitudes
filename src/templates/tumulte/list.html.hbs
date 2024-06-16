@@ -76,36 +76,36 @@
       </article>
 
       <article>
-        <h1><mark class="draft">brouillons</mark> : {{ drafts.data.length }}</h1>
+        <h1><mark class="draft">brouillons</mark> : {{ drafts.length }}</h1>
         <hr>
 
       <article class="grid">
-    {{#each drafts.data}}
+    {{#each drafts}}
         <article>
           <header>
             <hgroup>
             <h2>
-              <a href="{{ tumulte.locations.edit_url }}">{{ tumulte.title }}</a>
+              <a href="{{ data.tumulte.locations.edit_url }}">{{ data.tumulte.title }}</a>
             </h2>
             <p class="creation_date">
-              créé le {{ tumulte.creation_date_pretty }}
+              créé le {{ data.tumulte.creation_date_pretty }}
             </p>
             </hgroup>
           </header>
-          <img class="cover" src="{{ tumulte.cover.url }}" />
+          <img class="cover" src="{{ data.tumulte.cover.url }}" />
           <footer>
 
             <nav>
               <ul>
                 <li> <mark class="draft" data-tooltip="Ce tumulte n'est pas visible publiquement">brouillon</mark></li>
-                {{#if tumulte.ready }}
+                {{#if data.tumulte.ready }}
                 <li> <mark class="draft ready" data-tooltip="Prêt à être publié">prêt</mark></li>
                 {{else}}
                 <li> <mark class="draft incomplete" data-tooltip="Des problèmes empêchent la publication">erreurs</mark></li>
                 {{/if}}
               </ul>
               <ul>
-                <li><mark class="badge audio" data-tooltip="Fichiers audio">{{ tumulte.tracks.length }} ♫</mark></li>
+                <li><mark class="badge audio" data-tooltip="Fichiers audio">{{ data.tumulte.tracks.length }} ♫</mark></li>
               </ul>
             </nav>
           </footer>
