@@ -1,0 +1,454 @@
+{
+  "active": true,
+  "connections": {
+    "input": {
+      "main": [
+        [
+          {
+            "node": "Data Validation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Validation": {
+      "main": [
+        [
+          {
+            "node": "tumulte/get",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GitHub",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tumulte/get": {
+      "main": [
+        [
+          {
+            "node": "Rename Keys",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "DocumentGenerator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DocumentGenerator": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rename Keys": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-12T15:03:23.795Z",
+  "id": "XeuBw7SkuzRW78R4",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "tumultes/render",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8fa1e446-dfb8-476b-bec1-778e938391d1",
+              "name": "query.slug",
+              "value": "={{ $json.query.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "3aba573d-09aa-48e3-bb46-9af9ad8407f9",
+              "name": "theme",
+              "value": "={{ $json.query.theme || \"simple\" }}",
+              "type": "string"
+            },
+            {
+              "id": "c0354a58-68fd-463d-9b89-7b8c5cab829c",
+              "name": "context",
+              "value": "={{ $json.query.context || \"render\" }}",
+              "type": "string"
+            },
+            {
+              "id": "17de148d-03a6-4ee4-862e-bf5a21c13ff4",
+              "name": "query.collection",
+              "value": "={{ $json.query.collection }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": true
+        }
+      },
+      "id": "62f94163-6073-4923-9482-f46c06f9bccd",
+      "name": "input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        720,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "yC0e52sl1TIWXXij",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "c56e92ac-83a6-48d8-a40f-86d18323a2a6",
+      "name": "tumulte/get",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "jsonSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"theme\": {\n      \"type\": \"string\"\n    },\n    \"context\": {\n      \"type\": \"string\"\n    },\n    \"query\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"slug\": {\n          \"type\": \"string\"\n        },\n        \"collection\": {\n            \"type\": \"string\"\n        }\n      },\n      \"required\": [\"slug\", \"collection\"]\n    }\n  },\n  \"required\": [\n    \"query\", \"theme\"\n  ],\n  \"additionalProperties\": false\n}"
+      },
+      "id": "f1c0f666-e363-4d20-9ca6-981a5b704c6d",
+      "name": "Data Validation",
+      "type": "n8n-nodes-data-validation.dataValidation",
+      "typeVersion": 1,
+      "position": [
+        940,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "constructions-incongrues",
+          "mode": "list",
+          "cachedResultName": "constructions-incongrues",
+          "cachedResultUrl": "https://github.com/constructions-incongrues"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "tumultes",
+          "mode": "list",
+          "cachedResultName": "tumultes",
+          "cachedResultUrl": "https://github.com/constructions-incongrues/tumultes"
+        },
+        "filePath": "=src/templates/catalog/themes/{{ $('Data Validation').item.json.theme }}/tumulte.html.hbs",
+        "asBinaryProperty": false,
+        "additionalParameters": {
+          "reference": "main"
+        }
+      },
+      "id": "ce2ded9a-a771-4508-93bb-dc541e425b95",
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        120
+      ],
+      "credentials": {
+        "githubApi": {
+          "id": "FJGiRvf8BGvvwTE7",
+          "name": "trivoallan"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1466fa0d-b556-455e-882a-1a19aa5223dd",
+              "name": "template",
+              "value": "={{ $json.content.base64Decode() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2b2cbb4c-ea06-41db-86d7-21bcaf2caa97",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1400,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "id": "33f2ad96-f010-4c13-82ea-516f31a2361e",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        1900,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "template": "={{ $json.template }}"
+      },
+      "id": "3c4509d3-9df6-42df-8e3a-c7d00b9eb275",
+      "name": "DocumentGenerator",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        2100,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.text }}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "content-type",
+                "value": "text/html; charset=utf-8"
+              }
+            ]
+          }
+        }
+      },
+      "id": "3fc31365-91f5-4d12-bdc0-d11e4edf4fb8",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        2360,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "keys": {
+          "key": [
+            {
+              "currentKey": "tumulte.tracks",
+              "newKey": "tumulte.songs"
+            },
+            {
+              "currentKey": "tumulte.tracks.title",
+              "newKey": "tumulte.tracks.name"
+            }
+          ]
+        },
+        "additionalOptions": {}
+      },
+      "id": "3a8691c3-1e68-4ba0-b8fd-7f0062e1f488",
+      "name": "Rename Keys",
+      "type": "n8n-nodes-base.renameKeys",
+      "typeVersion": 1,
+      "position": [
+        1400,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d01bbeea-426c-4f30-a79f-06d99a7a9af2",
+              "name": "songs_json",
+              "value": "={{ $json.tumulte.songs.toJsonString() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "2ac468da-7f6e-472b-9239-72e67cb3f72a",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1620,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dd23b413-fcdb-4b3d-8615-1a0a6a9c44c2",
+              "name": "rendered",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "8ae86696-5f41-4cb5-a8df-cf108bffc7fc",
+              "name": "content-type",
+              "value": "text/html",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8331b9a6-527b-427b-a1fe-577a34bc8f14",
+      "name": "output",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2360,
+        460
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "b206f22a-f531-420e-8a1b-f515d02b1345",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        480,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "path": "tumultes/render",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "eeaed17b-4cd8-4cbd-8f2f-3462512c934c",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        480,
+        180
+      ],
+      "webhookId": "4a478f48-e3d8-44ac-b6d7-afe12c221568"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Paris",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-03T02:45:00.520Z",
+      "updatedAt": "2024-06-05T02:06:34.065Z",
+      "id": "7Mcf1TtE2pSSugGK",
+      "name": "tumultes"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-06-16T14:02:33.000Z",
+  "versionId": "e7f6a66e-1572-4c57-a564-8b9063583d5d"
+}
