@@ -49,9 +49,6 @@
               <a href="{{ data.contents.locations.edit_url }}">{{ data.contents.title }}</a>
             </h2>
             <p><mark class="badge audio" data-tooltip="Pistes audio"><strong>{{ data.contents.tracks.length }}</strong> ♫</mark></p>
-            <p class="creation_date">
-              créé le {{ data.contents.creation_date_pretty }}
-            </p>
             </hgroup>
             <nav>
               <ul>
@@ -61,9 +58,6 @@
                 {{else}}
                 <li> <mark class="draft incomplete" data-tooltip="Des problèmes empêchent la publication">incomplet</mark></li>
                 {{/if}}
-              </ul>
-              <ul>
-                <li><mark class="badge audio" data-tooltip="Pistes audio"><strong>{{ data.contents.tracks.length }}</strong> ♫</mark></li>
               </ul>
             </nav>
           </header>
