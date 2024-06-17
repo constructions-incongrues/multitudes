@@ -1,0 +1,157 @@
+{
+  "active": true,
+  "connections": {
+    "input": {
+      "main": [
+        [
+          {
+            "node": "Data Validation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Validation": {
+      "main": [
+        [
+          {
+            "node": "JsonDatabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "JsonDatabase": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-16T19:18:24.878Z",
+  "id": "RRrEOrgDfby1AYQr",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "tumultes/invalidate",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "861598f6-7450-4c0c-83db-993cb84b652a",
+              "name": "key",
+              "value": "={{ $json.query.key }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6d58e338-1d27-4037-ae30-62163bcabb01",
+      "name": "input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        880,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsonSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"key\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"key\"\n  ],\n  \"additionalProperties\": false\n}"
+      },
+      "id": "e1c50519-7469-4cab-8cef-c287a1ee0b92",
+      "name": "Data Validation",
+      "type": "n8n-nodes-data-validation.dataValidation",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "opWrite",
+        "queryPath": "={{ $json.key }}",
+        "sourceType": "sourceTypeJson",
+        "sourceData": "={ }",
+        "filePath": "/root/.n8n/var/tumultes/cache.db.json"
+      },
+      "id": "96354f0e-1daf-4504-a0d7-6dd55767e12a",
+      "name": "JsonDatabase",
+      "type": "@n-octo-n/n8n-nodes-json-database.JsonDatabase",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "path": "tumultes/invalidate",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "3cc9f515-f997-4d67-bb7b-a84686f5463f",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        680,
+        300
+      ],
+      "webhookId": "ed46dcc9-4274-4ca7-b893-057186d1e72d"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "OK",
+        "options": {}
+      },
+      "id": "8b4dd4df-2dd1-4f1a-9d82-8e8ca20fcded",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1500,
+        300
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-03T02:45:00.520Z",
+      "updatedAt": "2024-06-05T02:06:34.065Z",
+      "id": "7Mcf1TtE2pSSugGK",
+      "name": "tumultes"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-06-16T23:45:35.000Z",
+  "versionId": "960d0d7c-9207-4c06-98eb-40c3202fb6c7"
+}
