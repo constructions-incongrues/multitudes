@@ -12,17 +12,6 @@
         ]
       ]
     },
-    "Summarize": {
-      "main": [
-        [
-          {
-            "node": "stats",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Extract from File": {
       "main": [
         [
@@ -78,17 +67,6 @@
         ]
       ]
     },
-    "stats": {
-      "main": [
-        [
-          {
-            "node": "Merge1",
-            "type": "main",
-            "index": 1
-          }
-        ]
-      ]
-    },
     "tracks1": {
       "main": [
         [
@@ -126,12 +104,7 @@
       "main": [
         [
           {
-            "node": "tumulte.json",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Convert to File",
+            "node": "JsonDatabase1",
             "type": "main",
             "index": 0
           }
@@ -141,11 +114,6 @@
     "list files": {
       "main": [
         [
-          {
-            "node": "Summarize",
-            "type": "main",
-            "index": 0
-          },
           {
             "node": "audio/*",
             "type": "main",
@@ -241,27 +209,11 @@
         ]
       ]
     },
-    "Webhook": {
-      "main": [
-        [
-          {
-            "node": "defaults",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Merge2",
-            "type": "main",
-            "index": 1
-          }
-        ]
-      ]
-    },
     "JsonDatabase": {
       "main": [
         [
           {
-            "node": "JSON response",
+            "node": "cache MISS",
             "type": "main",
             "index": 0
           }
@@ -275,6 +227,78 @@
             "node": "Data Validation",
             "type": "main",
             "index": 0
+          }
+        ]
+      ]
+    },
+    "JsonDatabase1": {
+      "main": [
+        [
+          {
+            "node": "cache hit ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cache HIT": {
+      "main": [
+        [
+          {
+            "node": "JSON response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cache MISS": {
+      "main": [
+        [
+          {
+            "node": "JSON response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cache hit ?": {
+      "main": [
+        [
+          {
+            "node": "cache HIT",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "tumulte.json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "defaults",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
           }
         ]
       ]
@@ -293,7 +317,7 @@
           "assignments": [
             {
               "id": "7a6de983-cf40-47d4-8801-eac1b241f69c",
-              "name": "nextcloud_root",
+              "name": "locations.nextcloud_root",
               "value": "={{ $json.query.nextcloud_root }}",
               "type": "string"
             },
@@ -305,7 +329,7 @@
             },
             {
               "id": "d8b0d214-9e5d-4ffa-b5cd-74b35f6ed2b1",
-              "name": "http_root",
+              "name": "locations.http_root",
               "value": "={{ $json.query.http_root }}",
               "type": "string"
             },
@@ -317,43 +341,43 @@
             },
             {
               "id": "d36aaee8-d7d6-4b67-9e64-facf485f3073",
-              "name": "url",
+              "name": "locations.url",
               "value": "={{ $json.query.http_root }}/{{ $json.query.collection }}/{{ $json.query.group }}/{{ $json.query.slug }}",
               "type": "string"
             },
             {
               "id": "c5b626dd-6ec2-423f-b708-3dff2df94bb5",
-              "name": "path",
+              "name": "locations.path",
               "value": "={{ $json.query.nextcloud_root }}/{{ $json.query.collection }}/{{ $json.query.group }}/{{ $json.query.slug }}",
               "type": "string"
             },
             {
               "id": "808b1911-0c4d-44bd-9cca-c19cb9873263",
-              "name": "draft_url",
+              "name": "locations.draft_url",
               "value": "={{ $json.query.http_root }}/drafts/{{ $json.query.group }}/{{ $json.query.slug }}",
               "type": "string"
             },
             {
               "id": "a95a411e-8841-4ae1-a923-96543b137bef",
-              "name": "catalog_url",
+              "name": "locations.catalog_url",
               "value": "={{ $json.query.http_root }}/catalog/{{ $json.query.group }}/{{ $json.query.slug }}",
               "type": "string"
             },
             {
               "id": "3881e347-e6a5-456f-bc48-c4cc2f8a4648",
-              "name": "share_url",
+              "name": "locations.share_url",
               "value": "={{ $json.query.nextcloud_url }}/s/{{ $json.query.nextcloud_share }}?path=/{{ $json.query.collection }}/{{ $json.query.group }}/{{ $json.query.slug }}",
               "type": "string"
             },
             {
               "id": "e654cff5-b171-4371-8e46-4f9c77183d9d",
-              "name": "preview_url",
+              "name": "locations.preview_url",
               "value": "=https://sabine-pantagruweb.incongru.org/webhook/tumultes/render?context=preview&collection=drafts&group={{ $json.query.group }}&slug={{ $json.query.slug }}",
               "type": "string"
             },
             {
               "id": "3fc32fe4-0b96-4ee2-8d75-2b85ed7c8306",
-              "name": "dist_url",
+              "name": "locations.dist_url",
               "value": "=https://sabine-pantagruweb.incongru.org/webhook/tumultes/tumulte/dist?slug={{ $json.query.slug }}&group={{ $json.query.group }}",
               "type": "string"
             },
@@ -365,8 +389,14 @@
             },
             {
               "id": "c01751a3-221c-4030-9bb9-bfd25013b03c",
-              "name": "edit_url",
+              "name": "locations.edit_url",
               "value": "=https://sabine-pantagruweb.incongru.org/webhook/tumultes/edit?collection=drafts&group={{ $json.query.group }}&slug={{ $json.query.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "32a8faba-1e69-47de-9853-a8cf49f0f5b7",
+              "name": "locations.invalidate_url",
+              "value": "=https://sabine-pantagruweb.incongru.org/webhook/tumultes/invalidate?key=tumulte.{{ $json.query.slug }}",
               "type": "string"
             }
           ]
@@ -384,27 +414,6 @@
     },
     {
       "parameters": {
-        "fieldsToSummarize": {
-          "values": [
-            {
-              "field": "contentType"
-            }
-          ]
-        },
-        "fieldsToSplitBy": "contentType",
-        "options": {}
-      },
-      "id": "31be3be1-6649-46f7-9916-d5d2c0bb8063",
-      "name": "Summarize",
-      "type": "n8n-nodes-base.summarize",
-      "typeVersion": 1,
-      "position": [
-        2380,
-        280
-      ]
-    },
-    {
-      "parameters": {
         "mode": "combine",
         "combinationMode": "mergeByPosition",
         "options": {
@@ -416,7 +425,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        3920,
+        4360,
         360
       ]
     },
@@ -431,7 +440,7 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1,
       "position": [
-        2240,
+        2460,
         720
       ]
     },
@@ -444,12 +453,6 @@
               "name": "tumulte",
               "value": "={{ $json.tumulte }}",
               "type": "object"
-            },
-            {
-              "id": "e8c92d40-5a6b-4b3a-a151-47f79c86c033",
-              "name": "tumulte.stats",
-              "value": "={{ $('stats').first().json.stats }}",
-              "type": "array"
             },
             {
               "id": "a758ce99-4cf1-4f78-87b4-04f001256cdf",
@@ -466,7 +469,7 @@
             {
               "id": "8ea68e34-18e8-465f-be09-2c3402d2037d",
               "name": "tumulte.locations",
-              "value": "={{ $('Data Validation').first().json }}",
+              "value": "={{ $('Data Validation').first().json.locations }}",
               "type": "object"
             },
             {
@@ -498,6 +501,12 @@
               "name": "tumulte.tracks_well_formed",
               "value": "={{ ($json.tracks.filter(track => track.well_formed === true)).length }}",
               "type": "number"
+            },
+            {
+              "id": "a410e1c8-0587-43fb-8e98-5385b26c377d",
+              "name": "headers",
+              "value": "={{ $('Data Validation').first().json.cache }}",
+              "type": "object"
             }
           ]
         },
@@ -510,7 +519,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
-        4200,
+        4640,
         360
       ]
     },
@@ -542,7 +551,7 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2,
       "position": [
-        2180,
+        2620,
         80
       ],
       "alwaysOutputData": false
@@ -566,7 +575,7 @@
             {
               "id": "e318107a-f726-4953-a691-1a9894c4bd51",
               "name": "url",
-              "value": "={{ $('Data Validation').item.json.url }}/{{ $json.path.split(\"/\").last() }}",
+              "value": "={{ $('Data Validation').item.json.locations.url }}/{{ $json.path.split(\"/\").last() }}",
               "type": "string"
             },
             {
@@ -584,13 +593,13 @@
             {
               "id": "971f021c-3ba0-4cf3-8773-ab6f8629b2d6",
               "name": "number",
-              "value": "={{ $json.path.split(\"/\").last().urlDecode().match(/^(\\d+) - (.+) - (.+).mp3$/)[1] }}",
+              "value": "={{ $json.path.split(\"/\").last().urlDecode().match(/^(\\d+) - (.+) - (.+)\\..+$/)[1] }}",
               "type": "string"
             },
             {
               "id": "94337833-7fa3-4644-89ce-34a78f583d8f",
               "name": "artist",
-              "value": "={{ $json.path.split(\"/\").last().urlDecode().match(/^(\\d+) - (.+) - (.+).mp3$/)[2] }}",
+              "value": "={{ $json.path.split(\"/\").last().urlDecode().match(/^(\\d+) - (.+) - (.+)\\..+$/)[2] }}",
               "type": "string"
             },
             {
@@ -602,7 +611,7 @@
             {
               "id": "cd83ad80-c60a-4efc-9027-02bc6971bd3c",
               "name": "well_formed",
-              "value": "={{ $json.path.split(\"/\").last().urlDecode().match(/^(\\d+) - (.+) - (.+).mp3$/) !== null }}",
+              "value": "={{ $json.path.split(\"/\").last().urlDecode().match(/^(\\d+) - (.+) - (.+)\\..+$/) !== null }}",
               "type": "boolean"
             }
           ]
@@ -614,23 +623,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
-        2380,
+        2820,
         80
-      ]
-    },
-    {
-      "parameters": {
-        "aggregate": "aggregateAllItemData",
-        "destinationFieldName": "stats",
-        "options": {}
-      },
-      "id": "6e0aa60c-2fa6-4742-9d23-a35a386233d4",
-      "name": "stats",
-      "type": "n8n-nodes-base.aggregate",
-      "typeVersion": 1,
-      "position": [
-        2580,
-        280
       ]
     },
     {
@@ -644,7 +638,7 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2580,
+        3020,
         80
       ]
     },
@@ -655,7 +649,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        3620,
+        4060,
         260
       ]
     },
@@ -670,21 +664,21 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
       "position": [
-        4720,
-        360
+        5520,
+        -80
       ]
     },
     {
       "parameters": {
         "operation": "download",
-        "path": "={{ $json.path }}/tumulte.json"
+        "path": "={{ $('Data Validation').item.json.locations.path }}/tumulte.json"
       },
       "id": "d6433330-d8b0-434c-a4d5-5c64aa356f14",
       "name": "tumulte.json",
       "type": "n8n-nodes-base.nextCloud",
       "typeVersion": 1,
       "position": [
-        1940,
+        2160,
         720
       ],
       "credentials": {
@@ -696,7 +690,7 @@
     },
     {
       "parameters": {
-        "jsonSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"slug\": {\n      \"type\": \"string\"\n    },\n    \"nextcloud_root\": {\n      \"type\": \"string\"\n    },\n    \"http_root\": {\n      \"type\": \"string\"\n    },\n    \"collection\": {\n      \"type\": \"string\"\n    },\n    \"url\": {\n      \"type\": \"string\"\n    },\n    \"draft_url\": {\n      \"type\": \"string\"\n    },\n    \"catalog_url\": {\n      \"type\": \"string\"\n    },\n    \"share_url\": {\n      \"type\": \"string\"\n    },\n    \"dist_url\": {\n      \"type\": \"string\"\n    },\n    \"preview_url\": {\n      \"type\": \"string\"\n    },\n    \"edit_url\": {\n      \"type\": \"string\"\n    },\n    \"path\": {\n      \"type\": \"string\"\n    },\n    \"group\": {\n      \"type\": \"string\"\n    },\n    \"cache\": {\n      \"type\": \"object\"\n    }\n  },\n  \"required\": [\n    \"slug\", \"nextcloud_root\", \"http_root\", \"collection\", \"url\", \"draft_url\", \"catalog_url\", \"path\", \"share_url\", \"preview_url\", \"dist_url\", \"group\", \"cache\"\n  ],\n  \"additionalProperties\": false\n}"
+        "jsonSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"slug\": {\n      \"type\": \"string\"\n    },\n    \"locations\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"nextcloud_root\": {\n          \"type\": \"string\"\n        },\n        \"http_root\": {\n          \"type\": \"string\"\n        },\n        \"url\": {\n          \"type\": \"string\"\n        },\n        \"draft_url\": {\n          \"type\": \"string\"\n        },\n        \"catalog_url\": {\n          \"type\": \"string\"\n        },\n        \"share_url\": {\n          \"type\": \"string\"\n        },\n        \"dist_url\": {\n          \"type\": \"string\"\n        },\n        \"preview_url\": {\n          \"type\": \"string\"\n        },\n        \"edit_url\": {\n          \"type\": \"string\"\n        },\n        \"path\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"nextcloud_root\", \"http_root\", \"draft_url\", \"catalog_url\", \"path\", \"share_url\", \"preview_url\", \"dist_url\", \"url\"\n      ] \n    },\n    \"collection\": {\n      \"type\": \"string\"\n    },\n    \"group\": {\n      \"type\": \"string\"\n    },\n    \"cache\": {\n      \"type\": \"object\"\n    }\n  },\n  \"required\": [\n    \"slug\", \"collection\", \"group\", \"cache\"\n  ],\n  \"additionalProperties\": false\n}"
       },
       "id": "2bca77b6-3a26-4da4-834b-7379f3572233",
       "name": "Data Validation",
@@ -712,14 +706,14 @@
       "parameters": {
         "resource": "folder",
         "operation": "list",
-        "path": "={{ $('Data Validation').item.json.path }}"
+        "path": "={{ $('Data Validation').item.json.locations.path }}"
       },
       "id": "899a0ca2-303f-4ceb-bf89-562370c081ca",
       "name": "list files",
       "type": "n8n-nodes-base.nextCloud",
       "typeVersion": 1,
       "position": [
-        1940,
+        2380,
         300
       ],
       "credentials": {
@@ -742,21 +736,6 @@
       "position": [
         1787.4311306824418,
         20
-      ]
-    },
-    {
-      "parameters": {
-        "content": "## Stats",
-        "height": 199.46407631166733,
-        "width": 393.2134727394143
-      },
-      "id": "f2b81b16-cbe7-4f74-844b-43717486043b",
-      "name": "Sticky Note1",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        1640,
-        260
       ]
     },
     {
@@ -811,7 +790,7 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2,
       "position": [
-        2380,
+        2820,
         480
       ]
     },
@@ -834,7 +813,7 @@
             {
               "id": "c518c3c2-4ac7-49d3-bf56-9624ec6b4e6d",
               "name": "cover.url",
-              "value": "={{ $('Data Validation').item.json.url }}/{{ $json.path.split(\"/\").last() }}",
+              "value": "={{ $('Data Validation').item.json.locations.url }}/{{ $json.path.replace(/\\/$/, \"\").split(\"/\").last() }}",
               "type": "string"
             }
           ]
@@ -848,7 +827,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
-        2580,
+        3020,
         480
       ]
     },
@@ -957,7 +936,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        2960,
+        3400,
         480
       ]
     },
@@ -975,32 +954,16 @@
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
       "position": [
-        1660,
-        280
+        2200,
+        40
       ]
     },
     {
       "parameters": {
-        "path": "tumultes/get",
-        "responseMode": "responseNode",
-        "options": {}
-      },
-      "id": "78dbbe17-bcbe-4b0c-a136-97f84bc038cc",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        100,
-        300
-      ],
-      "webhookId": "fd1b0978-c758-4554-b181-969f1a59742f"
-    },
-    {
-      "parameters": {
         "operation": "opWrite",
-        "queryPath": "=cache[{{ $('cache').item.json.cache.key }}]",
+        "queryPath": "={{ $('cache').item.json.cache.key }}",
         "sourceType": "sourceTypeJson",
-        "sourceData": "={\n  \"timestamp\": \"{{ $('cache').item.json.cache.timestamp }}\",\n  \"max-age\": \"{{ $('cache').item.json.cache.max-age }}\",\n  \"data\": {{ $json.toJsonString() }}\n}",
+        "sourceData": "={\n  \"headers\": {{ $json.headers.toJsonString() }},\n  \"contents\": {{ $json.tumulte.toJsonString() }}\n} ",
         "filePath": "/root/.n8n/var/tumultes/cache.db.json"
       },
       "id": "a922d0a1-4aec-4a17-a8dd-479258b6f106",
@@ -1008,7 +971,7 @@
       "type": "@n-octo-n/n8n-nodes-json-database.JsonDatabase",
       "typeVersion": 1,
       "position": [
-        4420,
+        4860,
         360
       ]
     },
@@ -1019,19 +982,25 @@
             {
               "id": "294dd09f-fbe6-428e-aea0-a3668fba3a8d",
               "name": "cache.key",
-              "value": "={{ $('input').all().join(\",\").hash(\"sha256\").slice(0, 10) }}",
+              "value": "=tumulte.{{ $('input').item.json.slug }}",
               "type": "string"
             },
             {
               "id": "0659c73f-493f-4734-b62b-2c35df8109b4",
               "name": "cache.max-age",
-              "value": 86400,
+              "value": "={{ 86400 }}",
               "type": "number"
             },
             {
               "id": "0cf9374d-395c-40a3-839b-3c71c744ec16",
               "name": "cache.timestamp",
               "value": "={{ $now.toMillis() }}",
+              "type": "number"
+            },
+            {
+              "id": "4f95845d-0b03-40b0-85ce-b15fcece15b6",
+              "name": "cache.status",
+              "value": "fresh",
               "type": "string"
             }
           ]
@@ -1049,6 +1018,139 @@
         1160,
         280
       ]
+    },
+    {
+      "parameters": {
+        "queryPath": "={{ $json.cache.key }}",
+        "filePath": "/root/.n8n/var/tumultes/cache.db.json"
+      },
+      "id": "74631224-353a-4093-a802-5c72e53507be",
+      "name": "JsonDatabase1",
+      "type": "@n-octo-n/n8n-nodes-json-database.JsonDatabase",
+      "typeVersion": 1,
+      "position": [
+        1580,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1b70e240-7856-4bb6-a2fc-d2e71c52ba45",
+              "name": "data.headers.hit",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {
+          "dotNotation": true
+        }
+      },
+      "id": "d1ebb26f-157a-4ac9-9ebc-7f006f681eb3",
+      "name": "cache HIT",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        3340,
+        -240
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8f017ca9-47b0-44e3-b60c-5e86b3cb2263",
+              "name": "data.headers.hit",
+              "value": false,
+              "type": "boolean"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {
+          "dotNotation": true
+        }
+      },
+      "id": "9535053b-b0a0-459c-8aae-58578afbb26e",
+      "name": "cache MISS",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        5080,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "fd49fca4-cc5a-4852-9ff9-a73e4f18b286",
+              "leftValue": "={{ $json.data.contents }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "14ffa300-ed4e-46e2-8b81-4a8d0da679df",
+              "leftValue": "={{ $json.data.headers.timestamp + ($json.data.headers['max-age'] * 1000) }}",
+              "rightValue": "={{ $now.toMillis() }}",
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            },
+            {
+              "id": "d7c75fa3-2b9b-4a6f-b62e-955dae00597d",
+              "leftValue": "={{ $json.data.headers.status }}",
+              "rightValue": "fresh",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "069673ab-26ba-4a81-81dc-79ec3de15002",
+      "name": "cache hit ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1860,
+        -340
+      ]
+    },
+    {
+      "parameters": {
+        "path": "tumultes/get",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "78dbbe17-bcbe-4b0c-a136-97f84bc038cc",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        100,
+        300
+      ],
+      "webhookId": "fd1b0978-c758-4554-b181-969f1a59742f"
     }
   ],
   "pinData": {},
@@ -1068,6 +1170,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-06-16T15:58:24.000Z",
-  "versionId": "5f50fbad-1b58-4bde-b8e3-93dbc49a75ca"
+  "updatedAt": "2024-06-17T00:09:01.000Z",
+  "versionId": "d886cad1-ae93-4b14-acd9-fd9216fa3d26"
 }
