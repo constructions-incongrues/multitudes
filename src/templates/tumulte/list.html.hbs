@@ -44,15 +44,17 @@
     {{#each drafts}}
         <article>
           <header>
-            <ul>
-              <li><mark class="badge audio" data-tooltip="Pistes audio"><strong>{{ data.contents.tracks.length }}</strong> ♫</mark></li>
-              <li><mark class="draft" data-tooltip="Ce tumulte n'est pas visible publiquement">brouillon</mark></li>
-              {{#if data.contents.ready }}
-              <li><mark class="draft ready" data-tooltip="Prêt à être publié">prêt</mark></li>
-              {{else}}
-              <li><mark class="draft incomplete" data-tooltip="Des problèmes empêchent la publication">incomplet</mark></li>
-              {{/if}}
-            </ul>
+            <nav>
+              <ul>
+                <li><mark class="badge audio" data-tooltip="Pistes audio"><strong>{{ data.contents.tracks.length }}</strong> ♫</mark></li>
+                <li><mark class="draft" data-tooltip="Ce tumulte n'est pas visible publiquement">brouillon</mark></li>
+                {{#if data.contents.ready }}
+                <li><mark class="draft ready" data-tooltip="Prêt à être publié">prêt</mark></li>
+                {{else}}
+                <li><mark class="draft incomplete" data-tooltip="Des problèmes empêchent la publication">incomplet</mark></li>
+                {{/if}}
+              </ul>
+            </nav>
             <hgroup>
               <h2>
                 <a href="{{ data.contents.locations.edit_url }}">{{ data.contents.title }}</a>
