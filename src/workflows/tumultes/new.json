@@ -490,7 +490,7 @@
     {
       "parameters": {
         "respondWith": "text",
-        "responseBody": "=C'est <a href=\"https://sabine-pantagruweb.incongru.org/webhook/tumultes/edit?slug={{ $('input').item.json.slug.urlEncode() }}&group={{ $('input').item.json.group.urlEncode() }}\">complet</a> :)",
+        "responseBody": "=C'est <a href=\"https://sabine-pantagruweb.incongru.org/webhook/tumultes/edit?slug={{ $('input').item.json.slug.urlEncode() }}&group={{ $('input').item.json.group.urlEncode() }}\">prêt</a> :)",
         "options": {
           "responseHeaders": {
             "entries": [
@@ -516,7 +516,7 @@
         "sendTo": "={{ $('input').item.json.email }}",
         "subject": "=Tumultes : {{ $('input').item.json.title }}",
         "emailType": "text",
-        "message": "=titre : {{ $('input').item.json.title }}\nurl : {{ $('input').item.json.draft_url }}\n\n--\nTumultueusement votre\n\n",
+        "message": "=titre : {{ $('input').item.json.title }}\nurl : {{ $('input').item.json.locations.edit_url }}\n\n--\nTumultueusement votre\n\n",
         "options": {
           "appendAttribution": false,
           "senderName": "Tumultes",
@@ -631,6 +631,6 @@
     }
   ],
   "triggerCount": 2,
-  "updatedAt": "2024-06-16T14:57:37.000Z",
-  "versionId": "ee4fab31-2d03-4ae5-a1ec-be6b78191964"
+  "updatedAt": "2024-06-16T22:59:08.000Z",
+  "versionId": "37764921-aa76-4f43-bb92-bffa6b49b5cf"
 }
