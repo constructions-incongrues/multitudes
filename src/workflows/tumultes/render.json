@@ -337,12 +337,8 @@
         "keys": {
           "key": [
             {
-              "currentKey": "tumulte.tracks",
-              "newKey": "tumulte.songs"
-            },
-            {
-              "currentKey": "tumulte.tracks.title",
-              "newKey": "tumulte.tracks.name"
+              "currentKey": "data.contents.tracks",
+              "newKey": "data.contents.songs"
             }
           ]
         },
@@ -364,7 +360,7 @@
             {
               "id": "d01bbeea-426c-4f30-a79f-06d99a7a9af2",
               "name": "songs_json",
-              "value": "={{ $json.tumulte.songs.toJsonString() }}",
+              "value": "={{ $json.data.contents.songs.toJsonString() }}",
               "type": "string"
             }
           ]
@@ -455,6 +451,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-06-16T15:06:08.000Z",
-  "versionId": "c4f015c9-7dee-4454-a5ec-edf043b58e59"
+  "updatedAt": "2024-06-16T23:56:38.000Z",
+  "versionId": "5cd54c65-29a3-4249-974d-0156e6731d19"
 }
