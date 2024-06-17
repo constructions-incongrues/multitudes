@@ -11,6 +11,7 @@ article.grid {
   mark {
     color: white;
     padding: 0.2em;
+    font-size: 0.8em;
   }
 
   mark.published {
@@ -38,5 +39,5 @@ article.grid {
   }
 
   article h2 {
-    font-size: 1em;
+    font-size: 1.5em;
   }
