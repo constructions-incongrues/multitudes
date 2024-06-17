@@ -44,8 +44,8 @@
     {{#each drafts}}
         <article>
           <header>
+            <p><mark class="badge audio" data-tooltip="Pistes audio"><strong>{{ data.contents.tracks.length }}</strong> ♫</mark></p>
             <hgroup>
-              <p><mark class="badge audio" data-tooltip="Pistes audio"><strong>{{ data.contents.tracks.length }}</strong> ♫</mark></p>
               <h2>
                 <a href="{{ data.contents.locations.edit_url }}">{{ data.contents.title }}</a>
               </h2>
